@@ -6,15 +6,13 @@ import com.jfixby.cmns.api.math.FloatMath;
 
 public class RedAngle implements Angle, CustomAngle {
 
-	
-	
 	public static final double FLOAT_EPSILON = FloatMath.FLOAT_EPSILON();
 	public static final double DOUBLE_EPSILON = FloatMath.DOUBLE_EPSILON();
-	
+
 	public static final double TWICE_PI = 2d * Math.PI;
 	public static final double PLUS_PI = Math.PI;
 	public static final double MINUS_PI = -Math.PI;
-	
+
 	public static final double ZERO = 0d;
 	public static final double VAL_360 = 360d;
 	public static final double VAL_180 = 180d;
@@ -160,7 +158,8 @@ public class RedAngle implements Angle, CustomAngle {
 
 	}
 
-	public static CustomAngle subtract(CustomAngle a, CustomAngle b, CustomAngle c) {
+	public static CustomAngle subtract(CustomAngle a, CustomAngle b,
+			CustomAngle c) {
 		CustomAngle t = inverse(b, new RedAngle());
 		c = plus(a, t, c);
 		return c;
@@ -194,7 +193,8 @@ public class RedAngle implements Angle, CustomAngle {
 			return false;
 		}
 		RedAngle other = (RedAngle) obj;
-		if (Double.doubleToLongBits(magnitude) != Double.doubleToLongBits(other.magnitude)) {
+		if (Double.doubleToLongBits(magnitude) != Double
+				.doubleToLongBits(other.magnitude)) {
 			return false;
 		}
 		if (signum != other.signum) {
