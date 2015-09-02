@@ -45,4 +45,9 @@ public class RedCall implements HttpCall {
 		return ssl;
 	}
 
+	@Override
+	public boolean getUseAgent() {
+		return agent;
+	}
+
 }
