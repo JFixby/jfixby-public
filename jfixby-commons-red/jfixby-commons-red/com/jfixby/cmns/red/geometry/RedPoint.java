@@ -1,0 +1,150 @@
+package com.jfixby.cmns.red.geometry;
+
+import com.jfixby.cmns.api.geometry.FixedFloat2;
+import com.jfixby.cmns.api.geometry.Float2;
+import com.jfixby.cmns.api.geometry.Geometry;
+import com.jfixby.cmns.api.geometry.RectangleCorner;
+import com.jfixby.cmns.api.geometry.Vertex;
+import com.jfixby.cmns.api.math.FloatMath;
+
+public class RedPoint implements Float2, FixedFloat2 {
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(x);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(y);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RedPoint other = (RedPoint) obj;
+		if (Double.doubleToLongBits(x) != Double.doubleToLongBits(other.x))
+			return false;
+		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
+
+	double x;
+	double y;
+
+	public RedPoint() {
+	}
+
+	public RedPoint(FixedFloat2 dot) {
+		this();
+		this.set(dot);
+	}
+
+	public RedPoint(double x, double y) {
+		this.set(x, y);
+	}
+
+	@Override
+	public Float2 set(double x, double y) {
+		this.x = x;
+		this.y = y;
+		return this;
+	}
+
+	@Override
+	public Float2 setX(double x) {
+		this.x = x;
+		return this;
+	}
+
+	@Override
+	public Float2 setY(double y) {
+		this.y = y;
+		return this;
+	}
+
+	@Override
+	public double getX() {
+		return x;
+	}
+
+	@Override
+	public double getY() {
+		return y;
+	}
+
+	@Override
+	public Float2 set(FixedFloat2 other) {
+		this.set(other.getX(), other.getY());
+		return this;
+	}
+
+	@Override
+	public Float2 setXY() {
+		this.set(0, 0);
+		return this;
+	}
+
+	@Override
+	public Float2 add(final FixedFloat2 offset) {
+		this.set(x + offset.getX(), y + offset.getY());
+		return this;
+	}
+
+	@Override
+	public Float2 addX(double delta) {
+		this.set(x + delta, y);
+		return this;
+	}
+
+	@Override
+	public Float2 addY(double delta) {
+		this.set(x, y + delta);
+		return this;
+	}
+
+	@Override
+	public Float2 add(double deltaX, double deltaY) {
+		this.set(x + deltaX, y + deltaY);
+		return this;
+	}
+
+	@Override
+	public boolean isInEpsilonDistance(FixedFloat2 other) {
+		return Geometry.isInEpsilonDistance(this, other);
+	}
+
+	@Override
+	public boolean isInEpsilonDistanceOfZero() {
+		return Geometry.isInEpsilonDistanceOfZero(this);
+	}
+
+	@Override
+	public double distanceTo(FixedFloat2 other) {
+		return Geometry.distance(this, other);
+	}
+
+	@Override
+	public Float2 set() {
+		return this.set(0, 0);
+	}
+
+	@Override
+	public void multiply(double factor) {
+		this.set(this.getX() * factor, factor * this.getY());
+	}
+
+}
