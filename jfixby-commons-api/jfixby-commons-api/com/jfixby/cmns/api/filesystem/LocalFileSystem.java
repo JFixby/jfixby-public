@@ -9,7 +9,7 @@ import com.jfixby.cmns.api.path.ChildrenList;
 public class LocalFileSystem {
 
 	static private ComponentInstaller<LocalFileSystemComponent> componentInstaller = new ComponentInstaller<LocalFileSystemComponent>(
-			"DesktopFileSystem");
+			"LocalFileSystem");
 
 	public static final void installComponent(
 			LocalFileSystemComponent component_to_install) {
