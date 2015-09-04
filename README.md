@@ -6,13 +6,13 @@ jfixby-commons
 can use it free of charge, without strings attached in commercial and non-commercial projects.
 
 ### Content
-##### jfixby-commons-api 
-     abstract platform-independent api
+- jfixby-commons-api — 
+ abstract platform-independent api
 
-##### jfixby-commons-red-desktop 
-     code that implements the API for Windows and Unix-based operaion systems
+- jfixby-commons-red-desktop —
+ code that implements the API for Windows and Unix-based operaion systems
 
-##### jfixby-commons-red 
-     some general classes required by the jfixby-commons-red-desktop and other red implementations
+- jfixby-commons-red —
+ some general classes required by the jfixby-commons-red-desktop and other red implementations
 
 
