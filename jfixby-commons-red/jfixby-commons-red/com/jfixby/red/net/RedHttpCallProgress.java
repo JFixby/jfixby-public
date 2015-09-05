@@ -1,11 +1,9 @@
 package com.jfixby.red.net;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import com.jfixby.cmns.api.net.http.HttpCallProgress;
 import com.jfixby.cmns.api.net.http.HttpConnection;
-import com.jfixby.cmns.api.net.http.HttpConnectionInputStream;
 
 public class RedHttpCallProgress implements HttpCallProgress {
 

@@ -6,7 +6,6 @@ import java.io.InputStream;
 
 import com.jfixby.cmns.api.filesystem.FileInputStream;
 import com.jfixby.cmns.api.io.Data;
-import com.jfixby.cmns.api.log.L;
 
 public class AbstractRedInputStream implements FileInputStream {
 	InputStream is;

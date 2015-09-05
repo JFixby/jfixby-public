@@ -3,8 +3,6 @@ package com.jfixby.red.filesystem.virtual;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.filesystem.File;
 import com.jfixby.cmns.api.filesystem.FileInputStream;
 import com.jfixby.cmns.api.filesystem.FileOutputStream;

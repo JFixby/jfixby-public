@@ -5,7 +5,6 @@ import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.geometry.ClosedPolygonalChain;
 import com.jfixby.cmns.api.geometry.FixedFloat2;
-import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.cmns.api.geometry.PolyTriangulation;
 import com.jfixby.cmns.api.geometry.Vertex;
 

@@ -9,7 +9,6 @@ import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.cmns.api.geometry.RectangleCorner;
 import com.jfixby.cmns.api.geometry.Triangle;
-import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.math.Angle;
 
 public class RedRectangle extends VertexMaster implements Rectangle {

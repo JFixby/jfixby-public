@@ -2,10 +2,8 @@ package com.jfixby.red.filesystem.cache;
 
 import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.filesystem.File;
-import com.jfixby.cmns.api.filesystem.FileSystem;
 import com.jfixby.cmns.api.filesystem.cache.FileCacheComponent;
 import com.jfixby.cmns.api.filesystem.cache.TempFolder;
-import com.jfixby.cmns.api.path.AbsolutePath;
 
 public class RedFileCache implements FileCacheComponent {
 

@@ -3,9 +3,6 @@ package com.jfixby.red.geometry;
 import com.jfixby.cmns.api.geometry.FixedFloat2;
 import com.jfixby.cmns.api.geometry.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
-import com.jfixby.cmns.api.geometry.RectangleCorner;
-import com.jfixby.cmns.api.geometry.Vertex;
-import com.jfixby.cmns.api.math.FloatMath;
 
 public class RedPoint implements Float2, FixedFloat2 {
 

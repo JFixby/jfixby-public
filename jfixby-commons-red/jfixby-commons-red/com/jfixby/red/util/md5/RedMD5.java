@@ -2,10 +2,8 @@ package com.jfixby.red.util.md5;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import com.jfixby.cmns.api.collections.JUtils;
-import com.jfixby.cmns.api.io.IO;
 import com.jfixby.cmns.api.md5.MD5Component;
 
 public abstract class RedMD5 implements MD5Component {
