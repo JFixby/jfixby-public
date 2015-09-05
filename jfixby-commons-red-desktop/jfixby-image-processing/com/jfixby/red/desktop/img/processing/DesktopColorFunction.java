@@ -1,6 +1,5 @@
 package com.jfixby.red.desktop.img.processing;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.util.Vector;
@@ -11,7 +10,6 @@ import com.jfixby.cmns.api.color.Colors;
 import com.jfixby.cmns.api.color.CustomColor;
 import com.jfixby.cmns.api.image.ColorFunction;
 import com.jfixby.cmns.api.image.ColorFunctionSpecs;
-import com.jfixby.cmns.api.log.L;
 import com.jfixby.red.color.RedColor;
 
 public class DesktopColorFunction implements ColorFunction {
