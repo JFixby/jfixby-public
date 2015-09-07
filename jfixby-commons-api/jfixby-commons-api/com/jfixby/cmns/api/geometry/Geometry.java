@@ -1,6 +1,5 @@
 package com.jfixby.cmns.api.geometry;
 
-import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.EditableCollection;
 import com.jfixby.cmns.api.components.ComponentInstaller;
