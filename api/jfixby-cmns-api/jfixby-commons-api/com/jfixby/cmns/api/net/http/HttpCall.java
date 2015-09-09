@@ -7,5 +7,7 @@ public interface HttpCall {
 	HttpURL getUrl();
 
 	boolean getUseSSL();
+	
+	boolean getUseAgent();
 
 }
