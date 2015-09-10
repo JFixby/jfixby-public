@@ -28,7 +28,7 @@ public class DesktopAbsolutePath<T extends MountPoint> implements
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DesktopAbsolutePath other = (DesktopAbsolutePath) obj;
+		DesktopAbsolutePath<?> other = (DesktopAbsolutePath<?>) obj;
 		if (mount_point == null) {
 			if (other.mount_point != null)
 				return false;
