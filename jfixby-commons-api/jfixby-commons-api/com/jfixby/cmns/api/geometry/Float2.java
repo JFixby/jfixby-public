@@ -10,9 +10,9 @@ public interface Float2 extends FixedFloat2 {
 
 	Float2 set(FixedFloat2 other);
 
-	Float2 set();
-
 	Float2 setXY();
+
+	Float2 setXY(double x, double y);
 
 	Float2 add(FixedFloat2 offset);
 
