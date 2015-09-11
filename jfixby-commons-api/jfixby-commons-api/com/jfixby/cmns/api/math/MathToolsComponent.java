@@ -33,5 +33,7 @@ public interface MathToolsComponent {
 	public void setupScaleMatrix(Matrix matrix, double... scale);
 
 	public void setupRotationMatrix(Matrix matrix, double radians);
+	
+	
 
 }

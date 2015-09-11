@@ -72,4 +72,12 @@ public class IntegerMath {
 		return invoke().power(a, n);
 	}
 
+	public static Int2 newInt2(long cell_x, long cell_y) {
+		return invoke().newInt2(cell_x, cell_y);
+	}
+
+	public static Int2 newInt2() {
+		return invoke().newInt2();
+	}
+
 }

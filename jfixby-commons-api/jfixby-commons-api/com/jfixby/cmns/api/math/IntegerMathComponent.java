@@ -1,7 +1,6 @@
 package com.jfixby.cmns.api.math;
 
-
-public interface IntegerMathComponent  {
+public interface IntegerMathComponent {
 
 	public long limit(long left_border, long value, long right_border);
 
@@ -37,5 +36,9 @@ public interface IntegerMathComponent  {
 	public int index(boolean b);
 
 	public long power(long a, long n);
+
+	public Int2 newInt2();
+
+	public Int2 newInt2(long cell_x, long cell_y);
 
 }

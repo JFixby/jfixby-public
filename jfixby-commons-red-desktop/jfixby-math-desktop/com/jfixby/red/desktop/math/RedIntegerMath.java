@@ -1,7 +1,9 @@
 package com.jfixby.red.desktop.math;
 
 import com.jfixby.cmns.api.math.FloatMath;
+import com.jfixby.cmns.api.math.Int2;
 import com.jfixby.cmns.api.math.IntegerMathComponent;
+import com.jfixby.red.math.RedInt2;
 
 public class RedIntegerMath implements IntegerMathComponent {
 
@@ -206,6 +208,16 @@ public class RedIntegerMath implements IntegerMathComponent {
 	@Override
 	public long power(long a, long n) {
 		return a ^ n;
+	}
+
+	@Override
+	public Int2 newInt2() {
+		return new RedInt2();
+	}
+
+	@Override
+	public Int2 newInt2(long cell_x, long cell_y) {
+		return new RedInt2(cell_x, cell_y);
 	}
 
 }
