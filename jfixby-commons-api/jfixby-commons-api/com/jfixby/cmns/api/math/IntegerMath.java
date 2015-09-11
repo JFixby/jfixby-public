@@ -80,4 +80,8 @@ public class IntegerMath {
 		return invoke().newInt2();
 	}
 
+	public static Int2 newInt2(Int2 original, long offset_x, long offset_y) {
+		return invoke().newInt2(original, offset_x, offset_y);
+	}
+
 }

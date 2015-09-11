@@ -220,4 +220,10 @@ public class RedIntegerMath implements IntegerMathComponent {
 		return new RedInt2(cell_x, cell_y);
 	}
 
+	@Override
+	public Int2 newInt2(Int2 original, long offset_x, long offset_y) {
+		return new RedInt2(original.getX() + offset_x, original.getY()
+				+ offset_y);
+	}
+
 }

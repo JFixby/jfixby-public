@@ -58,4 +58,9 @@ public class Desktop_ZxZ_Map_Functuion<T> implements ZxZ_Functuion<T> {
 		Collection<T> collection = this.mapping.values();
 		return collection;
 	}
+
+	@Override
+	public void print(String tag) {
+		this.mapping.print(tag);
+	}
 }

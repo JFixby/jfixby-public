@@ -52,4 +52,9 @@ public class Desktop_ZxZ_Array_Functuion<T> implements ZxZ_Functuion<T> {
 		tmp.remove(null);
 		return tmp.toList();
 	}
+
+	@Override
+	public void print(String tag) {
+		this.base.print(tag);
+	}
 }

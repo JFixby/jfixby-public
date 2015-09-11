@@ -41,4 +41,6 @@ public interface IntegerMathComponent {
 
 	public Int2 newInt2(long cell_x, long cell_y);
 
+	public Int2 newInt2(Int2 original, long offset_x, long offset_y);
+
 }

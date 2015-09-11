@@ -2,8 +2,8 @@ package com.jfixby.cmns.api.math;
 
 public interface Int2 {
 
-	long x_index();
+	long getX();
 
-	long y_index();
+	long getY();
 
 }
