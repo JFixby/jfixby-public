@@ -8,6 +8,4 @@ public interface List<T> extends EditableCollection<T> {
 
 	public T replaceElementAt(int index, T replacement);
 
-	
-
 }

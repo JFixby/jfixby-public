@@ -62,7 +62,33 @@ public class RedNamespaceRegistry<T> implements NamespaceRegistry<T> {
 
 	@Override
 	public Collection<T> get(Object key) {
-		return map.get(key);
+		Collection<T> result = map.get(key);
+
+		if (result != null) {
+			return result;
+		}
+
+		AssetID id = (AssetID) key;
+		String last = id.getLastStep();
+		if ("*".equals(last)) {
+			id = id.parent();
+			return wildcardGet(id);
+		}
+
+		return null;
+
+	}
+
+	private Collection<T> wildcardGet(AssetID id) {
+		List<T> result = JUtils.newList();
+		for (AssetID k : this.map.keys()) {
+			if (id.includes(k)) {
+				Collection<T> vals = this.map.get(k);
+				result.addAll(vals);
+			}
+		}
+		// result.print("" + id);
+		return result;
 	}
 
 	@Override
@@ -120,5 +146,15 @@ public class RedNamespaceRegistry<T> implements NamespaceRegistry<T> {
 			map.put(object_name, collection);
 		}
 		return collection;
+	}
+
+	@Override
+	public Collection<T> allValues() {
+		List<T> result = JUtils.newList();
+		for (int i = 0; i < this.map.size(); i++) {
+			Set<T> values = this.map.getValueAt(i);
+			result.addAll(values);
+		}
+		return result;
 	}
 }

@@ -135,4 +135,7 @@ public class JUtils {
 		return invoke().castMap(input);
 	}
 
+	public static boolean listBeginsWith(Collection<?> list, Collection<?> with) {
+		return invoke().beginsWith(list, with);
+	}
 }

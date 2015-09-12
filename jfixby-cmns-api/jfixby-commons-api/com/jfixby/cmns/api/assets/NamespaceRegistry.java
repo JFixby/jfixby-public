@@ -7,4 +7,6 @@ public interface NamespaceRegistry<T> extends Map<AssetID, Collection<T>> {
 
 	void put(AssetID object_name, T object);
 
+	Collection<T> allValues();
+
 }

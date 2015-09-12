@@ -1,6 +1,7 @@
 package com.jfixby.cmns.api.geometry;
 
 import com.jfixby.cmns.api.collections.Collection;
+import com.jfixby.cmns.api.collections.List;
 
 public interface ClosedPolygonalChain extends GeometryFigure {
 
@@ -27,5 +28,7 @@ public interface ClosedPolygonalChain extends GeometryFigure {
 	void print(String tag);
 
 	boolean containsPoint(double point_x, double point_y);
+
+	void setupVertices(Collection<Float2> input);
 
 }

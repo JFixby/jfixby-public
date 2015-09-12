@@ -8,4 +8,8 @@ public interface AssetID {
 
 	AssetID parent();
 
+	String getLastStep();
+
+	boolean includes(AssetID other);
+
 }

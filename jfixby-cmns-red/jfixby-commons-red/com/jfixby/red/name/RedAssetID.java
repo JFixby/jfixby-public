@@ -2,6 +2,8 @@ package com.jfixby.red.name;
 
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.List;
+import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.path.RelativePath;
 
 public final class RedAssetID implements AssetID {
@@ -68,4 +70,24 @@ public final class RedAssetID implements AssetID {
 		return new RedAssetID(value.parent());
 	}
 
+	@Override
+	public String getLastStep() {
+		return this.value.getLastStep();
+	}
+
+	@Override
+	public boolean includes(AssetID other) {
+		JUtils.checkNull("other", other);
+		if (this.equals(other)) {
+			return true;
+		}
+		RedAssetID red_other = (RedAssetID) other;
+		final boolean yes = red_other.value.beginsWith(this.value);
+		// if (yes) {
+		// L.d("+ " + this, other);
+		// }
+
+		return yes;
+
+	}
 }

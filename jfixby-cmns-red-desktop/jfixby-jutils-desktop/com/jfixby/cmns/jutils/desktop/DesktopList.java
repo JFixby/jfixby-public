@@ -202,4 +202,8 @@ public class DesktopList<T> implements List<T> {
 		Collections.reverse(legacy);
 	}
 
+	@Override
+	public boolean beginsWith(Collection<T> steps) {
+		return JUtils.listBeginsWith(this, steps);
+	}
 }

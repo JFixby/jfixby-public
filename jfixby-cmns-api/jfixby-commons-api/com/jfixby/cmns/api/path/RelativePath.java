@@ -2,7 +2,6 @@ package com.jfixby.cmns.api.path;
 
 import com.jfixby.cmns.api.collections.List;
 
-
 public interface RelativePath {
 
 	String getPathString();
@@ -20,5 +19,7 @@ public interface RelativePath {
 	public List<String> steps();
 
 	String getLastStep();
+
+	boolean beginsWith(RelativePath other);
 
 }

@@ -66,27 +66,31 @@ public class RedVertex implements Vertex, RectangleCorner {
 
 	@Override
 	public double getX() {
-		return this.world_position.getX();
+
+		return this.world().getX();
 	}
 
 	@Override
 	public double getY() {
-		return this.world_position.getY();
+
+		return this.world().getY();
 	}
 
 	@Override
 	public boolean isInEpsilonDistance(FixedFloat2 other) {
-		return this.world_position.isInEpsilonDistance(other);
+
+		return this.world().isInEpsilonDistance(other);
 	}
 
 	@Override
 	public boolean isInEpsilonDistanceOfZero() {
-		return this.world_position.isInEpsilonDistanceOfZero();
+
+		return this.world().isInEpsilonDistanceOfZero();
 	}
 
 	@Override
 	public double distanceTo(FixedFloat2 other) {
-		return this.world_position.distanceTo(other);
+		return this.world().distanceTo(other);
 	}
 
 }

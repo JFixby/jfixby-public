@@ -69,4 +69,6 @@ public interface UtilsComponent {
 
 	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input);
 
+	boolean beginsWith(Collection<?> list, Collection<?> with);
+
 }

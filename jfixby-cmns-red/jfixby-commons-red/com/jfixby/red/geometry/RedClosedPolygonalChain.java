@@ -5,6 +5,7 @@ import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.geometry.ClosedPolygonalChain;
 import com.jfixby.cmns.api.geometry.FixedFloat2;
+import com.jfixby.cmns.api.geometry.Float2;
 import com.jfixby.cmns.api.geometry.PolyTriangulation;
 import com.jfixby.cmns.api.geometry.Triangle;
 import com.jfixby.cmns.api.geometry.Vertex;
@@ -164,6 +165,16 @@ public class RedClosedPolygonalChain extends VertexMaster implements
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void setupVertices(Collection<Float2> input) {
+		JUtils.checkNull("input", input);
+		this.setSize(input.size());
+		for (int i = 0; i < input.size(); i++) {
+			this.getVertex(i).relative().set(input.getElementAt(i));
+		}
+
 	}
 
 }

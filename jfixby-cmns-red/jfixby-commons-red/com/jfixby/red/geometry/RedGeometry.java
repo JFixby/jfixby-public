@@ -257,7 +257,7 @@ public class RedGeometry implements GeometryComponent {
 
 	@Override
 	public Float3 newFloat3() {
-		throw new Error("Not implemented yet!");
+		return new RedPoint3(0, 0, 0);
 	}
 
 	@Override

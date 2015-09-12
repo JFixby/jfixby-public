@@ -2,6 +2,7 @@ package com.jfixby.red.filesystem;
 
 import java.util.Iterator;
 
+import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.filesystem.File;
@@ -137,6 +138,11 @@ public class FilesList implements ChildrenList {
 			l.add(element);
 		}
 		l.print(tag);
+	}
+
+	@Override
+	public boolean beginsWith(Collection<File> steps) {
+		return this.internal_list.beginsWith(steps);
 	}
 
 }

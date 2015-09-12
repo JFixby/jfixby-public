@@ -25,6 +25,7 @@ public class DesktopSet<T> implements Set<T> {
 		content_set.remove(element);
 		return content_list.remove(element);
 	}
+
 	@Override
 	public void print(String tag, int from_index, int to_index) {
 		Set<T> l = JUtils.newSet();
@@ -85,7 +86,8 @@ public class DesktopSet<T> implements Set<T> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((content_list == null) ? 0 : content_list.hashCode());
+		result = prime * result
+				+ ((content_list == null) ? 0 : content_list.hashCode());
 		return result;
 	}
 
@@ -165,7 +167,8 @@ public class DesktopSet<T> implements Set<T> {
 	}
 
 	@Override
-	public void addJavaCollection(java.util.Collection<? extends T> java_collection) {
+	public void addJavaCollection(
+			java.util.Collection<? extends T> java_collection) {
 		for (Iterator<? extends T> i = java_collection.iterator(); i.hasNext();) {
 			T element = i.next();
 			this.add(element);
@@ -190,10 +193,15 @@ public class DesktopSet<T> implements Set<T> {
 	public void sort(Comparator<T> comparator) {
 		this.content_list.sort(comparator);
 	}
-	
+
 	@Override
 	public void reverse() {
 		content_list.reverse();
+	}
+
+	@Override
+	public boolean beginsWith(Collection<T> steps) {
+		return JUtils.listBeginsWith(this, steps);
 	}
 
 }

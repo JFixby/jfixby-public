@@ -118,4 +118,13 @@ public class DesktopRelativePath implements RelativePath {
 		return true;
 	}
 
+	@Override
+	public boolean beginsWith(RelativePath other) {
+		JUtils.checkNull("other", other);
+		if (this.equals(other)) {
+			return true;
+		}
+		return this.steps().beginsWith(other.steps());
+	}
+
 }

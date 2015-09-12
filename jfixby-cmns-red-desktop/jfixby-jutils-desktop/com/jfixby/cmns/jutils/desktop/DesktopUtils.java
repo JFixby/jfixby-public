@@ -1,6 +1,7 @@
 package com.jfixby.cmns.jutils.desktop;
 
 import java.util.Iterator;
+import java.util.Objects;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.CollectionScanner;
@@ -15,6 +16,7 @@ import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.collections.StateSwitcher;
 import com.jfixby.cmns.api.collections.UtilsComponent;
 import com.jfixby.cmns.api.collections.ZxZ_Functuion;
+import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.path.AbsolutePath;
 import com.jfixby.cmns.api.path.MountPoint;
 import com.jfixby.cmns.api.path.RelativePath;
@@ -232,5 +234,31 @@ public class DesktopUtils implements UtilsComponent {
 			result.put(oK, oV);
 		}
 		return result;
+	}
+
+	@Override
+	public boolean beginsWith(Collection<?> list, Collection<?> with) {
+		JUtils.checkNull("list", list);
+		JUtils.checkNull("with", with);
+		if (list.size() < with.size()) {
+			return false;
+		}
+		if (list.equals(with)) {
+			return true;
+		}
+//		L.d("compare");
+//		list.print("a");
+//		with.print("b");
+
+		for (int i = 0; i < with.size(); i++) {
+			Object a = with.getElementAt(i);
+			Object b = list.getElementAt(i);
+			if (!Objects.equals(a, b)) {
+//				L.d("false", a + " != " + b);
+				return false;
+			}
+		}
+		return true;
+
 	}
 }

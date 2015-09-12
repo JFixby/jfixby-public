@@ -14,13 +14,14 @@ public interface EditableCollection<T> extends Collection<T> {
 
 	public int indexOf(Object element);
 
-	public void reverse();	
+	public void reverse();
 
 	public T removeElementAt(long i);
 
 	public T removeLast();
 
-	public void addJavaCollection(java.util.Collection<? extends T> java_collection);
+	public void addJavaCollection(
+			java.util.Collection<? extends T> java_collection);
 
 	public void addAllArrayElements(T[] array);
 

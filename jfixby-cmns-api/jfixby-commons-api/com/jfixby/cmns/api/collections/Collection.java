@@ -22,4 +22,6 @@ public interface Collection<T> extends Iterable<T> {
 	public void print(String tag);
 
 	public void print(String tag, int from_index, int to_index);
+
+	public boolean beginsWith(Collection<T> steps);
 }
