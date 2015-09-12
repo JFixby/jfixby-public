@@ -30,6 +30,10 @@ public class Angles {
 		return invoke().newAngle(a);
 	}
 
+	public static final CustomAngle newAngle(Angle a) {
+		return invoke().newAngle(a);
+	}
+
 	public static final CustomAngle ZERO() {
 		return invoke().ZERO();
 	}

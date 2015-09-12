@@ -9,6 +9,8 @@ public interface AnglesComponent {
 
 	CustomAngle newAngle(double a);
 
+	CustomAngle newAngle(Angle a);
+
 	CustomAngle ZERO();
 
 	CustomAngle PI();

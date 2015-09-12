@@ -69,4 +69,9 @@ public class RedAngles implements AnglesComponent {
 				* progress_from_A_to_B);
 	}
 
+	@Override
+	public CustomAngle newAngle(Angle a) {
+		return this.newAngle().setValue(a);
+	}
+
 }
