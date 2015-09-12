@@ -70,10 +70,8 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 	}
 
 	private void spread(RedVertex spread) {
-		spread.relative().setX(
-				spread.relative().getX() * this.width);
-		spread.relative().setY(
-				spread.relative().getY() * this.height);
+		spread.relative().setX(spread.relative().getX() * this.width);
+		spread.relative().setY(spread.relative().getY() * this.height);
 	}
 
 	private void spread(Float2 spread) {
@@ -282,7 +280,7 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 
 	@Override
 	public CanvasPosition getPosition() {
-		return this.getTransform().getPosition();
+		throw new Error();
 	}
 
 	@Override
@@ -292,19 +290,15 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 
 	@Override
 	public boolean containsPoint(double canvas_x, double canvas_y) {
-		this.triangle_a.A().relative()
-				.set(this.top_left.world());
-		this.triangle_a.B().relative()
-				.set(this.top_right.world());
-		this.triangle_a.C().relative()
-				.set(this.bottom_right.world());
+		this.triangle_a.A().relative().set(this.top_left.world());
+		this.triangle_a.B().relative().set(this.top_right.world());
+		this.triangle_a.C().relative().set(this.bottom_right.world());
 
 		if (this.triangle_a.containsPoint(canvas_x, canvas_y)) {
 			return true;
 		}
 
-		this.triangle_a.B().relative()
-				.set(this.bottom_left.world());
+		this.triangle_a.B().relative().set(this.bottom_left.world());
 
 		if (this.triangle_a.containsPoint(canvas_x, canvas_y)) {
 			return true;

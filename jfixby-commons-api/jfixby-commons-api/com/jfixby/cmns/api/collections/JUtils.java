@@ -127,4 +127,12 @@ public class JUtils {
 		return invoke().split(input_string, splitter);
 	}
 
+	public static <Q, P> List<P> castCollection(Collection<Q> input) {
+		return invoke().castCollection(input);
+	}
+
+	public static <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input) {
+		return invoke().castMap(input);
+	}
+
 }

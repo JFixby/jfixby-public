@@ -135,6 +135,7 @@ public class RedMathTools implements MathToolsComponent {
 
 	@Override
 	public void setupScaleMatrix(Matrix matrix, double... scale) {
+		matrix.resetToIdentityMatrix();
 		int n = scale.length;
 		for (int i = 0; i < n; i++) {
 			matrix.setValue(i, i, scale[i]);
@@ -148,6 +149,18 @@ public class RedMathTools implements MathToolsComponent {
 		matrix.setValue(1, 0, -FloatMath.sin(rotationZ));
 		matrix.setValue(0, 1, +FloatMath.sin(rotationZ));
 		matrix.setValue(1, 1, +FloatMath.cos(rotationZ));
+	}
+
+	@Override
+	public void setupSkewMatrix(Matrix matrix, double... skew) {
+		matrix.resetToIdentityMatrix();
+		int n = skew.length;
+		if (!(n == 3 || n == 2)) {
+			throw new Error("Not implemented yet: " + n);
+		}
+		matrix.setValue(0, 1, FloatMath.sin(skew[1]));
+		matrix.setValue(1, 0, FloatMath.sin(skew[0]));
+
 	}
 
 }

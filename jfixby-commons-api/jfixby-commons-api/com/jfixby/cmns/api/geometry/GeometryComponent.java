@@ -65,4 +65,8 @@ public interface GeometryComponent {
 
 	public Float3 newFloat3();
 
+	public void setupWrapingFrame(
+			Collection<? extends FixedFloat2> points_to_wrap,
+			Rectangle wrapping_frame);
+
 }

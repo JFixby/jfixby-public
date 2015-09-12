@@ -128,6 +128,12 @@ public class Geometry {
 		return invoke().newCircle();
 	}
 
+	public static void setupWrapingFrame(
+			Collection<? extends FixedFloat2> points_to_wrap,
+			Rectangle wrapping_frame) {
+		invoke().setupWrapingFrame(points_to_wrap, wrapping_frame);
+	}
+
 	// public static ClosedPolygonalChain newPoly(AssetID asset_id) {
 	// return invoke().newPoly(asset_id);
 	// }

@@ -7,47 +7,87 @@ import com.jfixby.cmns.api.geometry.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.cmns.api.math.Angle;
 import com.jfixby.cmns.api.math.CustomAngle;
+import com.jfixby.cmns.api.math.FloatMath;
+import com.jfixby.cmns.api.math.MathTools;
+import com.jfixby.cmns.api.math.Matrix;
 
 public class RedTransform implements CanvasTransform {
+
+	private Matrix scale_matrix;
+	private Matrix rotation_matrix;
+	private Matrix offset_matrix;
+	private Matrix skew_matrix;
+
+	private Matrix un_scale_matrix;
+	private Matrix un_rotation_matrix;
+	private Matrix un_offset_matrix;
+	private Matrix un_skew_matrix;
+
+	private boolean need_setup = true;;
+
+	RedTransform() {
+		scale_matrix = MathTools.newIdentityMatrix(3);
+		skew_matrix = MathTools.newIdentityMatrix(3);
+		rotation_matrix = MathTools.newIdentityMatrix(3);
+		offset_matrix = MathTools.newIdentityMatrix(3);
+
+		un_scale_matrix = MathTools.newIdentityMatrix(3);
+		un_skew_matrix = MathTools.newIdentityMatrix(3);
+		un_rotation_matrix = MathTools.newIdentityMatrix(3);
+		un_offset_matrix = MathTools.newIdentityMatrix(3);
+	}
 
 	@Override
 	public void transform(Float2 temp_point) {
 
-		// MathTools
-		// .setupScaleMatrix(rectangle_scale, this.width, this.height, 1d);
-		// MathTools.setupRotationMatrix(rectangle_rotation, this.position
-		// .getRotation().toRadians());
-		// MathTools.setupOffsetMatrix(rectangle_offset, this.position.getX(),
-		// this.position.getY());
-		//
-		// MathTools.multiplyAxB(rectangle_rotation, rectangle_scale, tmp_1);
-		// MathTools.multiplyAxB(rectangle_offset, tmp_1,
-		// retalive_to_absolute_matrix);
-		// if (FloatMath.isWithinEpsilon(width)
-		// || FloatMath.isWithinEpsilon(height)) {
-		// retalive_to_absolute_matrix.resetToZeroMatrix();
-		// } else {
-		// MathTools.inverse(retalive_to_absolute_matrix,
-		// absolute_to_relative_matrix);
-		// }
-		//
-		// Geometry.applyTransformation(this.retalive_to_absolute_matrix,
-		// top_left);
-		// Geometry.applyTransformation(this.retalive_to_absolute_matrix,
-		// top_right);
-		// Geometry.applyTransformation(this.retalive_to_absolute_matrix,
-		// bottom_right);
-		// Geometry.applyTransformation(this.retalive_to_absolute_matrix,
-		// bottom_left);
+		setup();
 
-		temp_point.setX(temp_point.getX() + this.position.getX());
-		temp_point.setY(temp_point.getY() + this.position.getY());
+		Geometry.applyTransformation(scale_matrix, temp_point);
+		Geometry.applyTransformation(skew_matrix, temp_point);
+		Geometry.applyTransformation(rotation_matrix, temp_point);
+		Geometry.applyTransformation(offset_matrix, temp_point);
+
+	}
+
+	private void setup() {
+		if (!need_setup) {
+			return;
+		}
+		boolean log = true;
+
+		MathTools.setupScaleMatrix(scale_matrix, this.getScaleX(),
+				this.getScaleY(), 1d);
+		if (log)
+			scale_matrix.print("scale_matrix");
+		MathTools.setupRotationMatrix(rotation_matrix, this.position
+				.getRotation().toRadians());
+		if (log)
+			rotation_matrix.print("rotation_matrix");
+		MathTools.setupOffsetMatrix(offset_matrix, this.position.getX(),
+				this.position.getY());
+		if (log)
+			offset_matrix.print("offset_matrix");
+		MathTools
+				.setupSkewMatrix(skew_matrix, this.getSkewX(), this.getSkewY());
+		if (log)
+			skew_matrix.print("skew_matrix");
+
+		MathTools.inverse(scale_matrix, un_scale_matrix);
+		MathTools.inverse(rotation_matrix, un_rotation_matrix);
+		MathTools.inverse(offset_matrix, un_offset_matrix);
+		MathTools.inverse(skew_matrix, un_skew_matrix);
+
+		need_setup = false;
 	}
 
 	@Override
 	public void reverse(Float2 temp_point) {
-		temp_point.setX(temp_point.getX() - this.position.getX());
-		temp_point.setY(temp_point.getY() - this.position.getY());
+		setup();
+		Geometry.applyTransformation(un_offset_matrix, temp_point);
+		Geometry.applyTransformation(un_rotation_matrix, temp_point);
+		Geometry.applyTransformation(un_skew_matrix, temp_point);
+		Geometry.applyTransformation(un_scale_matrix, temp_point);
+
 	}
 
 	// final private Point offset = Geometry.newPoint();
@@ -59,25 +99,30 @@ public class RedTransform implements CanvasTransform {
 	@Override
 	public void setOffset(double x, double y) {
 		this.position.set(x, y);
+		need_setup = true;
 	}
 
 	@Override
 	public void setOffset(FixedFloat2 offset) {
 		this.position.set(offset);
+		need_setup = true;
 	}
 
 	@Override
 	public void setOffsetX(double x) {
+		need_setup = true;
 		this.position.setX(x);
 	}
 
 	@Override
 	public void setOffsetY(double y) {
+		need_setup = true;
 		this.position.setY(y);
 	}
 
 	@Override
-	public Float2 getOffset() {
+	public FixedFloat2 getOffset() {
+
 		return this.position;
 	}
 
@@ -93,41 +138,49 @@ public class RedTransform implements CanvasTransform {
 
 	@Override
 	public void setRotation(Angle rotation) {
+		need_setup = true;
 		this.position.getRotation().setValue(rotation);
 	}
 
 	@Override
 	public void setRotation(double radians) {
+		need_setup = true;
 		this.position.getRotation().setValue(radians);
 	}
 
 	@Override
-	public CustomAngle getRotation() {
+	public Angle getRotation() {
+
 		return this.position.getRotation();
 	}
 
 	@Override
 	public void setSkew(double skewx, double skewy) {
+		need_setup = true;
 		this.skew.set(skewx, skewy);
 	}
 
 	@Override
 	public void setSkewX(double skew) {
+		need_setup = true;
 		this.skew.setX(skew);
 	}
 
 	@Override
 	public void setSkewY(double skew) {
+		need_setup = true;
 		this.skew.setY(skew);
 	}
 
 	@Override
 	public void setSkew(FixedFloat2 skew) {
+		need_setup = true;
 		this.skew.set(skew);
 	}
 
 	@Override
-	public Float2 getSkew() {
+	public FixedFloat2 getSkew() {
+
 		return this.skew;
 	}
 
@@ -145,26 +198,31 @@ public class RedTransform implements CanvasTransform {
 
 	@Override
 	public void setScale(double scalex, double scaley) {
+		need_setup = true;
 		this.scale.set(scalex, scaley);
 	}
 
 	@Override
 	public void setScaleX(double scale) {
+		need_setup = true;
 		this.scale.setX(scale);
 	}
 
 	@Override
 	public void setScaleY(double scale) {
+		need_setup = true;
 		this.scale.setY(scale);
 	}
 
 	@Override
 	public void setScale(FixedFloat2 scale) {
+		need_setup = true;
 		this.scale.set(scale);
 	}
 
 	@Override
-	public Float2 getScale() {
+	public FixedFloat2 getScale() {
+
 		return this.scale;
 	}
 
@@ -178,8 +236,9 @@ public class RedTransform implements CanvasTransform {
 		return this.scale.getY();
 	}
 
-	@Override
-	public CanvasPosition getPosition() {
-		return this.position;
-	}
+	// @Override
+	// public CanvasPosition getPosition() {
+	// need_setup = true;
+	// return this.position;
+	// }
 }

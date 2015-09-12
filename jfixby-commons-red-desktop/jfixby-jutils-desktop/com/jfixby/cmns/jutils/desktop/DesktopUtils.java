@@ -7,6 +7,7 @@ import com.jfixby.cmns.api.collections.CollectionScanner;
 import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Map;
+import com.jfixby.cmns.api.collections.Mapping;
 import com.jfixby.cmns.api.collections.Pool;
 import com.jfixby.cmns.api.collections.PoolElementsSpawner;
 import com.jfixby.cmns.api.collections.Queue;
@@ -208,5 +209,28 @@ public class DesktopUtils implements UtilsComponent {
 		JUtils.checkNull("input_string", input_string);
 		JUtils.checkNull("splitter", splitter);
 		return JUtils.newList(input_string.split(splitter));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <Q, P> List<P> castCollection(Collection<Q> input) {
+		final List<P> result = JUtils.newList();
+		for (Q i : input) {
+			P o = (P) i;
+			result.add(o);
+		}
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input) {
+		final Map<A, B> result = JUtils.newMap();
+		for (X iK : input.keys()) {
+			A oK = (A) iK;
+			B oV = (B) input.get(iK);
+			result.put(oK, oV);
+		}
+		return result;
 	}
 }

@@ -1,7 +1,5 @@
 package com.jfixby.cmns.api.math;
 
-
-
 public interface MathToolsComponent {
 
 	public VectorTool newVectorTool();
@@ -33,7 +31,7 @@ public interface MathToolsComponent {
 	public void setupScaleMatrix(Matrix matrix, double... scale);
 
 	public void setupRotationMatrix(Matrix matrix, double radians);
-	
-	
+
+	public void setupSkewMatrix(Matrix skew_matrix, double... skew);
 
 }

@@ -10,9 +10,9 @@ public interface ClosedPolygonalChain extends GeometryFigure {
 
 	public void clear();
 
-//	 public void setup(Collection<? extends Dot> vertices);
+	// public void setup(Collection<? extends Dot> vertices);
 
-	//	 public void addVertices(Collection<? extends Dot> vertices);
+	// public void addVertices(Collection<? extends Dot> vertices);
 
 	// public void addVertex(Dot vertex);
 
@@ -23,5 +23,9 @@ public interface ClosedPolygonalChain extends GeometryFigure {
 	public Collection<Vertex> listVertices();
 
 	void addVertex(FixedFloat2 point);
+
+	void print(String tag);
+
+	boolean containsPoint(double point_x, double point_y);
 
 }

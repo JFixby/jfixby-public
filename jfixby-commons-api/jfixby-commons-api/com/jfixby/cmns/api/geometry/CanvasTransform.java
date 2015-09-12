@@ -13,7 +13,7 @@ public interface CanvasTransform extends Transform {
 
 	public void setOffset(FixedFloat2 offset);
 
-	public Float2 getOffset();
+	public FixedFloat2 getOffset();
 
 	public double getOffsetX();
 
@@ -23,7 +23,7 @@ public interface CanvasTransform extends Transform {
 
 	public void setRotation(double rotation);
 
-	public CustomAngle getRotation();
+	public Angle getRotation();
 
 	public void setSkew(double skewx, double skewy);
 
@@ -33,7 +33,7 @@ public interface CanvasTransform extends Transform {
 
 	public void setSkew(FixedFloat2 skew);
 
-	public Float2 getSkew();
+	public FixedFloat2 getSkew();
 
 	public double getSkewX();
 
@@ -47,7 +47,7 @@ public interface CanvasTransform extends Transform {
 
 	public void setScale(FixedFloat2 scale);
 
-	public Float2 getScale();
+	public FixedFloat2 getScale();
 
 	public double getScaleX();
 
@@ -55,6 +55,6 @@ public interface CanvasTransform extends Transform {
 
 	
 
-	public CanvasPosition getPosition();
+//	public CanvasPosition getPosition();
 
 }

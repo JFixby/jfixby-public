@@ -10,10 +10,12 @@ import com.jfixby.cmns.api.geometry.CombinedGeometry;
 import com.jfixby.cmns.api.geometry.FixedFloat2;
 import com.jfixby.cmns.api.geometry.Float2;
 import com.jfixby.cmns.api.geometry.Float3;
+import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.cmns.api.geometry.GeometryComponent;
 import com.jfixby.cmns.api.geometry.Line;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.cmns.api.geometry.Triangle;
+import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.math.FloatMath;
 import com.jfixby.cmns.api.math.MathTools;
 import com.jfixby.cmns.api.math.Matrix;
@@ -258,6 +260,35 @@ public class RedGeometry implements GeometryComponent {
 		throw new Error("Not implemented yet!");
 	}
 
+	@Override
+	public void setupWrapingFrame(
+			Collection<? extends FixedFloat2> points_to_wrap,
+			Rectangle wrapping_frame) {
+		if (points_to_wrap.size() == 0) {
+			throw new Error("Empty collection!");
+		}
+		final Float2 top_left = Geometry.newFloat2(points_to_wrap
+				.getElementAt(0));
+		final Float2 bottom_right = Geometry.newFloat2(points_to_wrap
+				.getElementAt(0));
+		for (int i = 1; i < points_to_wrap.size(); i++) {
+			final FixedFloat2 element = points_to_wrap.getElementAt(i);
+			top_left.setX(FloatMath.min(element.getX(), top_left.getX()));
+			top_left.setY(FloatMath.min(element.getY(), top_left.getY()));
+			bottom_right
+					.setX(FloatMath.max(element.getX(), bottom_right.getX()));
+			bottom_right
+					.setY(FloatMath.max(element.getY(), bottom_right.getY()));
+		}
+		double width = bottom_right.getX() - top_left.getX();
+		double height = bottom_right.getY() - top_left.getY();
+		wrapping_frame.setSize(width, height);
+		wrapping_frame.setOriginRelativeX(-top_left.getX() / width);
+		wrapping_frame.setOriginRelativeY(-top_left.getY() / height);
+		wrapping_frame.setPosition(0, 0);
+		L.d("wrapping_frame", wrapping_frame);
+		points_to_wrap.print("points_to_wrap");
+	}
 	// @Override
 	// public ClosedPolygonalChain newPoly(AssetID asset_id) {
 	//

@@ -60,4 +60,13 @@ public interface UtilsComponent {
 
 	List<String> split(String input_string, String splitter);
 
+	// public <A extends Collection<A>, B extends A> B castCollection(A input);
+	//
+	// public <K, V, A extends Map<K, V>, B extends A> B castCollection(A
+	// input);
+
+	public <Q, P> List<P> castCollection(Collection<Q> input);
+
+	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input);
+
 }

@@ -6,6 +6,7 @@ import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.geometry.ClosedPolygonalChain;
 import com.jfixby.cmns.api.geometry.FixedFloat2;
 import com.jfixby.cmns.api.geometry.PolyTriangulation;
+import com.jfixby.cmns.api.geometry.Triangle;
 import com.jfixby.cmns.api.geometry.Vertex;
 
 public class RedClosedPolygonalChain extends VertexMaster implements
@@ -51,8 +52,7 @@ public class RedClosedPolygonalChain extends VertexMaster implements
 		int shift = this.public_vertices.size();
 		int new_size = 1 + shift;
 		this.setSize(new_size);
-		this.public_vertices.getElementAt(shift).relative()
-				.set(vertex);
+		this.public_vertices.getElementAt(shift).relative().set(vertex);
 	}
 
 	@Override
@@ -147,6 +147,23 @@ public class RedClosedPolygonalChain extends VertexMaster implements
 	@Override
 	public Collection<Vertex> listVertices() {
 		return this.public_vertices;
+	}
+
+	@Override
+	public void print(String tag) {
+		public_vertices.print(tag);
+	}
+
+	@Override
+	public boolean containsPoint(double point_x, double point_y) {
+		final PolyTriangulation triangles = this.getTriangulation();
+		for (int i = 0; i < triangles.size(); i++) {
+			final Triangle triangle = triangles.getTriangle(i);
+			if (triangle.containsPoint(point_y, point_y)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

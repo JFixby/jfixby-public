@@ -82,4 +82,8 @@ public class MathTools {
 						triangle_y2);
 	}
 
+	public static void setupSkewMatrix(Matrix skew_matrix, double... skew) {
+		invoke().setupSkewMatrix(skew_matrix, skew);
+	}
+
 }
