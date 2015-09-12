@@ -216,6 +216,7 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 	}
 
 	final Float2 tmp = Geometry.newFloat2();
+	private CanvasPosition position = Geometry.newCanvasPosition();;
 
 	@Override
 	public void setOriginRelative(double ORIGIN_POSITION_HORIZONTAL,
@@ -280,12 +281,15 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 
 	@Override
 	public CanvasPosition getPosition() {
-		throw new Error();
+		position.set(this.getPositionX(), this.getPositionY());
+		position.setRotation(this.getRotation());
+		return position;
 	}
 
 	@Override
 	public void setCanvasPosition(CanvasPosition position) {
 		this.setPosition(position.getX(), position.getY());
+		this.setRotation(position.getRotation());
 	}
 
 	@Override
