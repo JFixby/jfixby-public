@@ -53,7 +53,7 @@ public class RedTransform implements CanvasTransform {
 		if (!need_setup) {
 			return;
 		}
-		boolean log = true;
+		boolean log = !true;
 
 		MathTools.setupScaleMatrix(scale_matrix, this.getScaleX(),
 				this.getScaleY(), 1d);

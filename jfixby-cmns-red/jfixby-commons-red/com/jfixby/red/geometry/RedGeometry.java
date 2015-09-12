@@ -286,8 +286,8 @@ public class RedGeometry implements GeometryComponent {
 		wrapping_frame.setOriginRelativeX(-top_left.getX() / width);
 		wrapping_frame.setOriginRelativeY(-top_left.getY() / height);
 		wrapping_frame.setPosition(0, 0);
-		L.d("wrapping_frame", wrapping_frame);
-		points_to_wrap.print("points_to_wrap");
+		// L.d("wrapping_frame", wrapping_frame);
+		// points_to_wrap.print("points_to_wrap");
 	}
 	// @Override
 	// public ClosedPolygonalChain newPoly(AssetID asset_id) {
