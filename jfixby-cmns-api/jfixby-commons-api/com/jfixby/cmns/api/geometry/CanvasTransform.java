@@ -1,7 +1,6 @@
 package com.jfixby.cmns.api.geometry;
 
 import com.jfixby.cmns.api.math.Angle;
-import com.jfixby.cmns.api.math.CustomAngle;
 
 public interface CanvasTransform extends Transform {
 

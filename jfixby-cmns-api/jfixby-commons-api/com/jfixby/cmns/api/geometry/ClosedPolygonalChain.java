@@ -1,7 +1,6 @@
 package com.jfixby.cmns.api.geometry;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.List;
 
 public interface ClosedPolygonalChain extends GeometryFigure {
 
