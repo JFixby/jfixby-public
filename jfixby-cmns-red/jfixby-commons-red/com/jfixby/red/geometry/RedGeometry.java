@@ -15,7 +15,6 @@ import com.jfixby.cmns.api.geometry.GeometryComponent;
 import com.jfixby.cmns.api.geometry.Line;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.cmns.api.geometry.Triangle;
-import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.math.FloatMath;
 import com.jfixby.cmns.api.math.MathTools;
 import com.jfixby.cmns.api.math.Matrix;
