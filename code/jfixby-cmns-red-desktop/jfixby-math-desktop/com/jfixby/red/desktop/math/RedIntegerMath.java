@@ -51,7 +51,7 @@ public class RedIntegerMath implements IntegerMathComponent {
 	public final long NtoZxZgetX(long number) {
 		checkIfItIsNatural(number);
 		final long n_x = NtoNxNgetX(number);
-		final long n_y = NtoNxNgetY(number);
+//		final long n_y = NtoNxNgetY(number);
 		final long z_x = NtoZ(n_x);
 		// final long z_y = NtoZ(n_y);
 		return z_x;
