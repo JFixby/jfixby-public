@@ -260,6 +260,11 @@ public class RedGeometry implements GeometryComponent {
 	}
 
 	@Override
+	public Float3 newFloat3(double x, double y, double z) {
+		return new RedPoint3(x, y, z);
+	}
+
+	@Override
 	public void setupWrapingFrame(
 			Collection<? extends FixedFloat2> points_to_wrap,
 			Rectangle wrapping_frame) {
@@ -302,4 +307,5 @@ public class RedGeometry implements GeometryComponent {
 	// //
 	// return null;
 	// }
+
 }

@@ -2,6 +2,7 @@ package com.jfixby.red.color;
 
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.color.ColorConstant;
+import com.jfixby.cmns.api.color.ColorMapping;
 import com.jfixby.cmns.api.color.ColorsComponent;
 import com.jfixby.cmns.api.color.ColorsSet;
 import com.jfixby.cmns.api.color.CustomColor;
@@ -151,6 +152,11 @@ public class RedColors implements ColorsComponent {
 	@Override
 	public ColorConstant ORANGE() {
 		return ORANGE;
+	}
+
+	@Override
+	public <T> ColorMapping<T> newColorMapping() {
+		throw new Error();
 	}
 
 }

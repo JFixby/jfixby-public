@@ -119,7 +119,7 @@ public class DesktopUtils implements UtilsComponent {
 	}
 
 	@Override
-	public <K, V> Map<K, V> newMap(Map<? extends K, ? extends V> map) {
+	public <K, V> Map<K, V> newMap(Mapping<? extends K, ? extends V> map) {
 		DesktopMap<K, V> red_map = new DesktopMap<K, V>();
 		red_map.putAll(map);
 		return red_map;
