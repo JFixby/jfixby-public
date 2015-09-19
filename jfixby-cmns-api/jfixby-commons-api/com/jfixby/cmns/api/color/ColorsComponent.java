@@ -46,4 +46,6 @@ public interface ColorsComponent {
 
 	ColorConstant ORANGE();
 
+	<T> ColorMapping<T> newColorMapping();
+
 }

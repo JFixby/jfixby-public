@@ -47,6 +47,10 @@ public class Geometry {
 		return invoke().newFloat3();
 	}
 
+	public static Float3 newFloat3(double x, double y, double z) {
+		return invoke().newFloat3(x, y, z);
+	}
+
 	public static Rectangle newRectangle(Rectangle figure) {
 		return invoke().newRectangle(figure);
 	}

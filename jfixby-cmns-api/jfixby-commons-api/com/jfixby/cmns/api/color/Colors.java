@@ -100,4 +100,8 @@ public class Colors {
 		return invoke().ORANGE();
 	}
 
+	public static <T> ColorMapping<T> newColorMapping() {
+		return invoke().newColorMapping();
+	}
+
 }

@@ -24,7 +24,7 @@ public interface UtilsComponent {
 
 	<K, V> Map<K, V> newMap();
 
-	<K, V> Map<K, V> newMap(Map<? extends K, ? extends V> map);
+	<K, V> Map<K, V> newMap(Mapping<? extends K, ? extends V> map);
 
 	<K, V> Map<K, V> newMap(java.util.Map<? extends K, ? extends V> java_map);
 

@@ -48,6 +48,11 @@ public class JUtils {
 		return invoke().newMap(java_map);
 	}
 
+	public static final <K, V> Map<K, V> newMap(
+			Mapping<? extends K, ? extends V> other_map) {
+		return invoke().newMap(other_map);
+	}
+
 	public static final <T> Set<T> newSet() {
 		return invoke().newSet();
 	}
@@ -138,4 +143,5 @@ public class JUtils {
 	public static boolean listBeginsWith(Collection<?> list, Collection<?> with) {
 		return invoke().beginsWith(list, with);
 	}
+
 }
