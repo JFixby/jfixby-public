@@ -1,13 +1,10 @@
 package com.jfixby.red.geometry;
 
-import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.CanvasTransform;
 import com.jfixby.cmns.api.geometry.FixedFloat2;
 import com.jfixby.cmns.api.geometry.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.cmns.api.math.Angle;
-import com.jfixby.cmns.api.math.CustomAngle;
-import com.jfixby.cmns.api.math.FloatMath;
 import com.jfixby.cmns.api.math.MathTools;
 import com.jfixby.cmns.api.math.Matrix;
 
