@@ -24,4 +24,6 @@ public interface Float2 extends FixedFloat2 {
 
 	void multiply(double factor);
 
+	void multiply(double x, double y);
+
 }

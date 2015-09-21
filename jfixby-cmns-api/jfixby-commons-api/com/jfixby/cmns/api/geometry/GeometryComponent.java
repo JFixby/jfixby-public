@@ -71,4 +71,10 @@ public interface GeometryComponent {
 
 	public Float3 newFloat3();
 
+	public EditableCollection<Float3> newFloat3(
+			EditableCollection<Float3> target_list, int how_many_to_add);
+
+	public EditableCollection<Float2> newFloat2(
+			EditableCollection<Float2> target_list, int how_many_to_add);
+
 }

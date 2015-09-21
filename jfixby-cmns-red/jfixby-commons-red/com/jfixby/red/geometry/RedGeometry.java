@@ -3,6 +3,7 @@ package com.jfixby.red.geometry;
 import com.jfixby.cmns.api.angles.Angles;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.EditableCollection;
+import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Circle;
 import com.jfixby.cmns.api.geometry.ClosedPolygonalChain;
@@ -293,6 +294,7 @@ public class RedGeometry implements GeometryComponent {
 		// L.d("wrapping_frame", wrapping_frame);
 		// points_to_wrap.print("points_to_wrap");
 	}
+
 	// @Override
 	// public ClosedPolygonalChain newPoly(AssetID asset_id) {
 	//
@@ -307,5 +309,25 @@ public class RedGeometry implements GeometryComponent {
 	// //
 	// return null;
 	// }
+
+	@Override
+	public EditableCollection<Float3> newFloat3(
+			EditableCollection<Float3> target_list, int how_many_to_add) {
+		JUtils.checkNull("target_list", target_list);
+		for (int i = 0; i < how_many_to_add; i++) {
+			target_list.add(this.newFloat3());
+		}
+		return target_list;
+	}
+
+	@Override
+	public EditableCollection<Float2> newFloat2(
+			EditableCollection<Float2> target_list, int how_many_to_add) {
+		JUtils.checkNull("target_list", target_list);
+		for (int i = 0; i < how_many_to_add; i++) {
+			target_list.add(this.newFloat2());
+		}
+		return target_list;
+	}
 
 }

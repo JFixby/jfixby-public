@@ -138,6 +138,16 @@ public class Geometry {
 		invoke().setupWrapingFrame(points_to_wrap, wrapping_frame);
 	}
 
+	public static EditableCollection<Float3> newFloat3(
+			EditableCollection<Float3> target_list, int how_many_to_add) {
+		return invoke().newFloat3(target_list, how_many_to_add);
+	}
+
+	public static EditableCollection<Float2> newFloat2(
+			EditableCollection<Float2> target_list, int how_many_to_add) {
+		return invoke().newFloat2(target_list, how_many_to_add);
+	}
+
 	// public static ClosedPolygonalChain newPoly(AssetID asset_id) {
 	// return invoke().newPoly(asset_id);
 	// }
