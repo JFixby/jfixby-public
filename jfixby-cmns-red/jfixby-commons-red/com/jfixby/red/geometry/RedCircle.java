@@ -58,12 +58,12 @@ public class RedCircle extends VertexMaster implements Circle {
 
 	@Override
 	public double getPositionX() {
-		return center.world().getX();
+		return center.transformed().getX();
 	}
 
 	@Override
 	public double getPositionY() {
-		return center.world().getY();
+		return center.transformed().getY();
 	}
 
 	@Override

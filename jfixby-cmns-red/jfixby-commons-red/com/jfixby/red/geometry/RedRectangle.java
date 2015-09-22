@@ -294,15 +294,15 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 
 	@Override
 	public boolean containsPoint(double canvas_x, double canvas_y) {
-		this.triangle_a.A().relative().set(this.top_left.world());
-		this.triangle_a.B().relative().set(this.top_right.world());
-		this.triangle_a.C().relative().set(this.bottom_right.world());
+		this.triangle_a.A().relative().set(this.top_left.transformed());
+		this.triangle_a.B().relative().set(this.top_right.transformed());
+		this.triangle_a.C().relative().set(this.bottom_right.transformed());
 
 		if (this.triangle_a.containsPoint(canvas_x, canvas_y)) {
 			return true;
 		}
 
-		this.triangle_a.B().relative().set(this.bottom_left.world());
+		this.triangle_a.B().relative().set(this.bottom_left.transformed());
 
 		if (this.triangle_a.containsPoint(canvas_x, canvas_y)) {
 			return true;

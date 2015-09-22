@@ -4,6 +4,7 @@ import com.jfixby.cmns.api.angles.Angles;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.EditableCollection;
 import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Circle;
 import com.jfixby.cmns.api.geometry.ClosedPolygonalChain;
@@ -311,8 +312,8 @@ public class RedGeometry implements GeometryComponent {
 	// }
 
 	@Override
-	public EditableCollection<Float3> newFloat3(
-			EditableCollection<Float3> target_list, int how_many_to_add) {
+	public <T extends EditableCollection<Float3>> T newFloat3(T target_list,
+			int how_many_to_add) {
 		JUtils.checkNull("target_list", target_list);
 		for (int i = 0; i < how_many_to_add; i++) {
 			target_list.add(this.newFloat3());
@@ -321,13 +322,35 @@ public class RedGeometry implements GeometryComponent {
 	}
 
 	@Override
-	public EditableCollection<Float2> newFloat2(
-			EditableCollection<Float2> target_list, int how_many_to_add) {
+	public <T extends EditableCollection<Float2>> T newFloat2(T target_list,
+			int how_many_to_add) {
 		JUtils.checkNull("target_list", target_list);
 		for (int i = 0; i < how_many_to_add; i++) {
 			target_list.add(this.newFloat2());
 		}
 		return target_list;
+	}
+
+	@Override
+	public ClosedPolygonalChain newClosedPolygonalChain(
+			Collection<Float2> vertices) {
+		ClosedPolygonalChain chain = this.newClosedPolygonalChain();
+		chain.setSize(vertices.size());
+		for (int i = 0; i < vertices.size(); i++) {
+			Float2 vi = vertices.getElementAt(i);
+			chain.getVertex(i).relative().set(vi);
+		}
+		return chain;
+	}
+
+	@Override
+	public List<Float3> newFloat3List(int size) {
+		return this.newFloat3(JUtils.newList(), size);
+	}
+
+	@Override
+	public List<Float2> newFloat2List(int size) {
+		return this.newFloat2(JUtils.newList(), size);
 	}
 
 }

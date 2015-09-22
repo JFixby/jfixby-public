@@ -2,6 +2,7 @@ package com.jfixby.cmns.api.geometry;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.EditableCollection;
+import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.components.ComponentInstaller;
 import com.jfixby.cmns.api.math.Matrix;
 
@@ -138,14 +139,27 @@ public class Geometry {
 		invoke().setupWrapingFrame(points_to_wrap, wrapping_frame);
 	}
 
-	public static EditableCollection<Float3> newFloat3(
-			EditableCollection<Float3> target_list, int how_many_to_add) {
+	public static <T extends EditableCollection<Float3>> T newFloat3(
+			T target_list, int how_many_to_add) {
 		return invoke().newFloat3(target_list, how_many_to_add);
 	}
 
-	public static EditableCollection<Float2> newFloat2(
-			EditableCollection<Float2> target_list, int how_many_to_add) {
+	public static <T extends EditableCollection<Float2>> T newFloat2(
+			T target_list, int how_many_to_add) {
 		return invoke().newFloat2(target_list, how_many_to_add);
+	}
+
+	public static ClosedPolygonalChain newClosedPolygonalChain(
+			Collection<Float2> vertices) {
+		return invoke().newClosedPolygonalChain(vertices);
+	}
+
+	public static List<Float3> newFloat3List(int size) {
+		return invoke().newFloat3List(size);
+	}
+
+	public static List<Float2> newFloat2List(int size) {
+		return invoke().newFloat2List(size);
 	}
 
 	// public static ClosedPolygonalChain newPoly(AssetID asset_id) {

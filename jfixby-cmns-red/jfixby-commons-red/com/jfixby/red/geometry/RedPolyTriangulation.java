@@ -25,11 +25,13 @@ public class RedPolyTriangulation implements PolyTriangulation {
 				vertices, this.triangulated_vertices);
 		if (!already_triangulated) {
 			L.d("retriangulating...");
-			L.d("eq", vertices.equals(triangulated_vertices));
+			// L.d("eq", vertices.equals(triangulated_vertices));
 			Geometry.setPointsCollectionSize(this.triangulated_vertices,
 					vertices.size());
 			Geometry.copyValues(vertices, this.triangulated_vertices);
-			L.d("eq", vertices.equals(triangulated_vertices));
+			// vertices.print("vertices");
+			// triangulated_vertices.print("triangulated_vertices");
+			// L.d("eq", vertices.equals(triangulated_vertices));
 			triangulate();
 		}
 		return this;
@@ -58,9 +60,9 @@ public class RedPolyTriangulation implements PolyTriangulation {
 		this.triangles.addAll(triangles);
 		for (int i = 0; i < triangles.size(); i++) {
 			Triangle triangle = triangles.getElementAt(i);
-			this.dots.add(triangle.A().world());
-			this.dots.add(triangle.B().world());
-			this.dots.add(triangle.C().world());
+			this.dots.add(triangle.A().transformed());
+			this.dots.add(triangle.B().transformed());
+			this.dots.add(triangle.C().transformed());
 		}
 	}
 

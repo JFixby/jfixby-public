@@ -140,11 +140,6 @@ public class RedPoint implements Float2, FixedFloat2 {
 	}
 
 	@Override
-	public Float2 setXY(double x, double y) {
-		return this.set(x, y);
-	}
-
-	@Override
 	public void multiply(double x, double y) {
 		this.x = this.x * x;
 		this.y = this.y * y;

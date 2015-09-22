@@ -12,8 +12,6 @@ public interface Float2 extends FixedFloat2 {
 
 	Float2 setXY();
 
-	Float2 setXY(double x, double y);
-
 	Float2 add(FixedFloat2 offset);
 
 	Float2 addX(double delta);

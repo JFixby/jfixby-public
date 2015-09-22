@@ -39,7 +39,7 @@ public class RedVertex implements Vertex, RectangleCorner {
 	}
 
 	@Override
-	public FixedFloat2 world() {
+	public FixedFloat2 transformed() {
 		this.world_position.set(relative_position);
 		this.getTransform().transform(world_position);
 		return world_position;
@@ -61,36 +61,36 @@ public class RedVertex implements Vertex, RectangleCorner {
 
 	@Override
 	public String toString() {
-		return "RedVertex [world_position=" + world() + "]";
+		return "RedVertex [world_position=" + transformed() + "]";
 	}
 
 	@Override
 	public double getX() {
 
-		return this.world().getX();
+		return this.transformed().getX();
 	}
 
 	@Override
 	public double getY() {
 
-		return this.world().getY();
+		return this.transformed().getY();
 	}
 
 	@Override
 	public boolean isInEpsilonDistance(FixedFloat2 other) {
 
-		return this.world().isInEpsilonDistance(other);
+		return this.transformed().isInEpsilonDistance(other);
 	}
 
 	@Override
 	public boolean isInEpsilonDistanceOfZero() {
 
-		return this.world().isInEpsilonDistanceOfZero();
+		return this.transformed().isInEpsilonDistanceOfZero();
 	}
 
 	@Override
 	public double distanceTo(FixedFloat2 other) {
-		return this.world().distanceTo(other);
+		return this.transformed().distanceTo(other);
 	}
 
 }

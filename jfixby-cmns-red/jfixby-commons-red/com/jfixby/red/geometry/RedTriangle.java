@@ -45,19 +45,19 @@ public class RedTriangle extends VertexMaster implements Triangle {
 
 	@Override
 	public boolean containsPoint(FixedFloat2 point) {
-		if (this.A.world().isInEpsilonDistance(point)) {
+		if (this.A.transformed().isInEpsilonDistance(point)) {
 			return true;
 		}
-		if (this.B.world().isInEpsilonDistance(point)) {
+		if (this.B.transformed().isInEpsilonDistance(point)) {
 			return true;
 		}
-		if (this.C.world().isInEpsilonDistance(point)) {
+		if (this.C.transformed().isInEpsilonDistance(point)) {
 			return true;
 		}
 
 		return (MathTools.pointLiesInsideTriangle(tmp.getX(), tmp.getY(), A
-				.world().getX(), A.world().getY(),
-				B.world().getX(), B.world().getY(),
-				C.world().getX(), C.world().getY()));
+				.transformed().getX(), A.transformed().getY(),
+				B.transformed().getX(), B.transformed().getY(),
+				C.transformed().getX(), C.transformed().getY()));
 	}
 }

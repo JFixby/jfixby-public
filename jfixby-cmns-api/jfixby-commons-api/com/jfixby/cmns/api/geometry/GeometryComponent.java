@@ -2,6 +2,7 @@ package com.jfixby.cmns.api.geometry;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.EditableCollection;
+import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.math.Matrix;
 
 public interface GeometryComponent {
@@ -71,10 +72,17 @@ public interface GeometryComponent {
 
 	public Float3 newFloat3();
 
-	public EditableCollection<Float3> newFloat3(
-			EditableCollection<Float3> target_list, int how_many_to_add);
+	public <T extends EditableCollection<Float3>> T newFloat3(T target_list,
+			int how_many_to_add);
 
-	public EditableCollection<Float2> newFloat2(
-			EditableCollection<Float2> target_list, int how_many_to_add);
+	public <T extends EditableCollection<Float2>> T newFloat2(T target_list,
+			int how_many_to_add);
+
+	public ClosedPolygonalChain newClosedPolygonalChain(
+			Collection<Float2> vertices);
+
+	public List<Float3> newFloat3List(int size);
+
+	public List<Float2> newFloat2List(int size);
 
 }

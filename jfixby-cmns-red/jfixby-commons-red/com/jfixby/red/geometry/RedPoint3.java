@@ -34,4 +34,14 @@ public class RedPoint3 implements Float3 {
 		this.z = z;
 	}
 
+	@Override
+	public void setXYZ(Float3 other) {
+		this.setXYZ(other.getX(), other.getY(), other.getZ());
+	}
+
+	@Override
+	public void setZ(double z) {
+		this.z = z;
+	}
+
 }
