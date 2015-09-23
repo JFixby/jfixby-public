@@ -2,7 +2,7 @@ package com.jfixby.cmns.api.geometry;
 
 public interface Float2 extends FixedFloat2 {
 
-	Float2 set(double x, double y);
+	Float2 setXY(double x, double y);
 
 	Float2 setX(double x);
 

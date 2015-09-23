@@ -40,7 +40,7 @@ public class RedCircle extends VertexMaster implements Circle {
 
 	@Override
 	public Vertex getVertexAt(double direction_radians) {
-		point.relative().set(FloatMath.cos(direction_radians),
+		point.relative().setXY(FloatMath.cos(direction_radians),
 				FloatMath.sin(direction_radians));
 		point.relative().multiply(this.radius);
 		return point;
@@ -48,7 +48,7 @@ public class RedCircle extends VertexMaster implements Circle {
 
 	@Override
 	public void setXY(double x, double y) {
-		center.relative().set(x, y);
+		center.relative().setXY(x, y);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class RedCircle extends VertexMaster implements Circle {
 
 	@Override
 	public void setPosition(double x, double y) {
-		center.relative().set(x, y);
+		center.relative().setXY(x, y);
 	}
 
 	@Override

@@ -95,7 +95,7 @@ public class RedTransform implements CanvasTransform {
 
 	@Override
 	public void setOffset(double x, double y) {
-		this.position.set(x, y);
+		this.position.setXY(x, y);
 		need_setup = true;
 	}
 
@@ -154,7 +154,7 @@ public class RedTransform implements CanvasTransform {
 	@Override
 	public void setSkew(double skewx, double skewy) {
 		need_setup = true;
-		this.skew.set(skewx, skewy);
+		this.skew.setXY(skewx, skewy);
 	}
 
 	@Override
@@ -196,7 +196,7 @@ public class RedTransform implements CanvasTransform {
 	@Override
 	public void setScale(double scalex, double scaley) {
 		need_setup = true;
-		this.scale.set(scalex, scaley);
+		this.scale.setXY(scalex, scaley);
 	}
 
 	@Override

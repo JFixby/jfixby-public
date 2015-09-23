@@ -292,7 +292,7 @@ public class PolyGraphUtils {
 		VertexImpl<Float2, EdgeType> node = new VertexImpl<Float2, EdgeType>(Geometry.newFloat2());
 		double ua = ((other_B_x - other_A_x) * (one_A_y - other_A_y) - (other_B_y - other_A_y) * (one_a_x - other_A_x))
 				/ d;
-		node.getVertexObject().set(one_a_x + (one_B_x - one_a_x) * ua, one_A_y + (one_B_y - one_A_y) * ua);
+		node.getVertexObject().setXY(one_a_x + (one_B_x - one_a_x) * ua, one_A_y + (one_B_y - one_A_y) * ua);
 
 		if (nodeLaysOn(node, one) && nodeLaysOn(node, other)) {
 			return node;

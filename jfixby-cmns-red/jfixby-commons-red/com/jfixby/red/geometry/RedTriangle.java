@@ -39,7 +39,7 @@ public class RedTriangle extends VertexMaster implements Triangle {
 
 	@Override
 	public boolean containsPoint(double world_x, double world_y) {
-		tmp.set(world_x, world_y);
+		tmp.setXY(world_x, world_y);
 		return this.containsPoint(tmp);
 	}
 

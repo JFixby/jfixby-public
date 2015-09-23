@@ -8,4 +8,7 @@ public interface Float3 extends FixedFloat3 {
 
 	void setZ(double z);
 
+	void setX(double x);
+
+	void setY(double y);
 }

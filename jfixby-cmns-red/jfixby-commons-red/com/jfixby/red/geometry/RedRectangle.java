@@ -53,13 +53,13 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 	}
 
 	private void update() {
-		top_left.relative().set(0 - origin_relative.getX(),
+		top_left.relative().setXY(0 - origin_relative.getX(),
 				0 - origin_relative.getY());
-		top_right.relative().set(1 - origin_relative.getX(),
+		top_right.relative().setXY(1 - origin_relative.getX(),
 				0 - origin_relative.getY());
-		bottom_right.relative().set(1 - origin_relative.getX(),
+		bottom_right.relative().setXY(1 - origin_relative.getX(),
 				1 - origin_relative.getY());
-		bottom_left.relative().set(0 - origin_relative.getX(),
+		bottom_left.relative().setXY(0 - origin_relative.getX(),
 				1 - origin_relative.getY());
 
 		spread(this.top_left);
@@ -193,19 +193,19 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 		final boolean new_method = !true;
 
 		if (new_method) {
-			this.tmp.set(origin_x, origin_y);
+			this.tmp.setXY(origin_x, origin_y);
 			this.toRelative(tmp);
-			this.origin_relative.set(
+			this.origin_relative.setXY(
 					this.origin_relative.getX() + this.tmp.getX(),
 					this.origin_relative.getY() + this.tmp.getY());
 		} else {
-			this.tmp.set(origin_x, origin_y);
+			this.tmp.setXY(origin_x, origin_y);
 			// Geometry.applyTransformation(this.absolute_to_relative_matrix,
 			// this.tmp);
 			this.getTransform().reverse(this.tmp);
 			unspread(this.tmp);
 
-			this.origin_relative.set(
+			this.origin_relative.setXY(
 					this.origin_relative.getX() + this.tmp.getX(),
 					this.origin_relative.getY() + this.tmp.getY());
 		}
@@ -223,11 +223,11 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 			double ORIGIN_POSITION_VERTICAL) {
 		final boolean new_method = !true;
 		if (new_method) {
-			this.tmp.set(ORIGIN_POSITION_HORIZONTAL, ORIGIN_POSITION_VERTICAL);
+			this.tmp.setXY(ORIGIN_POSITION_HORIZONTAL, ORIGIN_POSITION_VERTICAL);
 			this.toAbsolute(tmp);
 			this.setPosition(tmp);
 		} else {
-			this.tmp.set(
+			this.tmp.setXY(
 					ORIGIN_POSITION_HORIZONTAL - this.origin_relative.getX(),
 					ORIGIN_POSITION_VERTICAL - this.origin_relative.getY());// relative
 																			// delta
@@ -241,14 +241,14 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 			// position
 			this.setPosition(tmp);
 		}
-		this.origin_relative.set(ORIGIN_POSITION_HORIZONTAL,
+		this.origin_relative.setXY(ORIGIN_POSITION_HORIZONTAL,
 				ORIGIN_POSITION_VERTICAL);
 		this.update();
 	}
 
 	@Override
 	public void toAbsolute(Float2 temp_point) {
-		temp_point.set(temp_point.getX() - this.origin_relative.getX(),
+		temp_point.setXY(temp_point.getX() - this.origin_relative.getX(),
 				temp_point.getY() - this.origin_relative.getY());// relative
 		spread(temp_point);
 		this.getTransform().transform(temp_point);
@@ -265,7 +265,7 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 		this.getTransform().reverse(temp_point);
 		unspread(temp_point);
 
-		temp_point.set(temp_point.getX() + this.origin_relative.getX(),
+		temp_point.setXY(temp_point.getX() + this.origin_relative.getX(),
 				temp_point.getY() + this.origin_relative.getY());// relative
 	}
 
@@ -281,7 +281,7 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 
 	@Override
 	public CanvasPosition getPosition() {
-		position.set(this.getPositionX(), this.getPositionY());
+		position.setXY(this.getPositionX(), this.getPositionY());
 		position.setRotation(this.getRotation());
 		return position;
 	}

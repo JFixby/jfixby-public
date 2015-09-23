@@ -51,11 +51,11 @@ public class RedPoint implements Float2, FixedFloat2 {
 	}
 
 	public RedPoint(double x, double y) {
-		this.set(x, y);
+		this.setXY(x, y);
 	}
 
 	@Override
-	public Float2 set(double x, double y) {
+	public Float2 setXY(double x, double y) {
 		this.x = x;
 		this.y = y;
 		return this;
@@ -85,37 +85,37 @@ public class RedPoint implements Float2, FixedFloat2 {
 
 	@Override
 	public Float2 set(FixedFloat2 other) {
-		this.set(other.getX(), other.getY());
+		this.setXY(other.getX(), other.getY());
 		return this;
 	}
 
 	@Override
 	public Float2 setXY() {
-		this.set(0, 0);
+		this.setXY(0, 0);
 		return this;
 	}
 
 	@Override
 	public Float2 add(final FixedFloat2 offset) {
-		this.set(x + offset.getX(), y + offset.getY());
+		this.setXY(x + offset.getX(), y + offset.getY());
 		return this;
 	}
 
 	@Override
 	public Float2 addX(double delta) {
-		this.set(x + delta, y);
+		this.setXY(x + delta, y);
 		return this;
 	}
 
 	@Override
 	public Float2 addY(double delta) {
-		this.set(x, y + delta);
+		this.setXY(x, y + delta);
 		return this;
 	}
 
 	@Override
 	public Float2 add(double deltaX, double deltaY) {
-		this.set(x + deltaX, y + deltaY);
+		this.setXY(x + deltaX, y + deltaY);
 		return this;
 	}
 
@@ -136,7 +136,7 @@ public class RedPoint implements Float2, FixedFloat2 {
 
 	@Override
 	public void multiply(double factor) {
-		this.set(this.getX() * factor, factor * this.getY());
+		this.setXY(this.getX() * factor, factor * this.getY());
 	}
 
 	@Override
