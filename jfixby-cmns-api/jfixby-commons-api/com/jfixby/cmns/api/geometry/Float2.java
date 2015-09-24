@@ -20,8 +20,12 @@ public interface Float2 extends FixedFloat2 {
 
 	Float2 add(double deltaX, double deltaY);
 
-	void multiply(double factor);
+	void scaleXY(double factor);
 
-	void multiply(double x, double y);
+	void scaleXY(double x, double y);
+
+	void scaleXY(Float2 other);
+
+	double product(Float2 other);
 
 }

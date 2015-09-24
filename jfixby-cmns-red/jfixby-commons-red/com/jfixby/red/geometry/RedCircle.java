@@ -42,7 +42,7 @@ public class RedCircle extends VertexMaster implements Circle {
 	public Vertex getVertexAt(double direction_radians) {
 		point.relative().setXY(FloatMath.cos(direction_radians),
 				FloatMath.sin(direction_radians));
-		point.relative().multiply(this.radius);
+		point.relative().scaleXY(this.radius);
 		return point;
 	}
 
