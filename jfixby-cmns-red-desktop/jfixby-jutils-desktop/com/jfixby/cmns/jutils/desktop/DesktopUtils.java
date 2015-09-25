@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.CollectionScanner;
+import com.jfixby.cmns.api.collections.EditableCollection;
 import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Map;
@@ -212,29 +213,6 @@ public class DesktopUtils implements UtilsComponent {
 		return JUtils.newList(input_string.split(splitter));
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public <Q, P> List<P> castCollection(Collection<Q> input) {
-		final List<P> result = JUtils.newList();
-		for (Q i : input) {
-			P o = (P) i;
-			result.add(o);
-		}
-		return result;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input) {
-		final Map<A, B> result = JUtils.newMap();
-		for (X iK : input.keys()) {
-			A oK = (A) iK;
-			B oV = (B) input.get(iK);
-			result.put(oK, oV);
-		}
-		return result;
-	}
-
 	@Override
 	public boolean beginsWith(Collection<?> list, Collection<?> with) {
 		JUtils.checkNull("list", list);
@@ -245,19 +223,53 @@ public class DesktopUtils implements UtilsComponent {
 		if (list.equals(with)) {
 			return true;
 		}
-//		L.d("compare");
-//		list.print("a");
-//		with.print("b");
+		// L.d("compare");
+		// list.print("a");
+		// with.print("b");
 
 		for (int i = 0; i < with.size(); i++) {
 			Object a = with.getElementAt(i);
 			Object b = list.getElementAt(i);
 			if (!Objects.equals(a, b)) {
-//				L.d("false", a + " != " + b);
+				// L.d("false", a + " != " + b);
 				return false;
 			}
 		}
 		return true;
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <Q, P, Cp extends EditableCollection<P>> Cp castCollection(
+			Collection<Q> input, Cp output) {
+		for (Q i : input) {
+			P p = (P) i;
+			output.add(p);
+		}
+		return output;
+	}
+
+	@Override
+	public <Q, P> List<P> castCollection(Collection<Q> input) {
+		return this.castCollection(input, JUtils.newList());
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <A, B, X, Y, Mp extends Map<A, B>> Mp castMap(Mapping<X, Y> input,
+			Mp output) {
+		for (X iK : input.keys()) {
+			A oK = (A) iK;
+			B oV = (B) input.get(iK);
+			output.put(oK, oV);
+		}
+		return output;
+
+	}
+
+	@Override
+	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input) {
+		return this.castMap(input, JUtils.newMap());
 	}
 }

@@ -132,16 +132,26 @@ public class JUtils {
 		return invoke().split(input_string, splitter);
 	}
 
-	public static <Q, P> List<P> castCollection(Collection<Q> input) {
+	public static boolean listBeginsWith(Collection<?> list, Collection<?> with) {
+		return invoke().beginsWith(list, with);
+	}
+
+	static public <Q, P, Cp extends EditableCollection<P>> Cp castCollection(
+			Collection<Q> input, Cp output) {
+		return invoke().castCollection(input, output);
+	}
+
+	static public <Q, P> List<P> castCollection(Collection<Q> input) {
 		return invoke().castCollection(input);
+	}
+
+	public static <A, B, X, Y, Mp extends Map<A, B>> Mp castMap(
+			Mapping<X, Y> input, Mp output) {
+		return invoke().castMap(input, output);
 	}
 
 	public static <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input) {
 		return invoke().castMap(input);
-	}
-
-	public static boolean listBeginsWith(Collection<?> list, Collection<?> with) {
-		return invoke().beginsWith(list, with);
 	}
 
 }

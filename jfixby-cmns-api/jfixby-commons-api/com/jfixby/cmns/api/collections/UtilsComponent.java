@@ -65,10 +65,16 @@ public interface UtilsComponent {
 	// public <K, V, A extends Map<K, V>, B extends A> B castCollection(A
 	// input);
 
-	public <Q, P> List<P> castCollection(Collection<Q> input);
-
 	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input);
 
+	public <A, B, X, Y, Mp extends Map<A, B>> Mp castMap(Mapping<X, Y> input,
+			Mp output);
+
 	boolean beginsWith(Collection<?> list, Collection<?> with);
+
+	public <Q, P, Cp extends EditableCollection<P>> Cp castCollection(
+			Collection<Q> input, Cp output);
+
+	public <Q, P> List<P> castCollection(Collection<Q> input);
 
 }
