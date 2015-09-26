@@ -15,6 +15,11 @@ public class RedCallExecutor implements HttpCallExecutor {
 
 	@Override
 	public HttpCallProgress execute(HttpCall call) throws IOException {
+		boolean use_ssl = call.getUseSSL();
+		if (use_ssl) {
+			throw new Error();
+		}
+
 		HttpURL url = call.getUrl();
 
 		HttpConnectionSpecs specs = Http.newConnectionSpecs();

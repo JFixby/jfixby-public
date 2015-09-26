@@ -32,4 +32,9 @@ public class RedCall implements HttpCall {
 		return url;
 	}
 
+	@Override
+	public boolean getUseSSL() {
+		return ssl;
+	}
+
 }
