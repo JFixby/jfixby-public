@@ -17,7 +17,7 @@ public class RedCallExecutor implements HttpCallExecutor {
 	public HttpCallProgress execute(HttpCall call) throws IOException {
 		boolean use_ssl = call.getUseSSL();
 		if (use_ssl) {
-			throw new Error();
+			throw new Error("Not implemented yet");
 		}
 
 		HttpURL url = call.getUrl();
