@@ -1,4 +1,4 @@
-package com.jfixby.cmns.adopted.gdx.tools;
+package com.jfixby.cmns.adopted.gdx;
 
 import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.utils.FloatArray;
