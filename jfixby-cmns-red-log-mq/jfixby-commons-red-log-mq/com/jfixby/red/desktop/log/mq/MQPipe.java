@@ -27,6 +27,7 @@ public class MQPipe {
 	}
 
 	public void d(Object obj) {
+		System.out.println("pipe: " + obj);
 		String msg = obj + "";
 		log_messages.add(new Date() + "\n" + msg);
 		if (log_messages.size() > MAX) {
