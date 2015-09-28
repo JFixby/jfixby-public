@@ -9,6 +9,7 @@ public class DesktopRelativePath implements RelativePath {
 	final private List<String> path_steps = JUtils.newList();
 
 	public DesktopRelativePath(String relative_path_string) {
+		JUtils.checkNull("relative_path_string", relative_path_string);
 		String[] parts_array = relative_path_string
 				.split(RelativePath.SEPARATOR);
 		List<String> parts_list = JUtils.newList(parts_array);
