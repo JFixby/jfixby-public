@@ -15,6 +15,14 @@ public class RedCall implements HttpCall {
 	private boolean agent;
 	private boolean ssl;
 
+	public METHOD getMethod() {
+		return method;
+	}
+
+	public void setMethod(METHOD method) {
+		this.method = method;
+	}
+
 	public RedCall(HttpCallSpecs call_scecs) {
 		url = call_scecs.getURL();
 		method = call_scecs.getMethod();
