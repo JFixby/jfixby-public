@@ -20,12 +20,12 @@ public class RedCall implements HttpCall {
 	}
 
 	public void setMethod(METHOD method) {
-		this.method = method;
+		this.method = JUtils.checkNull("method", method);
 	}
 
 	public RedCall(HttpCallSpecs call_scecs) {
 		url = call_scecs.getURL();
-		method = call_scecs.getMethod();
+		method = JUtils.checkNull("method", call_scecs.getMethod());
 		agent = call_scecs.getUseAgent();
 		ssl = call_scecs.getUseSSL();
 	}
