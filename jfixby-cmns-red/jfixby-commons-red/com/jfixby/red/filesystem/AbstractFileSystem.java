@@ -36,7 +36,7 @@ public abstract class AbstractFileSystem implements FileSystem {
 					+ file_to_copy);
 		}
 		FileSystem target_file_system = to_folder.getFileSystem();
-		FileSystem input_file_system = file_to_copy.getFileSystem();
+//		FileSystem input_file_system = file_to_copy.getFileSystem();
 		if (file_to_copy.isFolder()) {
 			L.d("copying folder", file_to_copy);
 			String shortName = file_to_copy.getName();

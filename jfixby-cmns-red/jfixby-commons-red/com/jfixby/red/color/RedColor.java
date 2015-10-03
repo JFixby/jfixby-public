@@ -156,7 +156,6 @@ public class RedColor implements Color, CustomColor, ColorConstant {
 
 	@Override
 	public String toShortHexString() {
-		byte b0 = (byte) (255f * A);
 		byte b1 = (byte) (255f * R);
 		byte b2 = (byte) (255f * G);
 		byte b3 = (byte) (255f * B);

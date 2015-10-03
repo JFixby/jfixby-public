@@ -33,8 +33,7 @@ public class RedColorsSet implements ColorsSet {
 		Color closest = colors.getElementAt(0);// assuming size >0;
 		double current_distance = Colors.distance(original,
 				closest);
-		int k = 0;
-		;
+	
 		for (int i = 1; i < this.colors.size(); i++) {
 			Color candidate_i = this.colors.getElementAt(i);
 			double new_distance = Colors.distance(candidate_i,
@@ -42,7 +41,7 @@ public class RedColorsSet implements ColorsSet {
 			if (new_distance < current_distance) {
 				current_distance = new_distance;
 				closest = candidate_i;
-				k = i;
+			
 			}
 		}
 		return closest;
