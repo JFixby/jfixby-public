@@ -55,4 +55,14 @@ public class RedInt2 implements Int2 {
 		return this.y;
 	}
 
+	@Override
+	public void setX(long x) {
+		this.x = x;
+	}
+
+	@Override
+	public void setY(long y) {
+		this.y = y;
+	}
+
 }

@@ -8,8 +8,8 @@ public final class RedAssetID implements AssetID {
 
 	public RedAssetID(final String value) {
 		super();
-		JUtils.checkNull("value", value);
-		JUtils.checkEmpty("value", value);
+		JUtils.checkNull("AssetID String", value);
+		JUtils.checkEmpty("AssetID String", value);
 		// JUtils.checkEmpty("value", value.replaceAll("\\\\.", ""));
 		this.value = JUtils.newRelativePath(value.replaceAll("\\"
 				+ AssetID.SEPARATOR, RelativePath.SEPARATOR));

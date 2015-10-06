@@ -1,9 +1,9 @@
 package com.jfixby.cmns.api.math;
 
-public interface Int2 {
+public interface Int2 extends FixedInt2 {
 
-	long getX();
+	void setX(long x);
 
-	long getY();
+	void setY(long y);
 
 }
