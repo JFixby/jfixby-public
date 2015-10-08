@@ -136,7 +136,14 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 
 	@Override
 	public Rectangle setup(Rectangle other) {
-		throw new Error();
+		this.origin_relative.setXY(other.getOriginRelativeX(),
+				other.getOriginRelativeY());
+		this.width = other.getWidth();
+		this.height = other.getHeight();
+		this.position.set(other.getPosition());
+		this.update();
+//		this.getTransform().setup(other.getTransform());
+		return this;
 	}
 
 	@Override
