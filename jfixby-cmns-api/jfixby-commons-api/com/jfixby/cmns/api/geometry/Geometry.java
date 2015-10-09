@@ -162,6 +162,16 @@ public class Geometry {
 		return invoke().newFloat2List(size);
 	}
 
+	public static void fillUp(EditableCollection<Float2> output,
+			int desired_size) {
+		invoke().fillUp(output, desired_size);
+	}
+
+	public static void fillUp(EditableCollection<Float3> output,
+			int desired_size) {
+		invoke().fillUp(output, desired_size);
+	}
+
 	// public static ClosedPolygonalChain newPoly(AssetID asset_id) {
 	// return invoke().newPoly(asset_id);
 	// }

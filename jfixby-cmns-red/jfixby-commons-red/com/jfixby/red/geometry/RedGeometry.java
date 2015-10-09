@@ -353,4 +353,11 @@ public class RedGeometry implements GeometryComponent {
 		return this.newFloat2(JUtils.newList(), size);
 	}
 
+	@Override
+	public void fillUp(EditableCollection<Float2> output, int desired_size) {
+		for (int i = output.size(); i < desired_size; i++) {
+			output.add(this.newFloat2());
+		}
+	}
+
 }

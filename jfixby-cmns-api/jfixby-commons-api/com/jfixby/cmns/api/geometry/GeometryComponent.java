@@ -85,4 +85,8 @@ public interface GeometryComponent {
 
 	public List<Float2> newFloat2List(int size);
 
+	public void fillUp(EditableCollection<Float2> output, int desired_size);
+
+	public void fillUp(EditableCollection<Float3> output, int desired_size);
+
 }
