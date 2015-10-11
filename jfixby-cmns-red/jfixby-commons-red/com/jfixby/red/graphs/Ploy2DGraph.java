@@ -2,8 +2,8 @@ package com.jfixby.red.graphs;
 
 import com.jfixby.cmns.api.collections.EditableCollection;
 import com.jfixby.cmns.api.collections.List;
-import com.jfixby.cmns.api.geometry.FixedFloat2;
-import com.jfixby.cmns.api.geometry.Float2;
+import com.jfixby.cmns.api.floatn.FixedFloat2;
+import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.graphs.PathInGraph;
 import com.jfixby.cmns.api.graphs.PolyGraph;
 

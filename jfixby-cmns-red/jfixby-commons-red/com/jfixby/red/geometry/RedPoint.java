@@ -1,7 +1,7 @@
 package com.jfixby.red.geometry;
 
-import com.jfixby.cmns.api.geometry.FixedFloat2;
-import com.jfixby.cmns.api.geometry.Float2;
+import com.jfixby.cmns.api.floatn.FixedFloat2;
+import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
 
 public class RedPoint implements Float2, FixedFloat2 {

@@ -1,6 +1,6 @@
 package com.jfixby.red.geometry;
 
-import com.jfixby.cmns.api.geometry.Float3;
+import com.jfixby.cmns.api.floatn.Float3;
 
 public class RedPoint3 implements Float3 {
 

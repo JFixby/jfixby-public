@@ -4,6 +4,9 @@ import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.EditableCollection;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.components.ComponentInstaller;
+import com.jfixby.cmns.api.floatn.FixedFloat2;
+import com.jfixby.cmns.api.floatn.Float2;
+import com.jfixby.cmns.api.floatn.Float3;
 import com.jfixby.cmns.api.math.Matrix;
 
 public class Geometry {

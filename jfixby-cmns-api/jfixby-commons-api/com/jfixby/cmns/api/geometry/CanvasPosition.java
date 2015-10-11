@@ -1,5 +1,6 @@
 package com.jfixby.cmns.api.geometry;
 
+import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.math.Angle;
 import com.jfixby.cmns.api.math.CustomAngle;
 

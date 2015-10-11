@@ -1,4 +1,4 @@
-package com.jfixby.cmns.api.geometry;
+package com.jfixby.cmns.api.floatn;
 
 public interface Float3 extends FixedFloat3 {
 
