@@ -12,7 +12,6 @@ public class RedAngle implements Angle, CustomAngle {
 	public static final double TWICE_PI = 2d * Math.PI;
 	public static final double PLUS_PI = Math.PI;
 	public static final double MINUS_PI = -Math.PI;
-
 	public static final double ZERO = 0d;
 	public static final double VAL_360 = 360d;
 	public static final double VAL_180 = 180d;
