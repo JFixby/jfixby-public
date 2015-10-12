@@ -181,4 +181,7 @@ public class FloatMath {
 		return invoke().DOUBLE_EPSILON(number_of_safe_operations);
 	}
 
+	public static long round(double float_value) {
+		return invoke().round(float_value);
+	}
 }

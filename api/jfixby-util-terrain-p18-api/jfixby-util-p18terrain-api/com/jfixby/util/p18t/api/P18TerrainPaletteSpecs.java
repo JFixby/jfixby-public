@@ -1,5 +1,6 @@
 package com.jfixby.util.p18t.api;
 
+import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Mapping;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.r3.ext.api.patch18.P18Palette;
@@ -7,13 +8,13 @@ import com.jfixby.r3.ext.api.patch18.palette.FabricsRelation;
 
 public interface P18TerrainPaletteSpecs {
 
-	String getPaletteNamespace();
+	AssetID getPaletteNamespace();
 
 	double getBlockXWidth();
 
 	double getBlockYWidth();
 
-	P18Palette getPatch18Palette();
+	P18Palette getP18Palette();
 
 	double getBlockZHeight(FabricsRelation fabric_relation);
 
@@ -21,13 +22,13 @@ public interface P18TerrainPaletteSpecs {
 
 	//
 
-	void setPaletteNamespace(String paletteNamespace);
+	void setPaletteNamespace(AssetID paletteNamespace);
 
 	void setBlockXWidth(double x_width);
 
 	void setBlockYWidth(double y_width);
 
-	void setPatch18Palette(P18Palette palette);
+	void setP18Palette(P18Palette palette);
 
 	void setBlockZHeight(FabricsRelation relation, double z_height);
 

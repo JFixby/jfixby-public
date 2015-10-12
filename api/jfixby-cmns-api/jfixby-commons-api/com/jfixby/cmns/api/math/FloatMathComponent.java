@@ -1,7 +1,6 @@
 package com.jfixby.cmns.api.math;
 
-
-public interface FloatMathComponent  {
+public interface FloatMathComponent {
 
 	public double sqrt(double x);
 
@@ -82,5 +81,7 @@ public interface FloatMathComponent  {
 	public double limit(double left_border, double value, double right_border);
 
 	public double DOUBLE_EPSILON(int number_of_safe_operations);
+
+	public long round(double float_value);
 
 }
