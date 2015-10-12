@@ -1,5 +1,6 @@
 package com.jfixby.red.math;
 
+import com.jfixby.cmns.api.math.FixedInt2;
 import com.jfixby.cmns.api.math.Int2;
 
 public class RedInt2 implements Int2 {
@@ -56,13 +57,27 @@ public class RedInt2 implements Int2 {
 	}
 
 	@Override
-	public void setX(long x) {
+	public Int2 setX(long x) {
 		this.x = x;
+		return this;
 	}
 
 	@Override
-	public void setY(long y) {
+	public Int2 setY(long y) {
 		this.y = y;
+		return this;
+	}
+
+	@Override
+	public Int2 setXY(long x, long y) {
+		this.x = x;
+		this.y = y;
+		return this;
+	}
+
+	@Override
+	public Int2 setXY(FixedInt2 other) {
+		return this.setXY(other.getX(), other.getY());
 	}
 
 }
