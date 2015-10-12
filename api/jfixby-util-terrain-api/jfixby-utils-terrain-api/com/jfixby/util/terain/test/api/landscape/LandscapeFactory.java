@@ -1,4 +1,4 @@
-package com.jfixby.r3.ext.terrain.api.landscape;
+package com.jfixby.util.terain.test.api.landscape;
 
 public interface LandscapeFactory {
 

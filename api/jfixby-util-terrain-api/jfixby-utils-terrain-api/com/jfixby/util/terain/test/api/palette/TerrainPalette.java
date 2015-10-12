@@ -1,4 +1,4 @@
-package com.jfixby.r3.ext.terrain.api.palette;
+package com.jfixby.util.terain.test.api.palette;
 
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
