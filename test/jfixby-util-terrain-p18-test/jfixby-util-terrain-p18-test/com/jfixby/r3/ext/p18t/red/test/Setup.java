@@ -54,7 +54,7 @@ public class Setup {
 		Colors.installComponent(new RedColors());
 		// Json.installComponent(new GdxJson());
 		MathTools.installComponent(new RedMathTools());
-		// --
+		// --//
 
 		LocalFileSystem.installComponent(new WinFileSystem());
 
