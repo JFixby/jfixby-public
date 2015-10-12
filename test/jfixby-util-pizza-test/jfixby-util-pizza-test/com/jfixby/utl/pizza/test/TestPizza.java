@@ -44,5 +44,7 @@ public class TestPizza {
 		}
 		PizzaBrushApplicationResult result = brush.end();
 
+		pizza_scape.print();
+
 	}
 }
