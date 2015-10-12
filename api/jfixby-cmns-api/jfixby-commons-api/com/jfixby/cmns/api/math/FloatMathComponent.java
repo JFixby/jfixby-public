@@ -18,7 +18,7 @@ public interface FloatMathComponent {
 
 	public double pow(double x, double pow);
 
-	public int integerPartOf(double d);
+	public long integerPartOf(double d);
 
 	public double fractionalPartOf(double d);
 

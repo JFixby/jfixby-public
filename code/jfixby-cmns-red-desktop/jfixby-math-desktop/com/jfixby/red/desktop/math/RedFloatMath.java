@@ -238,17 +238,13 @@ public abstract class RedFloatMath implements FloatMathComponent {
 		return int_d;
 	}
 
-	public int integerPartOf(double d) {
+	public long integerPartOf(double d) {
 		return (int) d;
 	}
 
 	@Override
 	public long round(double float_value) {
-		if (this.fractionalPartOf(float_value) >= 0.5d) {
-			return this.floorUp(float_value);
-		} else {
-			return this.floorDown(float_value);
-		}
+		return (long) (float_value + this.signum(float_value) * 0.5d);
 	}
 
 	public double fractionalPartOf(double d) {

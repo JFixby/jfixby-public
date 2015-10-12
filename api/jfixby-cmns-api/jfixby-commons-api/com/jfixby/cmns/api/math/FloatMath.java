@@ -52,7 +52,7 @@ public class FloatMath {
 		return invoke().pow(x, pow);
 	}
 
-	public static int integerPartOf(double d) {
+	public static long integerPartOf(double d) {
 		return invoke().integerPartOf(d);
 	}
 
