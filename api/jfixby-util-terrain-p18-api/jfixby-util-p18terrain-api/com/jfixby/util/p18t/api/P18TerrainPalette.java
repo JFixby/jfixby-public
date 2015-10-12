@@ -10,7 +10,7 @@ import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 import com.jfixby.r3.ext.api.patch18.palette.FabricsList;
 import com.jfixby.r3.ext.api.patch18.palette.FabricsRelation;
 import com.jfixby.r3.ext.api.patch18.palette.RelationsList;
-import com.jfixby.r3.ext.terrain.api.palette.TerrainPalette;
+import com.jfixby.util.terain.test.api.palette.TerrainPalette;
 
 public interface P18TerrainPalette {
 

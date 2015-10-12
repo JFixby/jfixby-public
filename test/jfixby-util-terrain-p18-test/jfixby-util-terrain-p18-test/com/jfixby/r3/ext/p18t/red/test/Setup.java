@@ -18,9 +18,8 @@ import com.jfixby.cmns.api.md5.MD5;
 import com.jfixby.cmns.api.sys.Sys;
 import com.jfixby.cmns.jutils.desktop.DesktopUtils;
 import com.jfixby.r3.ext.api.patch18.P18;
-import com.jfixby.r3.ext.p18t.red.RedP18TerrainComponent;
+import com.jfixby.r3.ext.p18t.red.RedP18Terrain;
 import com.jfixby.r3.ext.red.terrain.RedTerrains;
-import com.jfixby.r3.ext.terrain.api.palette.Terrain;
 import com.jfixby.red.color.RedColors;
 import com.jfixby.red.desktop.filesystem.win.WinFileSystem;
 import com.jfixby.red.desktop.img.processing.DesktopImageProcessing;
@@ -38,6 +37,7 @@ import com.jfixby.red.name.RedAssetsNamespace;
 import com.jfixby.red.util.md5.AlpaeroMD5;
 import com.jfixby.util.p18t.api.P18Terrain;
 import com.jfixby.util.patch18.red.RedP18;
+import com.jfixby.util.terain.test.api.palette.Terrain;
 
 public class Setup {
 	public static void setup() {
@@ -63,11 +63,9 @@ public class Setup {
 		FileCache.installComponent(new RedFileCache());
 		MD5.installComponent(new AlpaeroMD5());
 
-		P18.installComponent(new RedP18());
 		Terrain.installComponent(new RedTerrains());
-		P18Terrain.installComponent(new RedP18TerrainComponent());
-		
-		// SimpleTriangulator.installComponent(new GdxSimpleTriangulator());
+		P18Terrain.installComponent(new RedP18Terrain());
+		P18.installComponent(new RedP18());
 
 	}
 }

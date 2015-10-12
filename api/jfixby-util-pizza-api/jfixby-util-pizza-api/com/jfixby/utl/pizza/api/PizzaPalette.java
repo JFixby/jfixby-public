@@ -7,9 +7,9 @@ import com.jfixby.r3.ext.api.patch18.P18Palette;
 import com.jfixby.r3.ext.api.patch18.palette.FabricsList;
 import com.jfixby.r3.ext.api.patch18.palette.FabricsRelation;
 import com.jfixby.r3.ext.api.patch18.palette.RelationsList;
-import com.jfixby.r3.ext.terrain.api.palette.TerrainPalette;
 import com.jfixby.util.iso.api.IsoTransform;
 import com.jfixby.util.p18t.api.P18TerrainPalette;
+import com.jfixby.util.terain.test.api.palette.TerrainPalette;
 
 public interface PizzaPalette {
 

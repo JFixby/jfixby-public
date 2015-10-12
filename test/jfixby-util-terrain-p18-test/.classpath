@@ -12,5 +12,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-p18-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-p18-red"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-pizza-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
