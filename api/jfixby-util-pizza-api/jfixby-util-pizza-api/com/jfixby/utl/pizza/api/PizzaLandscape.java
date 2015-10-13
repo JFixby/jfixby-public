@@ -1,10 +1,10 @@
 package com.jfixby.utl.pizza.api;
 
-public interface PizzaLandscape {
+public interface PizzaLandscape<Q> {
 
 	PizzaBrush getBrush();
 
-	void setLandscapeListener(PizzaLandscapeListener listener);
+	void setLandscapeListener(PizzaLandscapeListener<Q> listener);
 
 	LandscapeActiveArea getActiveArea();
 

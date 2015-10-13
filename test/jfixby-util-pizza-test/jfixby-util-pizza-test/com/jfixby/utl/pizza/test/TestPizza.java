@@ -1,9 +1,9 @@
 package com.jfixby.utl.pizza.test;
 
-import com.jfixby.cmns.api.floatn.FixedFloat3;
 import com.jfixby.examples.wdgs.WDGS_Pizza_Palette;
 import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 import com.jfixby.utl.pizza.api.Pizza;
+import com.jfixby.utl.pizza.api.PizzaBlock;
 import com.jfixby.utl.pizza.api.PizzaBrush;
 import com.jfixby.utl.pizza.api.PizzaBrushPointer;
 import com.jfixby.utl.pizza.api.PizzaLandscape;
@@ -26,10 +26,22 @@ public class TestPizza {
 		landscape_specs.setActiveArea(0, 0, 1024 * 4, 1024 * 3);
 		landscape_specs.setPalette(wdgs_pizza_palette);
 
-		PizzaLandscape pizza_scape = landscape_fac
+		PizzaLandscape<Q> pizza_scape = landscape_fac
 				.newPizzaLandscape(landscape_specs);
 
-		PizzaLandscapeListener listener = new PizzaLandscapeListener() {
+		PizzaLandscapeListener<Q> listener = new PizzaLandscapeListener<Q>() {
+
+			@Override
+			public void onBlockRemove(PizzaBlock<Q> block) {
+			}
+
+			@Override
+			public void onBlockAdd(PizzaBlock<Q> block) {
+			}
+
+			@Override
+			public void onBlockFocus(PizzaBlock<Q> block) {
+			}
 
 		};
 

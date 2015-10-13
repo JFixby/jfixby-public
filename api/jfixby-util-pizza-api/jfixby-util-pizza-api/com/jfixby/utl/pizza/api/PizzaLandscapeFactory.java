@@ -4,6 +4,6 @@ public interface PizzaLandscapeFactory {
 
 	PizzaLandscapeSpecs newLandscapeSpecs();
 
-	PizzaLandscape newPizzaLandscape(PizzaLandscapeSpecs landscape_specs);
+	<Q> PizzaLandscape<Q> newPizzaLandscape(PizzaLandscapeSpecs landscape_specs);
 
 }
