@@ -6,6 +6,6 @@ public interface Pool<T> {
 
 	void free(T instance);
 
-	void freeAll(Collection<? extends T> collection);
+	void freeAll(Collection<T> collection);
 
 }

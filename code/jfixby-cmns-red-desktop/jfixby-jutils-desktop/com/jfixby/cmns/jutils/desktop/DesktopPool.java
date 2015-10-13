@@ -39,8 +39,8 @@ public class DesktopPool<T> implements Pool<T> {
 	}
 
 	@Override
-	public void freeAll(Collection<? extends T> collection) {
-		Iterator<? extends T> iterator = collection.iterator();
+	public void freeAll(Collection<T> collection) {
+		Iterator<T> iterator = collection.iterator();
 		while (iterator.hasNext()) {
 			T t = iterator.next();
 			this.free(t);

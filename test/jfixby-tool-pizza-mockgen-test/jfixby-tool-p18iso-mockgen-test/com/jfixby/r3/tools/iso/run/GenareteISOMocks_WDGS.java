@@ -21,6 +21,7 @@ import com.jfixby.r3.tools.api.iso.GeneratorParams;
 import com.jfixby.r3.tools.api.iso.IsoMockPaletteGenerator;
 import com.jfixby.r3.tools.api.iso.IsoMockPaletteResult;
 import com.jfixby.r3.tools.iso.red.RedIsoMockPaletteGenerator;
+import com.jfixby.r3.tools.iso.red.RedIsoMockPaletteGenerator2;
 import com.jfixby.red.triplane.resources.fsbased.pub.PackageDescriptor;
 import com.jfixby.tools.gdx.texturepacker.api.AtlasPackingResult;
 import com.jfixby.tools.gdx.texturepacker.api.Packer;
@@ -35,8 +36,10 @@ public class GenareteISOMocks_WDGS {
 		Setup.setup();
 
 		Isometry.installComponent(new RedIsometry());
+		// IsoMockPaletteGenerator
+		// .installComponent(new RedIsoMockPaletteGenerator());
 		IsoMockPaletteGenerator
-				.installComponent(new RedIsoMockPaletteGenerator());
+				.installComponent(new RedIsoMockPaletteGenerator2());
 
 		GeneratorParams specs = IsoMockPaletteGenerator
 				.newIsoMockPaletteGeneratorParams();
@@ -65,8 +68,8 @@ public class GenareteISOMocks_WDGS {
 				"D:\\[DATA]\\[RED-ASSETS]\\gdx-assets-prepared").child(
 				"bank-florida");
 		bank_folder.makeFolder();
-		packScenes(result, bank_folder);
-		packRaster(result, bank_folder);
+//		packScenes(result, bank_folder);
+//		packRaster(result, bank_folder);
 
 	}
 
