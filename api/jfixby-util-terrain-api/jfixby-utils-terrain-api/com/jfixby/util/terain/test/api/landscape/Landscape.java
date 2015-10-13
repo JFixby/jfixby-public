@@ -11,4 +11,6 @@ public interface Landscape<T> {
 
 	TerrainPalette getPalette();
 
+	TerrainBlock<T> getBlock(T keypoint);
+
 }
