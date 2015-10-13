@@ -5,7 +5,7 @@ import com.jfixby.cmns.api.components.ComponentInstaller;
 public class Pizza {
 
 	static private ComponentInstaller<PizzaComponent> componentInstaller = new ComponentInstaller<PizzaComponent>(
-			"Pizza");
+			"Pizza"); // P18 + Terrain + ISO = P18TerrainISO =~ Pizza
 
 	public static final void installComponent(
 			PizzaComponent component_to_install) {
