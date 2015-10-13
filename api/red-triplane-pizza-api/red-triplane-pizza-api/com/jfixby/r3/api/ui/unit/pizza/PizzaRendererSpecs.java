@@ -4,8 +4,8 @@ import com.jfixby.utl.pizza.api.PizzaLandscape;
 
 public interface PizzaRendererSpecs {
 
-	void setLandscape(PizzaLandscape<PizzaTile> pizza_scape);
+	void setLandscape(PizzaLandscape pizza_scape);
 
-	PizzaLandscape<PizzaTile> getLandscape();
+	PizzaLandscape getLandscape();
 
 }

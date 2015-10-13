@@ -54,4 +54,9 @@ public class RedPoint3 implements Float3 {
 		this.y = y;
 	}
 
+	@Override
+	public String toString() {
+		return "(" + x + ", " + y + ", " + z + ")";
+	}
+
 }

@@ -1,11 +1,11 @@
 package com.jfixby.utl.pizza.api;
 
-public interface PizzaLandscapeListener<Q> {
+public interface PizzaLandscapeListener {
 
-	void onBlockRemove(PizzaBlock<Q> block);
+	void onBlockRemove(PizzaTile block);
 
-	void onBlockAdd(PizzaBlock<Q> block);
+	void onBlockAdd(PizzaTile block);
 
-	void onBlockFocus(PizzaBlock<Q> block);
+	void onBlockFocus(PizzaTile block);
 
 }
