@@ -1,10 +1,11 @@
 package com.jfixby.utl.pizza.test;
 
+import com.jfixby.cmns.api.floatn.FixedFloat3;
 import com.jfixby.examples.wdgs.WDGS_Pizza_Palette;
 import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 import com.jfixby.utl.pizza.api.Pizza;
 import com.jfixby.utl.pizza.api.PizzaBrush;
-import com.jfixby.utl.pizza.api.PizzaBrushApplicationResult;
+import com.jfixby.utl.pizza.api.PizzaBrushPointer;
 import com.jfixby.utl.pizza.api.PizzaLandscape;
 import com.jfixby.utl.pizza.api.PizzaLandscapeFactory;
 import com.jfixby.utl.pizza.api.PizzaLandscapeListener;
@@ -38,11 +39,11 @@ public class TestPizza {
 		Fabric default_fabric = wdgs_pizza_palette.getP18Palette()
 				.listFabrics().getFabric(0);// size>0
 		brush.setFabric(default_fabric);
-		brush.begin();
 		{
-			brush.applyPaintAtCanvas(0, 0);
+			PizzaBrushPointer pointer = brush.pointAtCanvasPoint(0, 0);
+			FixedFloat3 pointer_position = pointer.getPosition();
+			brush.applyPaintAtCanvas(pointer_position);
 		}
-		PizzaBrushApplicationResult result = brush.end();
 
 		pizza_scape.print();
 

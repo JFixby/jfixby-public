@@ -10,7 +10,7 @@ public interface TerrainPaletteFactory {
 
 	TerrainTypeSpecs newTerrainBlockSpecs();
 
-	TerrainType newTerrainBlock(TerrainTypeSpecs terrain_type_specs);
+	TerrainType newTerrainType(TerrainTypeSpecs terrain_type_specs);
 
 	TerrainPaletteSpecs newTerrainPaletteSpecs();
 

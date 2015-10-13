@@ -7,7 +7,7 @@ public interface Landscape<T> {
 
 	void print();
 
-	TerrainBlock<T> newBlock(T keypoint, TerrainType terrain_type);
+	LandscapeOperationResult<T> newBlock(T keypoint, TerrainType terrain_type);
 
 	TerrainPalette getPalette();
 

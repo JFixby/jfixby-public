@@ -1,15 +1,19 @@
 package com.jfixby.utl.pizza.api;
 
+import com.jfixby.cmns.api.floatn.FixedFloat2;
+import com.jfixby.cmns.api.floatn.FixedFloat3;
 import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 
 public interface PizzaBrush {
 
-	void begin();
-
 	void setFabric(Fabric fabric);
 
-	void applyPaintAtCanvas(float canvas_x, float canvas_y);
+	PizzaBrushPointer pointAtCanvasPoint(double canvas_x, double canvas_y);
 
-	PizzaBrushApplicationResult end();
+	PizzaBrushPointer pointAtCanvasPoint(FixedFloat2 canvas_xy);
+
+	void applyPaintAtCanvas(FixedFloat3 terrain_xyz);
+
+	void applyPaintAtCanvas(double terrain_x, double terrain_y, double terrain_z);
 
 }
