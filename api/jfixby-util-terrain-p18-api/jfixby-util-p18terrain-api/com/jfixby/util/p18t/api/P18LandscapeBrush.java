@@ -13,8 +13,6 @@ public interface P18LandscapeBrush {
 
 	P18LandscapePointer pointAt(FixedFloat3 terrain_xyz);
 
-	void applyPaintAt(long grid_block_x, long grid_block_y);
-
-	void applyPaintAt(FixedInt2 grid_block_position);
+	void applyPaint();
 
 }

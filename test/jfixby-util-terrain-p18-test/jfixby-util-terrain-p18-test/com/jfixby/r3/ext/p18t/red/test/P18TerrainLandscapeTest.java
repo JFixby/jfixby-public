@@ -28,8 +28,8 @@ public class P18TerrainLandscapeTest {
 		P18LandscapeBrush brush = landscape.getBrush();
 
 		P18LandscapePointer pointer = brush.pointAt(1d, 1d, 1d);
-		FixedInt2 positon = pointer.getBlockGridPosition();
-		brush.applyPaintAt(positon);
+		// FixedInt2 positon = pointer.getBlockGridPosition();
+		brush.applyPaint();
 
 	}
 

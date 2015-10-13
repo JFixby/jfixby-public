@@ -4,8 +4,8 @@ import com.jfixby.r3.ext.api.patch18.grid.CellPosition;
 
 public interface P18LandscapeListener {
 
-	void onBlockRemove(P18TerrainLandscapeBlock<CellPosition> block);
+	void onBlockRemove(P18TerrainBlock<CellPosition> block);
 
-	void onBlockAdd(P18TerrainLandscapeBlock<CellPosition> block);
+	void onBlockAdd(P18TerrainBlock<CellPosition> block);
 
 }

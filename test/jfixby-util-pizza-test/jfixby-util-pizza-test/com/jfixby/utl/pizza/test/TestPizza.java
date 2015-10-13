@@ -40,9 +40,9 @@ public class TestPizza {
 				.listFabrics().getFabric(0);// size>0
 		brush.setFabric(default_fabric);
 		{
-			PizzaBrushPointer pointer = brush.pointAtCanvasPoint(0, 0);
-			FixedFloat3 pointer_position = pointer.getPosition();
-			brush.applyPaintAtCanvas(pointer_position);
+			PizzaBrushPointer pointer = brush.pointAtCanvas(0, 0);
+			// FixedFloat3 pointer_position = pointer.getTerrainPosition();
+			brush.applyPaint();
 		}
 
 		pizza_scape.print();
