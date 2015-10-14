@@ -40,6 +40,13 @@ import com.jfixby.cmns.api.sys.Sys;
  * @version 1.1 January 2004 [bug fix; add RLE support]
  * 
  */
+
+/**
+ * 
+ * @author JFixby https://github.com/JFixby/
+ *
+ */
+
 public class PSDReader {
 
 	FileContent content;
