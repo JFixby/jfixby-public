@@ -18,7 +18,7 @@ public class WDGS_Pizza_Palette {
 
 		PizzaPaletteSpecs specs = palette_factory.newPizzaPaletteSpecs();
 		specs.setP18TerrainPalette(p18_terrain_palette);
-		IsoTransform fallout_iso = Isometry.getFallout(258);
+		IsoTransform fallout_iso = Isometry.getFallout(260);
 		specs.setIsoTransform(fallout_iso);
 
 		PizzaPalette pizza_palette = palette_factory.newPizzaPalette(specs);

@@ -18,9 +18,9 @@ public class WDGS_P18Terrain_Palette {
 		P18TerrainPaletteSpecs specs = factory.newP18TerrainPaletteSpecs();
 		specs.setBlockXWidth(1);
 		specs.setBlockYWidth(1);
-		specs.setBlockZHeight(P18_PALETTE.listRelations().getRelation(0), 1);
-		specs.setBlockZHeight(P18_PALETTE.listRelations().getRelation(1), 1);
-		specs.setBlockZHeight(P18_PALETTE.listRelations().getRelation(2), 1);
+		specs.setBlockZHeight(P18_PALETTE.listRelations().getRelation(0), 0.4);
+		specs.setBlockZHeight(P18_PALETTE.listRelations().getRelation(1), 0.4);
+		specs.setBlockZHeight(P18_PALETTE.listRelations().getRelation(2), 0.4);
 
 		specs.setRelationRelativeCenterXY(P18_PALETTE.listRelations()
 				.getRelation(0), 0.4f, 0.3f);
