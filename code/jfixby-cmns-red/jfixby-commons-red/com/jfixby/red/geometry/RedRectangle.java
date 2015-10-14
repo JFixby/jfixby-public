@@ -1,5 +1,8 @@
 package com.jfixby.red.geometry;
 
+import com.jfixby.cmns.api.collections.Collection;
+import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
@@ -9,6 +12,7 @@ import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.cmns.api.geometry.RectangleCorner;
 import com.jfixby.cmns.api.geometry.Triangle;
+import com.jfixby.cmns.api.geometry.Vertex;
 import com.jfixby.cmns.api.math.Angle;
 
 public class RedRectangle extends VertexMaster implements Rectangle {
@@ -19,6 +23,8 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 	final RedVertex top_right = new RedVertex(this);
 	final RedVertex bottom_left = new RedVertex(this);
 	final RedVertex bottom_right = new RedVertex(this);
+	final List<FixedFloat2> vertices = JUtils.newList(top_left, top_right,
+			bottom_right, bottom_left);
 
 	final RedPoint origin_relative = new RedPoint();
 
@@ -142,7 +148,7 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 		this.height = other.getHeight();
 		this.position.set(other.getPosition());
 		this.update();
-//		this.getTransform().setup(other.getTransform());
+		// this.getTransform().setup(other.getTransform());
 		return this;
 	}
 
@@ -342,6 +348,11 @@ public class RedRectangle extends VertexMaster implements Rectangle {
 	@Override
 	public void setOriginAbsolute(FixedFloat2 tmp) {
 		this.setOriginAbsolute(tmp.getX(), tmp.getY());
+	}
+
+	@Override
+	public Collection<FixedFloat2> listVertices() {
+		return vertices;
 	}
 
 }
