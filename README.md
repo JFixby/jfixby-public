@@ -34,7 +34,7 @@
 - **jfixby-tool-psd-unpacker-api** — abstract PSD-unpacker API
 - **jfixby-tool-psd-unpacker-red** — PSD-unpacker implementatin based on the reworked PSDReader by Kevin Weiner, FM Software (source: http://www.java2s.com/Code/Java/2D-Graphics-GUI/DecodesaPhotoShoppsdfileintooneormoreframes.htm)
 - **jfixby-tool-texture-slicer-api** — texture slicer abstract API
-- **jfixby-tool-texture-slicer-red** — texture slicer implementation
+- **jfixby-tool-texture-slicer-red** — implementation
 
 #### Red Triplane Game Engine
 
