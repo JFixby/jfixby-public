@@ -24,6 +24,8 @@
 - **jfixby-util-maze-red** — implementation
 - **jfixby-util-filesystem-packing-base64-api** — Base64 file system packing API
 - **jfixby-util-filesystem-packing-base64-red** — implementation
+- **jfixby-util-wdgs** — Water Dirt Grass Snow terrain palettes: Patch18Palette, P18TerrainPalette and PizzaPalette (details: http://www.java-gaming.org/topics/iconified/34063/view.html)
+
 
 #### Tools
 
