@@ -21,18 +21,16 @@
 
 - jfixby-tool-texture-bleed-api — color bleeding removal API
 - jfixby-tool-texture-bleed-gemserk — Gemserk implementation for the color bleeding removal (source: https://github.com/gemserk/imageprocessing)
- 
 - jfixby-tool-texture-packer-api — abstract texture-packer API
 - jfixby-tool-texture-packer-gdx — GDX-tools based TexturePacker implementation (source: https://github.com/libgdx/libgdx/tree/master/extensions/gdx-tools)
-
 - jfixby-tool-psd-unpacker-api — abstract PSD-unpacker API
 - jfixby-tool-psd-unpacker-red — PSD-unpacker implementatin based on the reworked PSDReader by Kevin Weiner, FM Software (source: http://www.java2s.com/Code/Java/2D-Graphics-GUI/DecodesaPhotoShoppsdfileintooneormoreframes.htm)
-
 - jfixby-tool-texture-slicer-api — texture slicer abstract API
 - jfixby-tool-texture-slicer-red — texture slicer implementation
 
-#### Red Triplane 
-- red-triplane-api — game engine API
-- red-triplane-fokker-api  — Red Triplane Fokker branch API
-
+#### Red Triplane Game Engine
+- red-triplane-api — API
+- red-triplane-fokker-api — Fokker-branch API
+- red-triplane-pizza-api — Pizza renderer API 
+- red-triplane-scene2d-api — Scene2D API
 
