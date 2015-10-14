@@ -7,8 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-gemserk"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-packer-api"/>
