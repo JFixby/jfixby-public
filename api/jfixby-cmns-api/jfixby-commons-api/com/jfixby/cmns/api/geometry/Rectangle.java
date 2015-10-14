@@ -1,5 +1,6 @@
 package com.jfixby.cmns.api.geometry;
 
+import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.math.Angle;
@@ -81,5 +82,7 @@ public interface Rectangle extends GeometryFigure {
 	void toAbsolute(Float2 temp_point);
 
 	void setOriginAbsolute(FixedFloat2 tmp);
+
+	Collection<FixedFloat2> listVertices();
 
 }
