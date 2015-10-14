@@ -13,10 +13,18 @@
 
 #### Utils
 - jfixby-util-p18-api — Patch18 API
+- jfixby-util-p18-red — implementation
+
 - jfixby-util-terrain-api — abstract game terrain API
 - jfixby-util-terrain-p18-api — Patch18 based terrain API
 - jfixby-util-iso-api — abstract ISOmetry API
 - jfixby-util-pizza-api — P18 + Terrain + ISOmetry = Pizza API 
+ 
+- jfixby-util-maze-api — abstract maze API
+- jfixby-util-maze-red — implementation
+ 
+- jfixby-util-filesystem-packing-base64-api — Base64 file system packing API
+- jfixby-util-filesystem-packing-base64-red — implementation
 
 #### Tools
 
