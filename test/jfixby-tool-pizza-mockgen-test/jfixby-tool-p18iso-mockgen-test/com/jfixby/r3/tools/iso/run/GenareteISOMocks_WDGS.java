@@ -68,8 +68,8 @@ public class GenareteISOMocks_WDGS {
 				"D:\\[DATA]\\[RED-ASSETS]\\gdx-assets-prepared").child(
 				"bank-florida");
 		bank_folder.makeFolder();
-//		packScenes(result, bank_folder);
-//		packRaster(result, bank_folder);
+		packScenes(result, bank_folder);
+		packRaster(result, bank_folder);
 
 	}
 
