@@ -21,7 +21,7 @@
 - **jfixby-util-filesystem-packing-base64-api** — Base64 file system packing API
 - **jfixby-util-filesystem-packing-base64-red** — implementation
 - **jfixby-util-wdgs** — Water Dirt Grass Snow terrain palettes: Patch18Palette, P18TerrainPalette and PizzaPalette (details: http://www.java-gaming.org/topics/iconified/34063/view.html)
-
+- **jfixby-git-eclipse-namefixer** — EGit/Eclipse-bug fixing tool for renaming projects shared in Git (description: https://www.eclipse.org/forums/index.php/t/595366/)
 
 #### Tools
 - **jfixby-tool-texture-bleed-api** — color bleeding removal API
@@ -38,4 +38,3 @@
 - **red-triplane-fokker-api** — Fokker-branch API
 - **red-triplane-pizza-api** — Pizza renderer API 
 - **red-triplane-scene2d-api** — Scene2D API
-
