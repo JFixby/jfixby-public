@@ -6,4 +6,8 @@ public interface Intent {
 
 	public AssetID getUnitClassId();
 
+	public void setUnitListener(UnitListener listener);
+
+	UnitListener getUnitListener();
+
 }

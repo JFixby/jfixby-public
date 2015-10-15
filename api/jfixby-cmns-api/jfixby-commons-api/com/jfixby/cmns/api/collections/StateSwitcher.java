@@ -1,9 +1,8 @@
 package com.jfixby.cmns.api.collections;
 
-
 public interface StateSwitcher<T> {
 
-	void expectState(T expected_state);
+	EvaluationResult expectState(T expected_state);
 
 	void switchState(T next_state);
 
@@ -12,5 +11,7 @@ public interface StateSwitcher<T> {
 	void setDebugName(String string);
 
 	void setDebugFlag(boolean b);
+
+	void setThrowErrorOnUnexpectedState(boolean b);
 
 }

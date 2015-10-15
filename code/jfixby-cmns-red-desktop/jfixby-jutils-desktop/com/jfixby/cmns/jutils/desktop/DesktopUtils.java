@@ -20,6 +20,7 @@ import com.jfixby.cmns.api.collections.ZxZ_Functuion;
 import com.jfixby.cmns.api.path.AbsolutePath;
 import com.jfixby.cmns.api.path.MountPoint;
 import com.jfixby.cmns.api.path.RelativePath;
+import com.jfixby.red.util.RedStateSwitcher;
 
 public class DesktopUtils implements UtilsComponent {
 
@@ -178,7 +179,7 @@ public class DesktopUtils implements UtilsComponent {
 
 	@Override
 	public <T> StateSwitcher<T> newStateSwitcher(T default_state) {
-		return new DesktopStateSwitcher<T>(default_state);
+		return new RedStateSwitcher<T>(default_state);
 	}
 
 	@Override
