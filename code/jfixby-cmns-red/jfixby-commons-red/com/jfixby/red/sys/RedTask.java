@@ -54,7 +54,7 @@ public class RedTask implements Task {
 	Job current_job;
 
 	public void push() {
-		switcher.expectState(TASK_STATE.ACTIVE);
+		switcher.expectsState(TASK_STATE.ACTIVE);
 		if (this.job_to_do == -1) {
 			this.job_to_do++;
 			this.first_call = true;

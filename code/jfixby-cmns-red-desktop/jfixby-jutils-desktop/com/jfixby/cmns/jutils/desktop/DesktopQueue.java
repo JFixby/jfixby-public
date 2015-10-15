@@ -6,7 +6,7 @@ import com.jfixby.cmns.api.collections.Queue;
 public class DesktopQueue<T> extends DesktopList<T> implements Queue<T> {
 
 	@Override
-	public void put(T element) {
+	public void push(T element) {
 		this.add(element);
 	}
 
@@ -16,12 +16,12 @@ public class DesktopQueue<T> extends DesktopList<T> implements Queue<T> {
 	}
 
 	@Override
-	public T get() {
+	public T pop() {
 		return this.removeElementAt(0);
 	}
 
 	@Override
-	public void putAll(Collection<T> elements) {
+	public void pushAll(Collection<T> elements) {
 		super.addAll(elements);
 	}
 }

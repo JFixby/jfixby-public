@@ -6,6 +6,6 @@ public interface UnitListener {
 
 	void onUnitCreated(Unit unit);
 
-	void onUnitStarted(Unit unit);
+	void onUnitStarted();
 
 }

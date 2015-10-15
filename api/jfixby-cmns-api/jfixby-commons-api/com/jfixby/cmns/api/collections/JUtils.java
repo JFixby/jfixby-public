@@ -24,7 +24,7 @@ public class JUtils {
 	}
 
 	public static final <T> List<T> newList() {
-		return invoke().newList();
+		return invoke().newList();	
 	}
 
 	public static final <T> List<T> newList(T... array) {
@@ -118,6 +118,10 @@ public class JUtils {
 
 	public static <T> T checkNull(String parameter_name, T value) {
 		return invoke().checkNull(parameter_name, value);
+	}
+
+	public static <T> T checkNull(T value) {
+		return invoke().checkNull(value);
 	}
 
 	public static void checkEmpty(String parameter_name, String value) {

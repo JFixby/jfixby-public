@@ -191,6 +191,14 @@ public class DesktopUtils implements UtilsComponent {
 	}
 
 	@Override
+	public <T> T checkNull(T value) {
+		if (value == null) {
+			throw new Error("Paremeter is null.");
+		}
+		return value;
+	}
+
+	@Override
 	public void checkEmpty(String parameter_name, String value) {
 		if ("".equals(value)) {
 			throw new Error("<" + parameter_name + "> is empty.");
@@ -273,4 +281,5 @@ public class DesktopUtils implements UtilsComponent {
 	public <A, B, X, Y> Map<A, B> castMap(Mapping<X, Y> input) {
 		return this.castMap(input, JUtils.newMap());
 	}
+
 }
