@@ -16,6 +16,8 @@ public class ExampleLambda {
 		Setup.setup();
 
 		factorial = n -> {
+			
+			
 			if (n == 0) {
 				return 1L;
 			}
