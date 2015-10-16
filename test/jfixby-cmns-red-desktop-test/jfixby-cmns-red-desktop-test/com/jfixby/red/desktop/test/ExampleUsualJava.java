@@ -16,7 +16,6 @@ public class ExampleUsualJava {
 		Setup.setup();
 
 		factorial = new FunctionalInterface<Long, Long>() {
-
 			@Override
 			public Long apply(Long n) {
 				if (n == 0) {
