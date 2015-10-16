@@ -6,6 +6,9 @@ import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.cmns.api.math.Angle;
 
 public interface Camera {
+	
+	public static final float ABSOLUTE_DARKNESS = 1f;
+	public static final float ABSOLUTE_CLEAR = 0f;
 
 	public void setSize(double width, double height);
 
