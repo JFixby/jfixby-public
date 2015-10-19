@@ -34,5 +34,3 @@
 - `jfixby-tool-texture-slicer-red` — implementation
 - `jfixby-tool-pizza-mockgen-api`  — automatic Pizza mockup tiles generator API
 
-#### Red Sputnik Web Server
-- `red-sputnik-http-processor-api` — core-side API
