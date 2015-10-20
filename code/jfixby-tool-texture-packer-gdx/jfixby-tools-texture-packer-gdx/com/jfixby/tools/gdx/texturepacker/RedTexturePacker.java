@@ -28,29 +28,27 @@ public class RedTexturePacker implements Packer {
 	private FileFilter png_filter = new FileFilter() {
 		@Override
 		public boolean fits(File child) {
-			return child.getName().toLowerCase().endsWith(".png");
+			return child.getName().toLowerCase().endsWith(".png")
+					|| child.getName().toLowerCase().endsWith(".jpg");
 		}
 	};
 	private boolean debug_mode;
 
 	public RedTexturePacker(TexturePackingSpecs packer_specs) {
-		JUtils.checkNull("GdxTexturePackingSpecs", packer_specs);
+		JUtils.checkNull("packer_specs", packer_specs);
 
 		png_input_dir = packer_specs.getInputRasterFolder();
-		JUtils.checkNull("InputRasterFolder", png_input_dir);
+		JUtils.checkNull("getInputRasterFolder()", png_input_dir);
 
 		atlas_output_dir = packer_specs.getOutputAtlasFolder();
-		JUtils.checkNull("OutputAtlasFolder", atlas_output_dir);
+		JUtils.checkNull("getOutputAtlasFolder()", atlas_output_dir);
 
 		output_atlas_filename = packer_specs.getAtlasFileName();
-
-		
-
-		debug_mode = packer_specs.getDebugMode();
-		JUtils.checkNull("AtlasFileName", output_atlas_filename);
-		JUtils.checkEmpty("AtlasFileName", output_atlas_filename);
+		JUtils.checkNull("getAtlasFileName()", output_atlas_filename);
+		JUtils.checkEmpty("getAtlasFileName()", output_atlas_filename);
 		output_atlas_filename = output_atlas_filename + Settings.atlasExtension;
 
+		debug_mode = packer_specs.getDebugMode();
 		output_file_system = atlas_output_dir.getFileSystem();
 		input_file_system = png_input_dir.getFileSystem();
 
@@ -70,7 +68,8 @@ public class RedTexturePacker implements Packer {
 				.child("#input_sprites_tmp_folder#").getAbsoluteFilePath());
 		tmp_input_sprites_folder.makeFolder();
 
-		copy_all_png_files(png_input_folder, tmp_input_sprites_folder);
+		boolean ok = copy_all_png_files(png_input_folder,
+				tmp_input_sprites_folder);
 
 		File tmp_output_atlas_folder = output_file_system.newFile(temp_folder
 				.child("output_atlas").getAbsoluteFilePath());
@@ -230,10 +229,15 @@ public class RedTexturePacker implements Packer {
 
 	}
 
-	private void copy_all_png_files(File from_folder, File to_folder)
+	private boolean copy_all_png_files(File from_folder, File to_folder)
 			throws IOException {
 		ChildrenList png_files = from_folder.listChildren().filter(png_filter);
+		if (png_files.size() == 0) {
+			throw new IOException("No input found in folder " + png_filter);
+		}
+
 		output_file_system.copyFilesTo(png_files, to_folder);
+		return true;
 	}
 
 	private File create_temp_folder(File output_home_folder) {

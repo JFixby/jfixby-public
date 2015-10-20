@@ -8,13 +8,13 @@ public interface TexturePackingSpecs {
 
 	void setOutputAtlasFolder(File output_atlas_folder);
 
+	void setOutputAtlasFileName(String file_name);
+
 	File getInputRasterFolder();
 
 	File getOutputAtlasFolder();
 
 	String getAtlasFileName();
-
-	void setOutputAtlasFileName(String file_name);
 
 	void setDebugMode(boolean b);
 
