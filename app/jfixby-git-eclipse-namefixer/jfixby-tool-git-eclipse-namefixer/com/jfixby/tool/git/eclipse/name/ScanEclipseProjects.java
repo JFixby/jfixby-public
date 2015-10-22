@@ -9,7 +9,7 @@ import com.jfixby.cmns.api.path.ChildrenList;
 
 public class ScanEclipseProjects {
 
-	static boolean WRITE_MODE = !true;
+	static boolean WRITE_MODE = true;
 
 	public static void main(String[] args) throws IOException {
 		Setup.setup();

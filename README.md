@@ -8,8 +8,8 @@
 - `jfixby-cmns-red` —
  some general classes required by the jfixby-cmns-red-desktop and other Red implementations
 - `jfixby-cmns-red-log-mq` — Apache ActiveMQ based logger implementation
-- `jfixby-cmns-adopted-apache` — tools adopted from the Apache Commons
-- `jfixby-cmns-adopted-gdx` — tools adopted from the libGDX Tools
+- `apache-jfixby-cmns` — tools adopted from the Apache Commons
+- `gdx-jfixby-cmns` — tools adopted from the libGDX Tools
 
 #### Utils
 - `jfixby-util-p18-api` — Patch18 API
@@ -24,13 +24,5 @@
 - `jfixby-git-eclipse-namefixer` — EGit/Eclipse-bug fixing tool for renaming projects shared in Git (related bug-info: https://www.eclipse.org/forums/index.php/t/595366/)
 
 #### Tools
-- `jfixby-tool-texture-bleed-api` — color bleeding removal API
-- `jfixby-tool-texture-bleed-gemserk` — Gemserk implementation for the color bleeding removal (source: https://github.com/gemserk/imageprocessing)
-- `jfixby-tool-texture-packer-api` — abstract texture-packer API
-- `jfixby-tool-texture-packer-gdx` — GDX-tools based TexturePacker implementation (source: https://github.com/libgdx/libgdx/tree/master/extensions/gdx-tools)
-- `jfixby-tool-psd-unpacker-api` — abstract PSD-unpacker API
-- `jfixby-tool-psd-unpacker-red` — PSD-unpacker implementation based on the reworked PSDReader originally produced by Kevin Weiner, FM Software in 2004 (source: http://www.java2s.com/Code/Java/2D-Graphics-GUI/DecodesaPhotoShoppsdfileintooneormoreframes.htm)
-- `jfixby-tool-texture-slicer-api` — texture slicer abstract API
-- `jfixby-tool-texture-slicer-red` — implementation
 - `jfixby-tool-pizza-mockgen-api`  — automatic Pizza mockup tiles generator API
 
