@@ -24,7 +24,5 @@
 - `jfixby-git-eclipse-namefixer` — EGit/Eclipse-bug fixing tool for renaming projects shared in Git (related bug-info: https://www.eclipse.org/forums/index.php/t/595366/)
 
 #### Tools
-- `jfixby-tool-texture-bleed-api` — color bleeding removal API
-- `jfixby-tool-texture-bleed-gemserk` — Gemserk implementation for the color bleeding removal (source: https://github.com/gemserk/imageprocessing)
 - `jfixby-tool-pizza-mockgen-api`  — automatic Pizza mockup tiles generator API
 
