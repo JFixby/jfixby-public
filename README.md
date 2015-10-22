@@ -8,8 +8,8 @@
 - `jfixby-cmns-red` —
  some general classes required by the jfixby-cmns-red-desktop and other Red implementations
 - `jfixby-cmns-red-log-mq` — Apache ActiveMQ based logger implementation
-- `jfixby-cmns-adopted-apache` — tools adopted from the Apache Commons
-- `jfixby-cmns-adopted-gdx` — tools adopted from the libGDX Tools
+- `apache-jfixby-cmns` — tools adopted from the Apache Commons
+- `gdx-jfixby-cmns` — tools adopted from the libGDX Tools
 
 #### Utils
 - `jfixby-util-p18-api` — Patch18 API
