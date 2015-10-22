@@ -15,8 +15,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-adopted-apache"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-adopted-gdx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/apache-jfixby-cmns"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gdx-jfixby-cmns"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-wdgs"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

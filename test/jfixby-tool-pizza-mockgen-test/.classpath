@@ -8,7 +8,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-gemserk"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gemserk-tool-texture-bleed"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-packer-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-packer-gdx"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-api"/>
@@ -21,8 +21,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-p18-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-adopted-apache"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-adopted-gdx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/apache-jfixby-cmns"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gdx-jfixby-cmns"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-wdgs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-red"/>
