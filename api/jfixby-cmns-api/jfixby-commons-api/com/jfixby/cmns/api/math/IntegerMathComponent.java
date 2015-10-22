@@ -43,4 +43,6 @@ public interface IntegerMathComponent {
 
 	public Int2 newInt2(Int2 original, long offset_x, long offset_y);
 
+	public long abs(long value);
+
 }

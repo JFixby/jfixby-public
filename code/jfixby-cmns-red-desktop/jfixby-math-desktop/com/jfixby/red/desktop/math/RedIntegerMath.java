@@ -51,7 +51,7 @@ public class RedIntegerMath implements IntegerMathComponent {
 	public final long NtoZxZgetX(long number) {
 		checkIfItIsNatural(number);
 		final long n_x = NtoNxNgetX(number);
-//		final long n_y = NtoNxNgetY(number);
+		// final long n_y = NtoNxNgetY(number);
 		final long z_x = NtoZ(n_x);
 		// final long z_y = NtoZ(n_y);
 		return z_x;
@@ -59,7 +59,7 @@ public class RedIntegerMath implements IntegerMathComponent {
 
 	public final long NtoZxZgetY(long number) {
 		checkIfItIsNatural(number);
-//		final long n_x = NtoNxNgetX(number);
+		// final long n_x = NtoNxNgetX(number);
 		final long n_y = NtoNxNgetY(number);
 		// final long z_x = NtoZ(n_x);
 		final long z_y = NtoZ(n_y);
@@ -224,6 +224,14 @@ public class RedIntegerMath implements IntegerMathComponent {
 	public Int2 newInt2(Int2 original, long offset_x, long offset_y) {
 		return new RedInt2(original.getX() + offset_x, original.getY()
 				+ offset_y);
+	}
+
+	@Override
+	public long abs(long value) {
+		if (value > 0) {
+			return value;
+		}
+		return -value;
 	}
 
 }
