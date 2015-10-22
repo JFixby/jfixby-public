@@ -26,8 +26,6 @@
 #### Tools
 - `jfixby-tool-texture-bleed-api` — color bleeding removal API
 - `jfixby-tool-texture-bleed-gemserk` — Gemserk implementation for the color bleeding removal (source: https://github.com/gemserk/imageprocessing)
-- `jfixby-tool-psd-unpacker-api` — abstract PSD-unpacker API
-- `jfixby-tool-psd-unpacker-red` — PSD-unpacker implementation based on the reworked PSDReader originally produced by Kevin Weiner, FM Software in 2004 (source: http://www.java2s.com/Code/Java/2D-Graphics-GUI/DecodesaPhotoShoppsdfileintooneormoreframes.htm)
 - `jfixby-tool-texture-slicer-api` — texture slicer abstract API
 - `jfixby-tool-texture-slicer-red` — implementation
 - `jfixby-tool-pizza-mockgen-api`  — automatic Pizza mockup tiles generator API
