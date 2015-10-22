@@ -26,7 +26,5 @@
 #### Tools
 - `jfixby-tool-texture-bleed-api` — color bleeding removal API
 - `jfixby-tool-texture-bleed-gemserk` — Gemserk implementation for the color bleeding removal (source: https://github.com/gemserk/imageprocessing)
-- `jfixby-tool-texture-slicer-api` — texture slicer abstract API
-- `jfixby-tool-texture-slicer-red` — implementation
 - `jfixby-tool-pizza-mockgen-api`  — automatic Pizza mockup tiles generator API
 
