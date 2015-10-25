@@ -84,4 +84,8 @@ public class IntegerMath {
 		return invoke().newInt2(original, offset_x, offset_y);
 	}
 
+	public static long abs(long value) {
+		return invoke().abs(value);
+	}
+
 }
