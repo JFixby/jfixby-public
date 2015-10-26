@@ -14,13 +14,14 @@ public class GdxJson implements JsonComponent {
 		Json json = new Json();
 		json.setOutputType(OutputType.json);
 		String data = json.toJson(object);
+		JsonValue gdx_json = new JsonReader().parse(data);
+		data = gdx_json.prettyPrint(OutputType.json, 0);
 		return data;
 	}
 
 	@Override
 	public <T> T deserializeFromString(Class<T> type, String input_data) {
 		Json json = new Json();
-		json.setOutputType(OutputType.json);
 		try {
 			T object = json.fromJson(type, input_data);
 			return object;
