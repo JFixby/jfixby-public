@@ -12,4 +12,6 @@ public interface AssetID {
 
 	boolean includes(AssetID other);
 
+	AssetID child(AssetID subpackage);
+
 }

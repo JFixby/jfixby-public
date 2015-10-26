@@ -128,4 +128,13 @@ public class DesktopRelativePath implements RelativePath {
 		return this.steps().beginsWith(other.steps());
 	}
 
+	@Override
+	public RelativePath proceed(RelativePath value) {
+		JUtils.checkNull(value);
+		List<String> steps = this.steps();
+		steps.addAll(value.steps());
+		RelativePath incremented = JUtils.newRelativePath(steps);
+		return incremented;
+	}
+
 }

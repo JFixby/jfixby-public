@@ -22,4 +22,6 @@ public interface RelativePath {
 
 	boolean beginsWith(RelativePath other);
 
+	RelativePath proceed(RelativePath value);
+
 }

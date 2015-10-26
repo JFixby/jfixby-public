@@ -88,4 +88,11 @@ public final class RedAssetID implements AssetID {
 		return yes;
 
 	}
+
+	@Override
+	public AssetID child(AssetID subpackage) {
+		RedAssetID red_subpackage = (RedAssetID) subpackage;
+		RelativePath new_path = this.value.proceed(red_subpackage.value);
+		return new RedAssetID(new_path);
+	}
 }

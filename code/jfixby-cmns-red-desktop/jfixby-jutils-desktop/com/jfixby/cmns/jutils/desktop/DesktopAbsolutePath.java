@@ -99,12 +99,7 @@ public class DesktopAbsolutePath<T extends MountPoint> implements
 
 	@Override
 	public AbsolutePath<T> proceed(RelativePath relative) {
-		if (relative == null) {
-			throw new Error("Null argument");
-		}
-		List<String> steps = this.relative.steps();
-		steps.addAll(relative.steps());
-		RelativePath incremented = JUtils.newRelativePath(steps);
+		RelativePath incremented = this.relative.proceed(relative);
 		return JUtils.newAbsolutePath(mount_point, incremented);
 	}
 
