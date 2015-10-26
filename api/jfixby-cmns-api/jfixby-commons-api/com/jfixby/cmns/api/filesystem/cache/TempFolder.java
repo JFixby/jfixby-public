@@ -6,4 +6,6 @@ public interface TempFolder {
 
 	File getRoot();
 
+	void delete();
+
 }
