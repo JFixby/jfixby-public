@@ -1,6 +1,5 @@
 package com.jfixby.cmns.api.json;
 
-
 public interface JsonComponent {
 
 	// void serialize(Object object, OutputStream output_stream) throws
@@ -12,5 +11,7 @@ public interface JsonComponent {
 	String serializeToString(Object object);
 
 	public <T> T deserializeFromString(Class<T> type, String input_data);
+
+	void printPretty(String json_string);
 
 }

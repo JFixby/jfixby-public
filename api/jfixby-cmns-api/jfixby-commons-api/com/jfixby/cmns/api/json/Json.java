@@ -4,7 +4,8 @@ import com.jfixby.cmns.api.components.ComponentInstaller;
 
 public class Json {
 
-	static private ComponentInstaller<JsonComponent> componentInstaller = new ComponentInstaller<JsonComponent>("Json");
+	static private ComponentInstaller<JsonComponent> componentInstaller = new ComponentInstaller<JsonComponent>(
+			"Json");
 
 	public static final void installComponent(JsonComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
@@ -24,6 +25,10 @@ public class Json {
 
 	public static <T> T deserializeFromString(Class<T> type, String input_string) {
 		return invoke().deserializeFromString(type, input_string);
+	}
+
+	public static void printPretty(String json_string) {
+		invoke().printPretty(json_string);
 	}
 
 }
