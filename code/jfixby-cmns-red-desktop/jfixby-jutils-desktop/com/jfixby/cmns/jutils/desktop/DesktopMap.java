@@ -40,13 +40,7 @@ public class DesktopMap<K, V> implements Map<K, V> {
 
 	@Override
 	public void print(String tag) {
-//		L.d("---[" + tag + "]--------------");
-//		for (int i = 0; i < this.keys_list.size(); i++) {
-//			K key = keys_list.getElementAt(i);
-//			L.d("    [" + i + "] " + key, this.hash_map.get(key));
-//		}
 		L.d(tag, this);
-		// L.d();
 	}
 
 	// +----------------------------------------------------------------
