@@ -21,4 +21,9 @@ public class RedAssetsNamespace implements AssetsNamespaceComponent {
 		return new RedNamespaceRegistry<T>();
 	}
 
+	@Override
+	public AssetID ROOT() {
+		return new RedAssetID();
+	}
+
 }

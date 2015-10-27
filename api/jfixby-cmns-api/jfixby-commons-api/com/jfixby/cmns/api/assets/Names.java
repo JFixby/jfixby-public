@@ -32,4 +32,8 @@ public class Names {
 		return invoke().newRegistry();
 	}
 
+	public static AssetID ROOT() {
+		return invoke().ROOT();
+	}
+
 }

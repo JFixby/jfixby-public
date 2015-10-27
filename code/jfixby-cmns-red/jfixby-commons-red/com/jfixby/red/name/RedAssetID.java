@@ -19,6 +19,11 @@ public final class RedAssetID implements AssetID {
 		// L.d("    toString", this.toString());
 	}
 
+	public RedAssetID() {
+		super();
+		this.value = JUtils.newRelativePath();
+	}
+
 	public RedAssetID(final RelativePath value) {
 		super();
 		JUtils.checkNull("value", value);

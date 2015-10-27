@@ -8,4 +8,6 @@ public interface AssetsNamespaceComponent {
 
 	<T> NamespaceRegistry<T> newRegistry();
 
+	AssetID ROOT();
+
 }

@@ -2,9 +2,7 @@ package com.jfixby.red.localization;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.filesystem.FileOutputStream;
-import com.jfixby.cmns.api.filesystem.FileSystem;
-import com.jfixby.cmns.api.filesystem.LocalFileSystem;
+import com.jfixby.cmns.api.filesystem.File;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.localize.Locale;
 import com.jfixby.cmns.api.localize.LocalizationComponent;
@@ -14,7 +12,6 @@ import com.jfixby.cmns.api.localize.StringValueID;
 import com.jfixby.cmns.api.localize.StringValueLocalizationSpecs;
 import com.jfixby.cmns.api.localize.StringValueLocalizations;
 import com.jfixby.cmns.api.localize.StringValuesContainer;
-import com.jfixby.cmns.api.path.AbsolutePath;
 
 public class SimpleLocalization implements LocalizationComponent,
 		StringValuesContainer {
@@ -32,42 +29,33 @@ public class SimpleLocalization implements LocalizationComponent,
 		return new SimpleLocale(loc_specs);
 	}
 
-	public void writeToFile(AbsolutePath<FileSystem> cfg_file_path,
-			Locale locale) throws IOException {
-
+	public void writeToFile(File file, Locale locale) throws IOException {
 		String serialized_locale = Json.serializeToString(locale);
-
-		FileOutputStream os = cfg_file_path.getMountPoint()
-				.newFile(cfg_file_path).newOutputStream();
-		os.write(serialized_locale.getBytes());
-		os.flush();
-		os.close();
-
+		file.writeString(serialized_locale);
 	}
 
-	public Locale readFromFile(AbsolutePath<FileSystem> cfg_file_path)
-			throws IOException {
+	public Locale readFromFile(File file) throws IOException {
 
-		byte[] bytes = cfg_file_path.getMountPoint()
-				.newFile(cfg_file_path).readBytes();
+		String data = file.readToString();
 
 		SimpleLocale locale = Json.deserializeFromString(SimpleLocale.class,
-				new String(bytes));
+				data);
 
 		return locale;
 	}
 
 	@Override
 	public Locale getLocale(String locale_name) {
-		AbsolutePath<FileSystem> cfg_file_path = LocalFileSystem
-				.ApplicationHome().child("localize")
-				.child(locale_name).getAbsoluteFilePath();
-		try {
-			return this.readFromFile(cfg_file_path);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+		// AbsolutePath<FileSystem> cfg_file_path = LocalFileSystem
+		// .ApplicationHome().child("localize").child(locale_name)
+		// .getAbsoluteFilePath();
+		// try {
+		// return this.readFromFile(cfg_file_path);
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
+		// return null;
+		throw new Error();
 	}
 
 	@Override
@@ -88,7 +76,7 @@ public class SimpleLocalization implements LocalizationComponent,
 
 	@Override
 	public StringValueID spawnNewStringValueID(String string_value_id_string) {
-		throw new Error();
+		return new RedStringValueID(string_value_id_string);
 	}
 
 	@Override
