@@ -6,4 +6,6 @@ public interface Locale {
 	
 	String resolveString(String StringValueID);
 
+
+
 }

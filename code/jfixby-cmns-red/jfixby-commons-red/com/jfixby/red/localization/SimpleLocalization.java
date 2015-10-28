@@ -1,6 +1,7 @@
 package com.jfixby.red.localization;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import com.jfixby.cmns.api.filesystem.File;
 import com.jfixby.cmns.api.json.Json;
@@ -34,7 +35,7 @@ public class SimpleLocalization implements LocalizationComponent,
 		file.writeString(serialized_locale);
 	}
 
-	public Locale readFromFile(File file) throws IOException {
+	public SimpleLocale readFromFile(File file) throws IOException {
 
 		String data = file.readToString();
 
@@ -46,16 +47,8 @@ public class SimpleLocalization implements LocalizationComponent,
 
 	@Override
 	public Locale getLocale(String locale_name) {
-		// AbsolutePath<FileSystem> cfg_file_path = LocalFileSystem
-		// .ApplicationHome().child("localize").child(locale_name)
-		// .getAbsoluteFilePath();
-		// try {
-		// return this.readFromFile(cfg_file_path);
-		// } catch (IOException e) {
-		// e.printStackTrace();
-		// }
-		// return null;
 		throw new Error();
+
 	}
 
 	@Override
@@ -95,4 +88,5 @@ public class SimpleLocalization implements LocalizationComponent,
 	public LocalizedStringValuesList listAllValues() {
 		throw new Error();
 	}
+
 }

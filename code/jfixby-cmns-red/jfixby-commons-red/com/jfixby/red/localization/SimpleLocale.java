@@ -1,7 +1,7 @@
 package com.jfixby.red.localization;
 
-import java.util.HashMap;
-
+import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.cmns.api.localize.Locale;
 import com.jfixby.cmns.api.localize.StringValueID;
 
@@ -14,8 +14,12 @@ public class SimpleLocale implements Locale {
 	public SimpleLocale() {
 	}
 
+	public int size() {
+		return mapping.size();
+	}
+
 	private String language;
-	private HashMap<String, String> mapping = new HashMap<String, String>();
+	private Map<String, String> mapping = JUtils.newMap();
 
 	public SimpleLocale(SimpleLocalizationSpecs loc_specs) {
 		language = loc_specs.getLanguageName();
@@ -43,6 +47,12 @@ public class SimpleLocale implements Locale {
 	@Override
 	public String resolveString(StringValueID parameter_name) {
 		return this.resolveString(parameter_name.toString());
+	}
+
+	public SimpleLocaleEntry getEntry(int i) {
+		String key = mapping.getKeyAt(i);
+		String value = mapping.getValueAt(i);
+		return new SimpleLocaleEntry(key, value);
 	}
 
 }
