@@ -50,8 +50,9 @@ public class ToGdxFileAdaptor extends FileHandle {
 
 	@Override
 	public String pathWithoutExtension() {
-		err("pathWithoutExtension");
-		return super.pathWithoutExtension();
+		// L.d(super.pathWithoutExtension());
+		// err("pathWithoutExtension");
+		return this.fokker_file.getName();
 	}
 
 	@Override
@@ -283,8 +284,9 @@ public class ToGdxFileAdaptor extends FileHandle {
 
 	@Override
 	public long length() {
-		err("length");
-		return super.length();
+		return this.fokker_file.getSize();
+		// err("length");
+		// return super.length();
 	}
 
 	@Override
