@@ -324,6 +324,7 @@ public class ToGdxFileAdaptor extends FileHandle {
 		// L.d("ToGdxFileAdaptor", fokker_file + " " + this.exists());
 	}
 
+
 	public AbsolutePath<FileSystem> getPath() {
 		return this.fokker_file.getAbsoluteFilePath();
 	}
