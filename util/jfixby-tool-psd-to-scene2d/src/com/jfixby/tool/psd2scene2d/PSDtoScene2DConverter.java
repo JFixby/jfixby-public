@@ -27,45 +27,6 @@ import com.jfixby.r3.ext.api.scene2d.srlz.TextSettings;
 
 public class PSDtoScene2DConverter {
 
-	private static final String ANIMATION = "@r3.animation";
-	private static final String R3_SCENE = "@r3.scene";
-	private static final String CHILD_SCENE = "@r3.scene";
-	private static final String R3_TEXT = "@r3.text";
-	private static final String INPUT = "@r3.input";
-	private static final String RASTER = "@raster";
-	private static final String STRUCTURE_NAME = "@name=";
-	private static final String CAMERA = "@camera";
-	private static final String CAMERA_POLICY = "@policy=";
-
-	private static final String IS_LOOPED = "@looped=";
-	private static final String DEBUG = "@debug=";
-	private static final String AUTOSTART = "@autostart=";
-	private static final String ID = "@id=";
-	private static final String SIZE = "@size=";
-	private static final String NAME = "@name=";
-	private static final String TYPE = "@type=";
-	private static final String TEXT = "@text";
-	private static final String FONT = "@font";
-	private static final String BUTTON = "button";
-	private static final String AREA = "@area";
-	private static final String USE_APERTURE = "@use_aperture=";
-	private static final String BACKGROUND = "@background";
-	private static final String CONTENT = "@content";
-	private static final String ANIMATION_FRAMES = "@frames";
-	private static final String FRAME_TIME = "@frame_time=";
-	private static final String ANIMATION_ANCHORS = "@anchors";
-	private static final String ANIMATION_SCENE = "@scene";
-	private static final String ORIGIN = "@origin";
-	private static final String ANIMATION_TYPE_POSITION_MODIFIER = "position";
-	private static final String BUTTON_ON_HOVER = "@on_hover";
-	private static final String BUTTON_ON_PRESS = "@on_press";
-	private static final String BUTTON_ON_PRESSED = "@on_pressed";
-	private static final String BUTTON_ON_RELEASE = "@on_release";
-	private static final String BUTTON_ON_RELEASED = "@on_released";
-
-	// private static final String ANIMATION_TYPE_SEQUENCE = "sequence";
-	private static final String SCALE_DIVISOR = "@scale_divisor=";
-
 	public static ConversionResult convert(Scene2DPackage container,
 			AssetID package_prefix, PSDLayer root,
 			Map<PSDLayer, AssetID> raster_names) {
@@ -75,28 +36,29 @@ public class PSDtoScene2DConverter {
 		for (int i = 0; i < root.numberOfChildren(); i++) {
 			PSDLayer candidate = root.getChild(i);
 			String candidate_name = candidate.getName();
-			if (candidate_name.equalsIgnoreCase(R3_SCENE)) {
+			if (candidate_name.equalsIgnoreCase(TAGS.R3_SCENE)) {
 				PSDLayer content_layer = candidate
-						.findChildByNamePrefix(CONTENT);
+						.findChildByNamePrefix(TAGS.CONTENT);
 				if (content_layer == null) {
 					continue;
 				}
 				PSDLayer name_layer = candidate
-						.findChildByNamePrefix(STRUCTURE_NAME);
+						.findChildByNamePrefix(TAGS.STRUCTURE_NAME);
 				if (name_layer == null) {
 					L.d("missing NAME tag");
 					continue;
 				}
 
-				PSDLayer camera_layer = candidate.findChildByNamePrefix(CAMERA);
+				PSDLayer camera_layer = candidate
+						.findChildByNamePrefix(TAGS.CAMERA);
 
 				double scale_factor = 1d;
 				{
 					PSDLayer divisor = candidate
-							.findChildByNamePrefix(SCALE_DIVISOR);
+							.findChildByNamePrefix(TAGS.SCALE_DIVISOR);
 					if (divisor != null) {
 						String divisor_string = readParameter(
-								divisor.getName(), SCALE_DIVISOR);
+								divisor.getName(), TAGS.SCALE_DIVISOR);
 						scale_factor = 1d / Double.parseDouble(divisor_string);
 					}
 				}
@@ -109,7 +71,7 @@ public class PSDtoScene2DConverter {
 
 				container.structures.addElement(structure);
 				structure.structure_name = readParameter(name_layer.getName(),
-						STRUCTURE_NAME);
+						TAGS.STRUCTURE_NAME);
 				structure.structure_name = package_prefix.child(
 						structure.structure_name).toString();
 				LayerElement element = structure.root;
@@ -140,9 +102,9 @@ public class PSDtoScene2DConverter {
 		}
 		CameraSettings settings = new CameraSettings();
 
-		PSDLayer area = camera_layer.findChildByNamePrefix(AREA);
+		PSDLayer area = camera_layer.findChildByNamePrefix(TAGS.AREA);
 		if (area == null) {
-			throw new Error("Tag <" + AREA + "> not found.");
+			throw new Error("Tag <" + TAGS.AREA + "> not found.");
 		}
 
 		{
@@ -165,10 +127,12 @@ public class PSDtoScene2DConverter {
 			double scale_factor) {
 
 		if (input.isFolder()) {
-			PSDLayer animation_node = input.findChildByNamePrefix(ANIMATION);
-			PSDLayer childscene_node = input.findChildByNamePrefix(CHILD_SCENE);
-			PSDLayer text_node = input.findChildByNamePrefix(R3_TEXT);
-			PSDLayer user_input = input.findChildByNamePrefix(INPUT);
+			PSDLayer animation_node = input
+					.findChildByNamePrefix(TAGS.ANIMATION);
+			PSDLayer childscene_node = input
+					.findChildByNamePrefix(TAGS.CHILD_SCENE);
+			PSDLayer text_node = input.findChildByNamePrefix(TAGS.R3_TEXT);
+			PSDLayer user_input = input.findChildByNamePrefix(TAGS.INPUT);
 			// PSDLayer events_node = input.findChild(EVENT);
 			if (animation_node != null) {
 				if (input.numberOfChildren() != 1) {
@@ -227,16 +191,16 @@ public class PSDtoScene2DConverter {
 
 		output.child_scene_settings = new ChildSceneSettings();
 
-		PSDLayer input = input_parent.findChildByNamePrefix(CHILD_SCENE);
-		String FRAME = "@frame";
-		PSDLayer frame = input.findChildByNamePrefix(FRAME);
+		PSDLayer input = input_parent.findChildByNamePrefix(TAGS.CHILD_SCENE);
+
+		PSDLayer frame = input.findChildByNamePrefix(TAGS.FRAME);
 		{
 			if (frame != null) {
-				throw new Error("Unsupported tag: " + FRAME);
+				throw new Error("Unsupported tag: " + TAGS.FRAME);
 			}
 		}
 
-		PSDLayer origin = input.findChildByNamePrefix(ORIGIN);
+		PSDLayer origin = input.findChildByNamePrefix(TAGS.ORIGIN);
 		if (origin != null) {
 			output.child_scene_settings.frame_position_x = origin.getRaster()
 					.getPosition().getX()
@@ -251,12 +215,12 @@ public class PSDtoScene2DConverter {
 					.getDimentions().getHeight();
 		}
 		{
-			PSDLayer id = findChild(ID, input);
+			PSDLayer id = findChild(TAGS.ID, input);
 
 			if (id == null) {
-				throw new Error("Missing tag <@" + ID + ">");
+				throw new Error("Missing tag <@" + TAGS.ID + ">");
 			} else {
-				String child_id = readParameter(id.getName(), ID);
+				String child_id = readParameter(id.getName(), TAGS.ID);
 
 				AssetID child_scene_asset_id = naming.childScene(child_id);
 
@@ -282,16 +246,16 @@ public class PSDtoScene2DConverter {
 
 		output.text_settings = new TextSettings();
 
-		PSDLayer input = input_parent.findChildByNamePrefix(R3_TEXT);
-		String FRAME = "@frame";
-		PSDLayer frame = input.findChildByNamePrefix(FRAME);
+		PSDLayer input = input_parent.findChildByNamePrefix(TAGS.R3_TEXT);
+
+		PSDLayer frame = input.findChildByNamePrefix(TAGS.FRAME);
 		{
 			if (frame != null) {
-				throw new Error("Unsupported tag: " + FRAME);
+				throw new Error("Unsupported tag: " + TAGS.FRAME);
 			}
 		}
 		{
-			PSDLayer background = input.findChildByNamePrefix(BACKGROUND);
+			PSDLayer background = input.findChildByNamePrefix(TAGS.BACKGROUND);
 			if (background != null) {
 				PSDLayer child = background.getChild(0);
 				PSDRaster raster = child.getRaster();
@@ -300,24 +264,24 @@ public class PSDtoScene2DConverter {
 			}
 		}
 		{
-			PSDLayer id = findChild(ID, input);
+			PSDLayer id = findChild(TAGS.ID, input);
 			if (id == null) {
-				throw new Error("Missing tag <@" + ID + ">");
+				throw new Error("Missing tag <@" + TAGS.ID + ">");
 			} else {
-				String bar_id_string = readParameter(id.getName(), ID);
+				String bar_id_string = readParameter(id.getName(), TAGS.ID);
 				AssetID bar_id = naming.childText(bar_id_string);
 				output.textbar_id = bar_id.toString();
 			}
 		}
 		{
-			PSDLayer text_node = input.findChildByNamePrefix(TEXT);
+			PSDLayer text_node = input.findChildByNamePrefix(TAGS.TEXT);
 			if (text_node != null) {
-				PSDLayer id = findChild(ID, text_node);
+				PSDLayer id = findChild(TAGS.ID, text_node);
 				if (id == null) {
-					throw new Error("Missing tag <@" + ID + ">");
+					throw new Error("Missing tag <@" + TAGS.ID + ">");
 				} else {
 					String text_value_asset_id_string = readParameter(
-							id.getName(), ID);
+							id.getName(), TAGS.ID);
 					AssetID text_value_asset_id = naming
 							.childText(text_value_asset_id_string);
 					output.text_settings.text_value_asset_id = text_value_asset_id
@@ -331,14 +295,14 @@ public class PSDtoScene2DConverter {
 			}
 		}
 		{
-			PSDLayer font_node = input.findChildByNamePrefix(FONT);
+			PSDLayer font_node = input.findChildByNamePrefix(TAGS.FONT);
 			if (font_node != null) {
-				PSDLayer size = findChild(SIZE, font_node);
+				PSDLayer size = findChild(TAGS.SIZE, font_node);
 				if (size == null) {
-					throw new Error("Missing tag <@" + SIZE + ">");
+					throw new Error("Missing tag <@" + TAGS.SIZE + ">");
 				} else {
 					String font_size_string = readParameter(size.getName(),
-							SIZE);
+							TAGS.SIZE);
 					output.text_settings.font_settings.value = Float
 							.parseFloat(font_size_string);
 					output.text_settings.font_settings.value_is_in_pixels = true;
@@ -347,10 +311,10 @@ public class PSDtoScene2DConverter {
 				// result.addRequiredRaster(child_scene_asset_id,
 				// JUtils.newList(input_parent, input, background));
 			}
-			PSDLayer font_name = font_node.findChildByNamePrefix(NAME);
+			PSDLayer font_name = font_node.findChildByNamePrefix(TAGS.NAME);
 			if (font_name != null) {
 				String font_name_string = readParameter(font_name.getName(),
-						NAME);
+						TAGS.NAME);
 				output.text_settings.font_settings.name = font_name_string;
 				result.addRequiredAsset(Names.newAssetID(font_name_string),
 						JUtils.newList(input));
@@ -387,24 +351,24 @@ public class PSDtoScene2DConverter {
 		output.is_user_input = true;
 		output.name = name;
 
-		PSDLayer input = input_parent.findChildByNamePrefix(INPUT);
+		PSDLayer input = input_parent.findChildByNamePrefix(TAGS.INPUT);
 
 		InputSettings input_settings = new InputSettings();
 		output.input_settings = input_settings;
 
 		{
-			PSDLayer debug = findChild(DEBUG, input);
+			PSDLayer debug = findChild(TAGS.DEBUG, input);
 
 			if (debug == null) {
 				output.debug_mode = false;
 			} else {
-				String debug_mode = readParameter(debug.getName(), DEBUG);
+				String debug_mode = readParameter(debug.getName(), TAGS.DEBUG);
 				output.debug_mode = Boolean.parseBoolean(debug_mode);
 			}
 		}
 
 		{
-			PSDLayer raster = findChild(RASTER, input);
+			PSDLayer raster = findChild(TAGS.RASTER, input);
 
 			if (raster == null) {
 				throw new Error("Missing button raster: " + input);
@@ -415,24 +379,24 @@ public class PSDtoScene2DConverter {
 		}
 
 		{
-			PSDLayer id = findChild(ID, input);
+			PSDLayer id = findChild(TAGS.ID, input);
 
 			if (id == null) {
 				throw new Error("Input @ID tag not found: " + input);
 			} else {
-				output.input_id = readParameter(id.getName(), ID);
+				output.input_id = readParameter(id.getName(), TAGS.ID);
 				output.input_id = naming.childInput(output.input_id).toString();
 			}
 		}
 		// PSDLayer type = findChild(ANIMATION_TYPE, input);
 		{
-			PSDLayer type = findChild(TYPE, input);
+			PSDLayer type = findChild(TAGS.TYPE, input);
 			if (type == null) {
 
 			} else {
-				String type_value = readParameter(type.getName(), TYPE);
+				String type_value = readParameter(type.getName(), TAGS.TYPE);
 
-				output.input_settings.is_button = BUTTON
+				output.input_settings.is_button = TAGS.BUTTON
 						.equalsIgnoreCase(type_value);
 
 				// animation_settings.is_positions_modifyer_animation =
@@ -444,7 +408,7 @@ public class PSDtoScene2DConverter {
 		}
 
 		{
-			PSDLayer touch_area = findChild(AREA, input);
+			PSDLayer touch_area = findChild(TAGS.AREA, input);
 			// output.input_settings.areas = new Vector<TouchArea>();
 			if (touch_area != null) {
 				LayerElement touch_areas = new LayerElement();
@@ -492,7 +456,8 @@ public class PSDtoScene2DConverter {
 			SceneStructurePackingResult result, double scale_factor) {
 
 		{
-			PSDLayer on_released = raster.findChildByName(BUTTON_ON_RELEASED);
+			PSDLayer on_released = raster
+					.findChildByName(TAGS.BUTTON_ON_RELEASED);
 			if (on_released != null) {
 				final LayerElement converted = new LayerElement();
 				convert(on_released, converted, naming, result, scale_factor);
@@ -501,7 +466,7 @@ public class PSDtoScene2DConverter {
 		}
 
 		{
-			PSDLayer on_hover = raster.findChildByName(BUTTON_ON_HOVER);
+			PSDLayer on_hover = raster.findChildByName(TAGS.BUTTON_ON_HOVER);
 			if (on_hover != null) {
 				final LayerElement converted = new LayerElement();
 				convert(on_hover, converted, naming, result, scale_factor);
@@ -510,7 +475,7 @@ public class PSDtoScene2DConverter {
 		}
 
 		{
-			PSDLayer on_press = raster.findChildByName(BUTTON_ON_PRESS);
+			PSDLayer on_press = raster.findChildByName(TAGS.BUTTON_ON_PRESS);
 			if (on_press != null) {
 				final LayerElement converted = new LayerElement();
 				convert(on_press, converted, naming, result, scale_factor);
@@ -519,7 +484,8 @@ public class PSDtoScene2DConverter {
 		}
 
 		{
-			PSDLayer on_pressed = raster.findChildByName(BUTTON_ON_PRESSED);
+			PSDLayer on_pressed = raster
+					.findChildByName(TAGS.BUTTON_ON_PRESSED);
 			if (on_pressed != null) {
 				final LayerElement converted = new LayerElement();
 				convert(on_pressed, converted, naming, result, scale_factor);
@@ -528,7 +494,8 @@ public class PSDtoScene2DConverter {
 		}
 
 		{
-			PSDLayer on_release = raster.findChildByName(BUTTON_ON_RELEASE);
+			PSDLayer on_release = raster
+					.findChildByName(TAGS.BUTTON_ON_RELEASE);
 			if (on_release != null) {
 				final LayerElement converted = new LayerElement();
 				convert(on_release, converted, naming, result, scale_factor);
@@ -547,66 +514,67 @@ public class PSDtoScene2DConverter {
 		output.is_animation = true;
 		output.name = name;
 
-		PSDLayer input = input_parent.findChildByNamePrefix(ANIMATION);
+		PSDLayer input = input_parent.findChildByNamePrefix(TAGS.ANIMATION);
 
 		AnimationSettings animation_settings = new AnimationSettings();
 		output.animation_settings = animation_settings;
 
 		{
-			PSDLayer looped = findChild(IS_LOOPED, input);
+			PSDLayer looped = findChild(TAGS.IS_LOOPED, input);
 
 			if (looped == null) {
 				animation_settings.is_looped = true;
 			} else {
-				String is_looped = readParameter(looped.getName(), IS_LOOPED);
+				String is_looped = readParameter(looped.getName(),
+						TAGS.IS_LOOPED);
 				animation_settings.is_looped = Boolean.parseBoolean(is_looped);
 			}
 		}
 
 		{
-			PSDLayer debug = findChild(DEBUG, input);
+			PSDLayer debug = findChild(TAGS.DEBUG, input);
 
 			if (debug == null) {
 				output.debug_mode = false;
 			} else {
-				String debug_mode = readParameter(debug.getName(), DEBUG);
+				String debug_mode = readParameter(debug.getName(), TAGS.DEBUG);
 				output.debug_mode = Boolean.parseBoolean(debug_mode);
 			}
 		}
 
 		{
-			PSDLayer autostart = findChild(AUTOSTART, input);
+			PSDLayer autostart = findChild(TAGS.AUTOSTART, input);
 
 			if (autostart == null) {
 				animation_settings.autostart = false;
 			} else {
 				String autostart_string = readParameter(autostart.getName(),
-						AUTOSTART);
+						TAGS.AUTOSTART);
 				animation_settings.autostart = Boolean
 						.parseBoolean(autostart_string);
 			}
 		}
 
 		{
-			PSDLayer id = findChild(ID, input);
+			PSDLayer id = findChild(TAGS.ID, input);
 
 			if (id == null) {
 				throw new Error("Animation ID tag not found: " + input);
 			} else {
-				output.animation_id = readParameter(id.getName(), ID);
+				output.animation_id = readParameter(id.getName(), TAGS.ID);
 				output.animation_id = naming
 						.childAnimation(output.animation_id).toString();
 			}
 		}
 		// PSDLayer type = findChild(ANIMATION_TYPE, input);
 		{
-			PSDLayer type = findChild(TYPE, input);
+			PSDLayer type = findChild(TAGS.TYPE, input);
 			if (type == null) {
 				animation_settings.is_positions_modifyer_animation = false;
 				animation_settings.is_simple_animation = true;
 			} else {
-				String type_value = readParameter(type.getName(), TYPE);
-				animation_settings.is_positions_modifyer_animation = ANIMATION_TYPE_POSITION_MODIFIER
+				String type_value = readParameter(type.getName(), TAGS.TYPE);
+				animation_settings.is_positions_modifyer_animation = TAGS.ANIMATION_TYPE_POSITION_MODIFIER
 						.equalsIgnoreCase(type_value);
 
 			}
@@ -618,7 +586,7 @@ public class PSDtoScene2DConverter {
 
 		if (animation_settings.is_simple_animation) {
 			{
-				PSDLayer frames = findChild(ANIMATION_FRAMES, input);
+				PSDLayer frames = findChild(TAGS.ANIMATION_FRAMES, input);
 				if (frames == null) {
 					L.d("Missing <frames> folder in node: " + input);
 				}
@@ -635,14 +603,15 @@ public class PSDtoScene2DConverter {
 				}
 			}
 			{
-				PSDLayer frame = findChild(FRAME_TIME, input);
+				PSDLayer frame = findChild(TAGS.FRAME_TIME, input);
 				if (frame == null) {
 					// animation_settings.single_frame_time = Long.MAX_VALUE;
-					throw new Error("Missing frame time tag: @" + FRAME_TIME);
+					throw new Error("Missing frame time tag: @"
+							+ TAGS.FRAME_TIME);
 
 				} else {
 					String type_value = readParameter(frame.getName(),
-							FRAME_TIME);
+							TAGS.FRAME_TIME);
 					animation_settings.single_frame_time = ""
 							+ Long.parseLong(type_value);
 				}
@@ -651,7 +620,7 @@ public class PSDtoScene2DConverter {
 		}
 
 		if (animation_settings.is_positions_modifyer_animation) {
-			PSDLayer anchors = findChild(ANIMATION_ANCHORS, input);
+			PSDLayer anchors = findChild(TAGS.ANIMATION_ANCHORS, input);
 			JUtils.checkNull("frames", anchors);
 			animation_settings.anchors = new Vector<Anchor>();
 
@@ -668,8 +637,8 @@ public class PSDtoScene2DConverter {
 				animation_settings.anchors.add(anchor);
 			}
 
-			PSDLayer scene = findChild(ANIMATION_SCENE, input);
-			PSDLayer origin_layer = findChild(ORIGIN, scene);
+			PSDLayer scene = findChild(TAGS.ANIMATION_SCENE, input);
+			PSDLayer origin_layer = findChild(TAGS.ORIGIN, scene);
 			Float2 origin = Geometry.newFloat2();
 			if (origin_layer != null) {
 				PSDRaster raster = origin_layer.getRaster();
@@ -701,87 +670,12 @@ public class PSDtoScene2DConverter {
 
 	}
 
-	// private static void convertEventsSequence(PSDLayer input_parent,
-	// LayerElement output, ChildAssetsNameResolver naming,
-	// SceneStructurePackingResult result, double scale_factor) {
-	//
-	// String name = input_parent.getName();
-	// output.is_hidden = !input_parent.isVisible();
-	// output.is_action = true;
-	// output.name = name;
-	//
-	// output.action_settings = new ActionSettings();
-	// ActionSettings event_settings = output.action_settings;
-	//
-	// PSDLayer input = input_parent.findChild(EVENT);
-	//
-	// {
-	// PSDLayer looped = findChild(IS_LOOPED, input);
-	//
-	// if (looped == null) {
-	// event_settings.is_cycled = true;
-	// } else {
-	// String is_looped = getParameter(looped.getName(), IS_LOOPED);
-	// event_settings.is_cycled = Boolean.parseBoolean(is_looped);
-	// }
-	// }
-	//
-	// {
-	// PSDLayer type = findChild(TYPE, input);
-	//
-	// if (type == null) {
-	// event_settings.is_animation_sequence = true;
-	//
-	// } else {
-	// String type_string = getParameter(type.getName(), TYPE);
-	// event_settings.is_animation_sequence = ANIMATION_SEQUENCE
-	// .equalsIgnoreCase(type_string);
-	// }
-	// }
-	//
-	// {
-	// PSDLayer id = findChild(ID, input);
-	//
-	// if (id == null) {
-	// throw new Error("Animation ID tag not found: " + input);
-	// } else {
-	// output.event_id = getParameter(id.getName(), ID);
-	// output.event_id = naming.childAnimation(output.event_id)
-	// .toString();
-	// }
-	// }
-	// // PSDLayer type = findChild(ANIMATION_TYPE, input);
-	//
-	// if (output.action_settings.is_animation_sequence) {
-	//
-	// PSDLayer events_folders = findChild(ANIMATION_EVENTS, input);
-	// if (events_folders == null) {
-	// input.printChildren();
-	// L.d("Missing <" + ANIMATION_EVENTS + "> folder in node: "
-	// + input);
-	// }
-	// JUtils.checkNull(ANIMATION_EVENTS, events_folders);
-	// output.action_settings.groups = new Vector<ActionsGroup>();
-	// for (int i = 0; i < events_folders.numberOfChildren(); i++) {
-	// PSDLayer events_list = events_folders.getChild(i);
-	// ActionsGroup e_list = new ActionsGroup();
-	// packAnimationEvents(events_list, e_list, naming);
-	// e_list.name = events_list.getName();
-	// output.action_settings.groups.addElement(e_list);
-	//
-	// }
-	//
-	// return;
-	// }
-	//
-	// }
-
 	private static void packAnimationEvents(PSDLayer events_list,
 			ActionsGroup e_list, ChildAssetsNameResolver naming) {
 		e_list.actions = new Vector<Action>();
 		for (int i = 0; i < events_list.numberOfChildren(); i++) {
 			PSDLayer element = events_list.getChild(i);
-			String event_id = readParameter(element.getName(), ID);
+			String event_id = readParameter(element.getName(), TAGS.ID);
 
 			event_id = naming.childEvent(event_id).toString();
 
