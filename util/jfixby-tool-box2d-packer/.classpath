@@ -5,5 +5,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-red"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
