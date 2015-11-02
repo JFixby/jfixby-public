@@ -355,7 +355,7 @@ public class PSDRepacker {
 
 		if (save_raster) {
 			L.d("writing: " + output_file);
-			ImageGWT.writeJavaFile(out, output_file, "png");
+			ImageGWT.writeToFile(out, output_file, "png");
 		}
 
 	}
