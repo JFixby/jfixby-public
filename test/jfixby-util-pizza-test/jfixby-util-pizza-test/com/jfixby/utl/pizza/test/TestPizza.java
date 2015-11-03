@@ -3,7 +3,6 @@ package com.jfixby.utl.pizza.test;
 import com.jfixby.examples.wdgs.WDGS_Pizza_Palette;
 import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 import com.jfixby.utl.pizza.api.Pizza;
-import com.jfixby.utl.pizza.api.PizzaTile;
 import com.jfixby.utl.pizza.api.PizzaBrush;
 import com.jfixby.utl.pizza.api.PizzaBrushPointer;
 import com.jfixby.utl.pizza.api.PizzaLandscape;
@@ -11,6 +10,7 @@ import com.jfixby.utl.pizza.api.PizzaLandscapeFactory;
 import com.jfixby.utl.pizza.api.PizzaLandscapeListener;
 import com.jfixby.utl.pizza.api.PizzaLandscapeSpecs;
 import com.jfixby.utl.pizza.api.PizzaPalette;
+import com.jfixby.utl.pizza.api.PizzaTile;
 
 public class TestPizza {
 

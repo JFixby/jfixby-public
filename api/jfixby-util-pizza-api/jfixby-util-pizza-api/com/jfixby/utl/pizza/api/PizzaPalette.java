@@ -1,7 +1,6 @@
 package com.jfixby.utl.pizza.api;
 
 import com.jfixby.cmns.api.assets.AssetID;
-import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Mapping;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.r3.ext.api.patch18.P18Palette;
