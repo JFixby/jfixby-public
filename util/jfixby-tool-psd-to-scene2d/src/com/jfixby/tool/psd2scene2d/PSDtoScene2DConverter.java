@@ -219,9 +219,22 @@ public class PSDtoScene2DConverter {
 			PSDLayer background = input.findChildByNamePrefix(TAGS.BACKGROUND);
 			if (background != null) {
 				PSDLayer child = background.getChild(0);
+				LayerElement raster_element = new LayerElement();
+				convertRaster(child, raster_element, naming, result, scale_factor);
+				output.children.addElement(raster_element);
+
 				PSDRaster raster = child.getRaster();
 				output.position_x = raster.getPosition().getX() * scale_factor;
 				output.position_y = raster.getPosition().getY() * scale_factor;
+
+				// String text_value_asset_id_string =
+				// readParameter(id.getName(), TAGS.ID);
+				// AssetID text_value_asset_id =
+				// naming.childText(text_value_asset_id_string);
+				// output.text_settings.text_value_asset_id =
+				// text_value_asset_id.toString();
+				// result.addRequiredAsset(text_value_asset_id,
+				// JUtils.newList(input));
 			}
 		}
 		{
@@ -275,7 +288,7 @@ public class PSDtoScene2DConverter {
 			PSDLayer padding = input.findChildByNamePrefix(TAGS.PADDING);
 			if (padding != null) {
 				String padding_string = readParameter(padding.getName(), TAGS.PADDING);
-				padding_string = padding_string.substring(0, padding_string.indexOf("pix") );
+				padding_string = padding_string.substring(0, padding_string.indexOf("pix"));
 				output.text_settings.padding = Float.parseFloat(padding_string);
 			}
 		}
