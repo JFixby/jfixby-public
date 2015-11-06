@@ -53,6 +53,8 @@ public class PSDRepacker {
 		List<File> related_folders = JUtils.newList();
 		handler.setRelatedFolders(related_folders);
 		boolean ignore_atlas = settings.getIgnoreAtlasFlag();
+		
+		
 
 		FileSystem FS = psd_file.getFileSystem();
 
@@ -70,6 +72,8 @@ public class PSDRepacker {
 
 		File atlas_output;
 		File scene2d_output;
+
+		
 
 		scene2d_output = repacking_output.child(package_name.child(Scene2DPackage.SCENE2D_PACKAGE_FILE_EXTENSION).toString());
 		scene2d_output.makeFolder();

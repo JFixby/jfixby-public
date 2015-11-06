@@ -11,6 +11,7 @@ public class PSDRepackSettings {
 	private int max_texture_size;
 	private int margin;
 	private boolean ignore_atlas;
+	
 
 	public void setPSDFile(File psd_file) {
 		this.psd_file = psd_file;
@@ -59,5 +60,6 @@ public class PSDRepackSettings {
 	public int getMargin() {
 		return this.margin;
 	}
+
 
 }
