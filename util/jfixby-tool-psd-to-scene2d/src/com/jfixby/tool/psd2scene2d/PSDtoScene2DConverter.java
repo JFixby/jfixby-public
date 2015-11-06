@@ -272,7 +272,8 @@ public class PSDtoScene2DConverter {
 					throw new Error("Missing tag <@" + TAGS.SIZE + ">");
 				} else {
 					String font_size_string = readParameter(size.getName(), TAGS.SIZE);
-					output.text_settings.font_settings.font_size = (float) (Float.parseFloat(font_size_string) * scale_factor);
+					output.text_settings.font_settings.font_size = (float) (Float.parseFloat(font_size_string));
+					output.text_settings.font_settings.font_scale = (float) scale_factor;
 					output.text_settings.font_settings.value_is_in_pixels = true;
 				}
 				// AssetID child_scene_asset_id = null;
