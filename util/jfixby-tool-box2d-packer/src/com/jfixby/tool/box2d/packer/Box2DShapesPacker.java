@@ -13,8 +13,8 @@ import com.jfixby.cmns.api.filesystem.File;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.sys.Sys;
-import com.jfixby.r3.api.resources.PackageDescriptor;
 import com.jfixby.r3.api.resources.StandardPackageFormats;
+import com.jfixby.r3.api.resources.manager.PackageDescriptor;
 
 public class Box2DShapesPacker {
 
