@@ -14,7 +14,7 @@ import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.sys.Sys;
 import com.jfixby.r3.api.resources.StandardPackageFormats;
-import com.jfixby.r3.api.resources.manager.PackageDescriptor;
+import com.jfixby.rana.api.pkg.fs.PackageDescriptor;
 
 public class Box2DShapesPacker {
 
