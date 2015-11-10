@@ -9,6 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-packer-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-api-resource-file"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
