@@ -1,7 +1,7 @@
 package com.jfixby.examples.wdgs;
 
-import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
+import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.r3.ext.api.patch18.P18;
 import com.jfixby.r3.ext.api.patch18.P18Palette;
 import com.jfixby.r3.ext.api.patch18.P18PaletteFactory;
