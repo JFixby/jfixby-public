@@ -6,6 +6,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Map;
+import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.cmns.api.log.L;
@@ -96,7 +97,7 @@ public class PSDtoScene2DConverter {
 
 		{
 			PSDRaster raster = area.getRaster();
-			JUtils.checkNull("raster", raster);
+			Debug.checkNull("raster", raster);
 
 			settings.position_x = raster.getPosition().getX() * scale_factor;
 			settings.position_y = raster.getPosition().getY() * scale_factor;
@@ -387,7 +388,7 @@ public class PSDtoScene2DConverter {
 						throw new Error("Touch area has no dimentions: " + child);
 					} else {
 						PSDRaster raster = child.getRaster();
-						JUtils.checkNull("raster", raster);
+						Debug.checkNull("raster", raster);
 
 						LayerElement area = new LayerElement();
 						touch_areas.children.addElement(area);
@@ -540,7 +541,7 @@ public class PSDtoScene2DConverter {
 				if (frames == null) {
 					L.d("Missing <frames> folder in node: " + input);
 				}
-				JUtils.checkNull("frames", frames);
+				Debug.checkNull("frames", frames);
 				for (int i = 0; i < frames.numberOfChildren(); i++) {
 					PSDLayer child = frames.getChild(i);
 					LayerElement element = new LayerElement();
@@ -567,7 +568,7 @@ public class PSDtoScene2DConverter {
 
 		if (animation_settings.is_positions_modifyer_animation) {
 			PSDLayer anchors = findChild(TAGS.ANIMATION_ANCHORS, input);
-			JUtils.checkNull("frames", anchors);
+			Debug.checkNull("frames", anchors);
 			animation_settings.anchors = new Vector<Anchor>();
 
 			for (int i = 0; i < anchors.numberOfChildren(); i++) {
@@ -596,7 +597,7 @@ public class PSDtoScene2DConverter {
 
 				for (int i = 0; i < scene.numberOfChildren(); i++) {
 					PSDLayer child = scene.getChild(i);
-					JUtils.checkNull("child", child);
+					Debug.checkNull("child", child);
 					if (child == origin_layer) {
 						continue;
 					}
@@ -647,11 +648,11 @@ public class PSDtoScene2DConverter {
 
 	private static String readParameter(String raw_value, String prefix) {
 
-		JUtils.checkEmpty("raw_value", raw_value);
-		JUtils.checkEmpty("prefix", prefix);
+		Debug.checkEmpty("raw_value", raw_value);
+		Debug.checkEmpty("prefix", prefix);
 
-		JUtils.checkNull("raw_value", raw_value);
-		JUtils.checkNull("prefix", prefix);
+		Debug.checkNull("raw_value", raw_value);
+		Debug.checkNull("prefix", prefix);
 
 		return raw_value.substring(prefix.length(), raw_value.length());
 	}

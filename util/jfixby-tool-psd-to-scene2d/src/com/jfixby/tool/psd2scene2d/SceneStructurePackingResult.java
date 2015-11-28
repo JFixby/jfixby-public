@@ -4,6 +4,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
+import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.psd.unpacker.api.PSDLayer;
 import com.jfixby.r3.ext.api.scene2d.srlz.SceneStructure;
@@ -21,7 +22,7 @@ public class SceneStructurePackingResult {
 
 	public void addRequiredAsset(AssetID child_scene_asset_id,
 			List<PSDLayer> list) {
-		JUtils.checkNull(child_scene_asset_id);
+		Debug.checkNull(child_scene_asset_id);
 		lit.add(child_scene_asset_id);
 		ancestors.addAll(list);
 	}

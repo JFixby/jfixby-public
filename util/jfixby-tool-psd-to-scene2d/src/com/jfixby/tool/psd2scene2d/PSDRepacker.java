@@ -10,6 +10,7 @@ import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.cmns.api.collections.Set;
+import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.filesystem.File;
 import com.jfixby.cmns.api.filesystem.FileSystem;
 import com.jfixby.cmns.api.filesystem.cache.FileCache;
@@ -53,8 +54,6 @@ public class PSDRepacker {
 		List<File> related_folders = JUtils.newList();
 		handler.setRelatedFolders(related_folders);
 		boolean ignore_atlas = settings.getIgnoreAtlasFlag();
-		
-		
 
 		FileSystem FS = psd_file.getFileSystem();
 
@@ -72,8 +71,6 @@ public class PSDRepacker {
 
 		File atlas_output;
 		File scene2d_output;
-
-		
 
 		scene2d_output = repacking_output.child(package_name.child(Scene2DPackage.SCENE2D_PACKAGE_FILE_EXTENSION).toString());
 		scene2d_output.makeFolder();
@@ -344,7 +341,7 @@ public class PSDRepacker {
 		PSDRaster raster = layer.getRaster();
 		BufferedImage java_image = raster.getBufferedImage();
 
-		JUtils.checkNull("java_image", java_image);
+		Debug.checkNull("java_image", java_image);
 
 		SceneStructurePackingResult result = pack_result.getStrucutreResultByLayer(layer);
 
