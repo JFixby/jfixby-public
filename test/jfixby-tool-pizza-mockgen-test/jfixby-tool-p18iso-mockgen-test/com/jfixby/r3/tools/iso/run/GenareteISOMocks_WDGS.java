@@ -64,7 +64,7 @@ public class GenareteISOMocks_WDGS {
 		result.print();
 
 		File bank_folder = LocalFileSystem.newFile(
-				"D:\\[DATA]\\[RED-ASSETS]\\gdx-assets-prepared").child(
+				"D:\\[DEV]\\[GIT-2]\\TintoAssets\\tinto-assets").child(
 				"bank-florida");
 		bank_folder.makeFolder();
 		packScenes(result, bank_folder);
