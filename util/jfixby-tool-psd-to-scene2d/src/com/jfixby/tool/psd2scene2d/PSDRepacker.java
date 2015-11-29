@@ -84,9 +84,7 @@ public class PSDRepacker {
 		PSDFileContent layers_structure = extractLayerStructures(psd_file, raster_names, package_name);
 
 		L.d("---[Packing Layers Structure]--------------------------------------------");
-		ConversionResult pack_result = packLayers(layers_structure, package_name, scene2d_output, raster_names
-
-		);
+		ConversionResult pack_result = packLayers(layers_structure, package_name, scene2d_output, raster_names);
 
 		Collection<AssetID> used_raster = pack_result.listAllRequredAssets();
 
@@ -105,7 +103,7 @@ public class PSDRepacker {
 
 			SlicesCompositionsContainer container = new SlicesCompositionsContainer();
 			List<AssetID> packed_structures = JUtils.newList();
-			List<AssetID> requred_rasters = JUtils.newList();
+			Set<AssetID> requred_rasters = JUtils.newSet();
 
 			for (TextureSlicingResult combo : structures) {
 				SlicesCompositionInfo composition = combo.getTilesComposition();
@@ -128,10 +126,12 @@ public class PSDRepacker {
 				String data = Json.serializeToString(container);
 				container_file.writeString(data);
 
+				// used_raster.print("used_raster");
+				// packed_structures.print("packed_structures");
+				// Sys.exit();
 				producePackageDescriptor(container_file.parent().parent(), StandardPackageFormats.RedTriplane.TiledRaster, "1.0", packed_structures, requred_rasters, container_file.getName());
 
 			}
-
 			L.d("---[Packing Atlas]--------------------------------------------");
 			File atlas_folder = temp_folder.child("atlas");
 			atlas_folder.makeFolder();
@@ -169,7 +169,12 @@ public class PSDRepacker {
 
 			atlas_folder.delete();
 
+		} else {
+			L.d("   ignore_atlas", ignore_atlas);
+			L.d("raster_produced", raster_produced);
+
 		}
+
 		temp_folder.delete();
 		// L.d("atlas is ready", altas_file);
 
@@ -209,8 +214,10 @@ public class PSDRepacker {
 
 		descriptor.root_file_name = root_file_name;
 		File output_file = output_folder.child(PackageDescriptor.PACKAGE_DESCRIPTOR_FILE_NAME);
+		String data = Json.serializeToString(descriptor);
+		output_file.writeString(data);
 
-		output_file.writeString(Json.serializeToString(descriptor));
+		L.d("packing", data);
 
 	}
 
