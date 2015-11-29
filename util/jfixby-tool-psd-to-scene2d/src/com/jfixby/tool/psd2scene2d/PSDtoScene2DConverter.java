@@ -291,7 +291,7 @@ public class PSDtoScene2DConverter {
 			if (padding != null) {
 				String padding_string = readParameter(padding.getName(), TAGS.PADDING);
 				padding_string = padding_string.substring(0, padding_string.indexOf("pix"));
-				output.text_settings.padding = Float.parseFloat(padding_string);
+				output.text_settings.padding = (float) (Float.parseFloat(padding_string) * scale_factor);
 			}
 		}
 	}
