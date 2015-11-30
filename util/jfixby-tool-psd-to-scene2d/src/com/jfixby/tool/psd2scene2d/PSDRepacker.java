@@ -372,4 +372,9 @@ public class PSDRepacker {
 		return new PSDRepackSettings();
 	}
 
+	public static int regressiveInt(int target_value) {
+		double power_of_2 = FloatMath.log(2, target_value);
+		return 0;
+	}
+
 }
