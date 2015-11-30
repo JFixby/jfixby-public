@@ -18,6 +18,7 @@ import com.jfixby.cmns.api.filesystem.cache.TempFolder;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.math.FloatMath;
+import com.jfixby.cmns.api.math.IntegerMath;
 import com.jfixby.cmns.api.sys.Sys;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.cv.api.gwt.ImageGWT;
@@ -372,9 +373,20 @@ public class PSDRepacker {
 		return new PSDRepackSettings();
 	}
 
-	public static int regressiveInt(int target_value) {
+	public static int regressiveInt(int target_value, int threshold) {
 		double power_of_2 = FloatMath.log(2, target_value);
-		return 0;
-	}
+		if (!FloatMath.isInteger(power_of_2)) {
+			throw new Error("Is not power of two: 2^" + power_of_2 + "=" + target_value);
+		}
+		int result = 1;
+		int add = target_value;
+		for (int i = (int) FloatMath.round(power_of_2 - 1); add > threshold; i--) {
+			add = (int) IntegerMath.power(2, i);
+		
+			result = result + add;
+		}
+		
+		return result;
 
+	}
 }
