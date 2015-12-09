@@ -7,7 +7,7 @@ import org.box2d.r3.gdx.beditor.Box2DEditorShape;
 
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.json.Json;
@@ -30,7 +30,7 @@ public class Box2DShapesPacker {
 
 		Box2DEditorProject project = Box2DEditorProject.loadProject(input_file);
 
-		List<AssetID> provisions = JUtils.newList();
+		List<AssetID> provisions = Collections.newList();
 		for (int i = 0; i < project.size(); i++) {
 			Box2DEditorShape shape = project.getShape(i);
 			AssetID asset_id = (shape.getID());
@@ -54,7 +54,7 @@ public class Box2DShapesPacker {
 
 		producePackageDescriptor(package_folder,
 				StandardPackageFormats.Box2DEditor.Project, "1.0", provisions,
-				JUtils.newList(), input_file.getName());
+				Collections.newList(), input_file.getName());
 
 	}
 

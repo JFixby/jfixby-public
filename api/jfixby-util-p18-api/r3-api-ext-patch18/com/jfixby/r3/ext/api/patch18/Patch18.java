@@ -1,7 +1,7 @@
 package com.jfixby.r3.ext.api.patch18;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 
 public enum Patch18 {
 
@@ -24,7 +24,7 @@ public enum Patch18 {
 	}
 
 	final private static Collection<Patch18> collect() {
-		return JUtils.newList(Patch18.values());
+		return Collections.newList(Patch18.values());
 	}
 
 	final private String char_value;

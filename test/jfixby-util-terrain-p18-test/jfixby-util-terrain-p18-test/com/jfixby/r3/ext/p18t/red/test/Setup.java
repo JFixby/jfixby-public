@@ -2,7 +2,7 @@ package com.jfixby.r3.ext.p18t.red.test;
 
 import com.jfixby.cmns.api.angles.Angles;
 import com.jfixby.cmns.api.assets.Names;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.color.Colors;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.file.cache.FileCache;
@@ -16,7 +16,7 @@ import com.jfixby.cmns.api.math.IntegerMath;
 import com.jfixby.cmns.api.math.MathTools;
 import com.jfixby.cmns.api.md5.MD5;
 import com.jfixby.cmns.api.sys.Sys;
-import com.jfixby.cmns.jutils.desktop.DesktopUtils;
+import com.jfixby.cmns.collections.DesktopCollections;
 import com.jfixby.r3.ext.api.patch18.P18;
 import com.jfixby.r3.ext.p18t.red.RedP18Terrain;
 import com.jfixby.r3.ext.red.terrain.RedTerrains;
@@ -42,7 +42,7 @@ import com.jfixby.util.terain.test.api.palette.Terrain;
 public class Setup {
 	public static void setup() {
 		L.installComponent(new DesktopLogger());
-		JUtils.installComponent(new DesktopUtils());
+		Collections.installComponent(new DesktopCollections());
 		FloatMath.installComponent(new DesktopFloatMath());
 		Sys.installComponent(new DesktopSystem());
 		IntegerMath.installComponent(new RedIntegerMath());

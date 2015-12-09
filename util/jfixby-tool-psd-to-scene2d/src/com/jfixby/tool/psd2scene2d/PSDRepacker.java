@@ -7,7 +7,7 @@ import java.io.IOException;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.cmns.api.collections.Set;
@@ -52,7 +52,7 @@ public class PSDRepacker {
 		File repacking_output = settings.getOutputFolder();
 		int max_texture_size = settings.getMaxTextureSize();
 		int margin = settings.getMargin();
-		List<File> related_folders = JUtils.newList();
+		List<File> related_folders = Collections.newList();
 		handler.setRelatedFolders(related_folders);
 		boolean ignore_atlas = settings.getIgnoreAtlasFlag();
 
@@ -80,7 +80,7 @@ public class PSDRepacker {
 		scene2d_output.makeFolder();
 		scene2d_output.clearFolder();
 
-		Map<PSDLayer, AssetID> raster_names = JUtils.newMap();
+		Map<PSDLayer, AssetID> raster_names = Collections.newMap();
 
 		PSDFileContent layers_structure = extractLayerStructures(psd_file, raster_names, package_name);
 
@@ -92,7 +92,7 @@ public class PSDRepacker {
 		L.d("---[Saving Raster]--------------------------------------------");
 		boolean raster_produced = false;
 		boolean save_raster = true;
-		Map<PSDLayer, File> layer_to_file_mapping = JUtils.newMap();
+		Map<PSDLayer, File> layer_to_file_mapping = Collections.newMap();
 		raster_produced = saveRaster(psd_file, raster_names, used_raster, raster_folder, package_name, save_raster, layer_to_file_mapping, pack_result);
 
 		if (!ignore_atlas && raster_produced) {
@@ -103,8 +103,8 @@ public class PSDRepacker {
 			raster_folder.delete();
 
 			SlicesCompositionsContainer container = new SlicesCompositionsContainer();
-			List<AssetID> packed_structures = JUtils.newList();
-			Set<AssetID> requred_rasters = JUtils.newSet();
+			List<AssetID> packed_structures = Collections.newList();
+			Set<AssetID> requred_rasters = Collections.newSet();
 
 			for (TextureSlicingResult combo : structures) {
 				SlicesCompositionInfo composition = combo.getTilesComposition();
@@ -153,11 +153,11 @@ public class PSDRepacker {
 			// Collection<AssetID> packed_rasters = atlas_result
 			// .listPackedAssets();
 
-			Set<AssetID> packed_rasters = JUtils.newSet();
+			Set<AssetID> packed_rasters = Collections.newSet();
 			packed_rasters.addAll(requred_rasters);
 			packed_rasters.addAll(atlas_result.listPackedAssets());
 
-			producePackageDescriptor(atlas_output.parent(), StandardPackageFormats.libGDX.Atlas_GWT, "1.0", packed_rasters, JUtils.newList(), atlas_name);
+			producePackageDescriptor(atlas_output.parent(), StandardPackageFormats.libGDX.Atlas_GWT, "1.0", packed_rasters, Collections.newList(), atlas_name);
 
 			// requred_rasters.print("requred_rasters");
 			// packed_rasters.print("packed_rasters");
@@ -241,7 +241,7 @@ public class PSDRepacker {
 
 		File descriptor = file.parent().parent();
 
-		List<AssetID> provisions = JUtils.newList();
+		List<AssetID> provisions = Collections.newList();
 
 		for (int i = 0; i < container.structures.size(); i++) {
 			AssetID element_id = Names.newAssetID(container.structures.get(i).structure_name);
@@ -272,7 +272,7 @@ public class PSDRepacker {
 	}
 
 	static private List<TextureSlicingResult> decomposeRaster(Map<PSDLayer, File> layer_to_file_mapping, File tiling_folder, int max_texture_size, int margin) throws IOException {
-		List<TextureSlicingResult> results = JUtils.newList();
+		List<TextureSlicingResult> results = Collections.newList();
 		for (int i = 0; i < layer_to_file_mapping.size(); i++) {
 			PSDLayer layer_info = layer_to_file_mapping.getKeyAt(i);
 			PSDRasterPosition position = layer_info.getRaster().getPosition();

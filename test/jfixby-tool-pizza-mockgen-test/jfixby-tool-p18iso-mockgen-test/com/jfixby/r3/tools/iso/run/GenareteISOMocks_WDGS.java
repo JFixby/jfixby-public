@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.color.Colors;
 import com.jfixby.cmns.api.file.File;
@@ -86,7 +86,7 @@ public class GenareteISOMocks_WDGS {
 		package_content_folder.makeFolder();
 		File package_root_file = package_content_folder.child(file_name);
 
-		List<AssetID> packed = JUtils.newList();
+		List<AssetID> packed = Collections.newList();
 
 		Collection<AssetID> dependencies = result.getAssetsUsed();
 
@@ -138,7 +138,7 @@ public class GenareteISOMocks_WDGS {
 
 		producePackageDescriptor(package_folder,
 				StandardPackageFormats.libGDX.Atlas, "1.0", packed,
-				JUtils.newList(), atlas_name);
+				Collections.newList(), atlas_name);
 
 	}
 

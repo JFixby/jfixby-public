@@ -1,6 +1,6 @@
 package com.jfixby.examples.wdgs;
 
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.r3.ext.api.patch18.P18;
 import com.jfixby.r3.ext.api.patch18.P18Palette;
@@ -20,12 +20,12 @@ public class WDGS_P18_Palette {
 	public static final Fabric DIRT;
 	public static final Fabric GRASS;
 	public static final Fabric SNOW;
-	public static final List<Fabric> fabrics = JUtils.newList();
+	public static final List<Fabric> fabrics = Collections.newList();
 
 	public static final FabricsRelation DIRT_N_WATER;
 	public static final FabricsRelation GRASS_N_DIRT;
 	public static final FabricsRelation SNOW_N_GRASS;
-	public static final List<FabricsRelation> fabric_relations = JUtils
+	public static final List<FabricsRelation> fabric_relations = Collections
 			.newList();
 
 	public static final P18Palette PALETTE;

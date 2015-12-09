@@ -2,7 +2,7 @@ package com.jfixby.tool.psd2scene2d;
 
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.debug.Debug;
@@ -11,10 +11,10 @@ import com.jfixby.r3.ext.api.scene2d.srlz.SceneStructure;
 
 public class SceneStructurePackingResult {
 
-	List<AssetID> lit = JUtils.newList();
+	List<AssetID> lit = Collections.newList();
 	private double scale_factor;
 	private SceneStructure structure;
-	private Set<PSDLayer> ancestors = JUtils.newSet();
+	private Set<PSDLayer> ancestors = Collections.newSet();
 
 	public SceneStructurePackingResult(SceneStructure structure) {
 		this.structure = structure;
