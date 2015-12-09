@@ -1,7 +1,7 @@
 package com.jfixby.tool.box2d.packer;
 
 import com.jfixby.cmns.api.assets.AssetID;
-import com.jfixby.cmns.api.filesystem.File;
+import com.jfixby.cmns.api.file.File;
 
 public class Box2DShapesPackerSettings {
 

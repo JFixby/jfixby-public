@@ -1,7 +1,7 @@
 package com.jfixby.r3.ext.api.patch18;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.util.JUtils;
+import com.jfixby.cmns.api.collections.JUtils;
 
 public enum Patch18 {
 

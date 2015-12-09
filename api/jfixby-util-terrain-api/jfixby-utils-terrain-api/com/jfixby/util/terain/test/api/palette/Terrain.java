@@ -1,6 +1,6 @@
 package com.jfixby.util.terain.test.api.palette;
 
-import com.jfixby.cmns.api.components.ComponentInstaller;
+import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.util.terain.test.api.landscape.LandscapeFactory;
 
 public class Terrain {

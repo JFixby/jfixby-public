@@ -1,7 +1,7 @@
 package com.jfixby.alpaero.filesystem.packer;
 
-import com.jfixby.cmns.api.filesystem.File;
-import com.jfixby.cmns.api.filesystem.packing.FileSystemUnpackingSpecs;
+import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.file.packing.FileSystemUnpackingSpecs;
 import com.jfixby.cmns.api.io.InputStream;
 
 public class RedFileSystemUnpackingSpecs implements FileSystemUnpackingSpecs {

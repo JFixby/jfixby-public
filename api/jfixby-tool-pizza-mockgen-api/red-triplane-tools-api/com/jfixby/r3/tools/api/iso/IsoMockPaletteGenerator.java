@@ -2,7 +2,7 @@ package com.jfixby.r3.tools.api.iso;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.components.ComponentInstaller;
+import com.jfixby.cmns.api.ComponentInstaller;
 
 public class IsoMockPaletteGenerator {
 

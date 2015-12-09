@@ -1,6 +1,6 @@
 package com.jfixby.utl.pizza.api;
 
-import com.jfixby.cmns.api.components.ComponentInstaller;
+import com.jfixby.cmns.api.ComponentInstaller;
 
 public class Pizza {
 

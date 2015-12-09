@@ -2,7 +2,7 @@ package com.jfixby.tool.psd2scene2d;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.List;
-import com.jfixby.cmns.api.filesystem.File;
+import com.jfixby.cmns.api.file.File;
 
 public class PSDRepackingStatus {
 

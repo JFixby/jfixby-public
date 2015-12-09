@@ -2,7 +2,7 @@ package com.jfixby.r3.tools.api.iso;
 
 import com.jfixby.cmns.api.collections.Mapping;
 import com.jfixby.cmns.api.color.Color;
-import com.jfixby.cmns.api.filesystem.File;
+import com.jfixby.cmns.api.file.File;
 import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 import com.jfixby.utl.pizza.api.PizzaPalette;
 
