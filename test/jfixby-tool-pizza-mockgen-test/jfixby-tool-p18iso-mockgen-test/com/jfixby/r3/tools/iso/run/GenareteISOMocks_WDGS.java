@@ -12,6 +12,7 @@ import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.sys.Sys;
+import com.jfixby.cmns.desktop.DesktopAssembler;
 import com.jfixby.examples.wdgs.WDGS_P18_Palette;
 import com.jfixby.examples.wdgs.WDGS_Pizza_Palette;
 import com.jfixby.r3.api.resources.StandardPackageFormats;
@@ -32,19 +33,16 @@ import com.jfixby.util.iso.red.RedIsometry;
 public class GenareteISOMocks_WDGS {
 
 	public static void main(String[] args) throws IOException {
-		Setup.setup();
+		DesktopAssembler.setup();
 
 		Isometry.installComponent(new RedIsometry());
 		// IsoMockPaletteGenerator
 		// .installComponent(new RedIsoMockPaletteGenerator());
-		IsoMockPaletteGenerator
-				.installComponent(new RedIsoMockPaletteGenerator2());
+		IsoMockPaletteGenerator.installComponent(new RedIsoMockPaletteGenerator2());
 
-		GeneratorParams specs = IsoMockPaletteGenerator
-				.newIsoMockPaletteGeneratorParams();
+		GeneratorParams specs = IsoMockPaletteGenerator.newIsoMockPaletteGeneratorParams();
 
-		File output_folder = LocalFileSystem.ApplicationHome().child(
-				"iso-output");
+		File output_folder = LocalFileSystem.ApplicationHome().child("iso-output");
 
 		File mock_palette_folder = output_folder.child("wdgs");
 
@@ -63,26 +61,20 @@ public class GenareteISOMocks_WDGS {
 
 		result.print();
 
-		File bank_folder = LocalFileSystem.newFile(
-"D:\\[DATA]\\[RED-ASSETS]\\TintoAssets\\tinto-assets").child(
-				"bank-florida");
+		File bank_folder = LocalFileSystem.newFile("D:\\[DATA]\\[RED-ASSETS]\\TintoAssets\\tinto-assets").child("bank-florida");
 		bank_folder.makeFolder();
 		packScenes(result, bank_folder);
 		packRaster(result, bank_folder);
 
 	}
 
-	private static void packScenes(IsoMockPaletteResult result, File bank_folder)
-			throws IOException {
+	private static void packScenes(IsoMockPaletteResult result, File bank_folder) throws IOException {
 		Scene2DPackage struct = result.getScene2DPackage();
-		String package_name = result.getNamespace()
-				.child(Scene2DPackage.SCENE2D_PACKAGE_FILE_EXTENSION)
-				.toString();
+		String package_name = result.getNamespace().child(Scene2DPackage.SCENE2D_PACKAGE_FILE_EXTENSION).toString();
 		String file_name = package_name;
 
 		File package_folder = bank_folder.child(package_name);
-		File package_content_folder = package_folder
-				.child(PackageDescriptor.PACKAGE_CONTENT_FOLDER);
+		File package_content_folder = package_folder.child(PackageDescriptor.PACKAGE_CONTENT_FOLDER);
 		package_content_folder.makeFolder();
 		File package_root_file = package_content_folder.child(file_name);
 
@@ -99,13 +91,10 @@ public class GenareteISOMocks_WDGS {
 		String data = Json.serializeToString(struct);
 		package_root_file.writeString(data);
 
-		producePackageDescriptor(package_folder,
-				Scene2DPackage.SCENE2D_PACKAGE_FORMAT, "1.0", packed,
-				dependencies, file_name);
+		producePackageDescriptor(package_folder, Scene2DPackage.SCENE2D_PACKAGE_FORMAT, "1.0", packed, dependencies, file_name);
 	}
 
-	private static void packRaster(IsoMockPaletteResult result, File bank_folder)
-			throws IOException {
+	private static void packRaster(IsoMockPaletteResult result, File bank_folder) throws IOException {
 
 		File raster = result.getRasterOutputFolder();
 		// L.d("raster", raster);
@@ -118,8 +107,7 @@ public class GenareteISOMocks_WDGS {
 		// L.d("package_folder", package_folder);
 		// Sys.exit();
 
-		File package_content_folder = package_folder
-				.child(PackageDescriptor.PACKAGE_CONTENT_FOLDER);
+		File package_content_folder = package_folder.child(PackageDescriptor.PACKAGE_CONTENT_FOLDER);
 		package_content_folder.makeFolder();
 		specs.setOutputAtlasFolder(package_content_folder);
 		specs.setInputRasterFolder(raster);
@@ -136,16 +124,11 @@ public class GenareteISOMocks_WDGS {
 		Collection<AssetID> packed = atlas_result.listPackedAssets();
 		packed.print("packed");
 
-		producePackageDescriptor(package_folder,
-				StandardPackageFormats.libGDX.Atlas, "1.0", packed,
-				Collections.newList(), atlas_name);
+		producePackageDescriptor(package_folder, StandardPackageFormats.libGDX.Atlas, "1.0", packed, Collections.newList(), atlas_name);
 
 	}
 
-	static private void producePackageDescriptor(File output_folder,
-			String format, String version, Collection<AssetID> provisions,
-			Collection<AssetID> dependencies, String root_file_name)
-			throws IOException {
+	static private void producePackageDescriptor(File output_folder, String format, String version, Collection<AssetID> provisions, Collection<AssetID> dependencies, String root_file_name) throws IOException {
 
 		PackageDescriptor descriptor = new PackageDescriptor();
 		descriptor.format = format;
@@ -159,8 +142,7 @@ public class GenareteISOMocks_WDGS {
 		}
 
 		descriptor.root_file_name = root_file_name;
-		File output_file = output_folder
-				.child(PackageDescriptor.PACKAGE_DESCRIPTOR_FILE_NAME);
+		File output_file = output_folder.child(PackageDescriptor.PACKAGE_DESCRIPTOR_FILE_NAME);
 
 		output_file.writeString(Json.serializeToString(descriptor));
 

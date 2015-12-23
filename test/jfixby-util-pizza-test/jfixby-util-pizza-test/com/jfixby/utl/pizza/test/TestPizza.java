@@ -1,5 +1,6 @@
 package com.jfixby.utl.pizza.test;
 
+import com.jfixby.cmns.desktop.DesktopAssembler;
 import com.jfixby.examples.wdgs.WDGS_Pizza_Palette;
 import com.jfixby.r3.ext.api.patch18.palette.Fabric;
 import com.jfixby.utl.pizza.api.Pizza;
@@ -15,7 +16,7 @@ import com.jfixby.utl.pizza.api.PizzaTile;
 public class TestPizza {
 
 	public static void main(String[] args) {
-		Setup.setup();
+		DesktopAssembler.setup();
 
 		PizzaPalette wdgs_pizza_palette = WDGS_Pizza_Palette.PALETTE;
 
