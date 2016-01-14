@@ -4,7 +4,7 @@ import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.packing.CompressionSchema;
 import com.jfixby.cmns.api.io.OutputStream;
 
-public class Base64FileSystemPacker implements CompressionSchema {
+public class Base64CompressionSchema implements CompressionSchema {
 
 	public static final String SCHEMA_NAME = "R3.Base64";
 
