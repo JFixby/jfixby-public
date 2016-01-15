@@ -1,10 +1,14 @@
 package com.jfixby.alpaero.filesystem.packer;
 
+import java.io.IOException;
+
 import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.file.packing.CompressionMethod;
 import com.jfixby.cmns.api.file.packing.CompressionSchema;
+import com.jfixby.cmns.api.io.InputStream;
 import com.jfixby.cmns.api.io.OutputStream;
 
-public class Base64CompressionSchema implements CompressionSchema {
+public class Base64CompressionSchema implements CompressionMethod {
 
 	public static final String SCHEMA_NAME = "R3.Base64";
 
@@ -14,17 +18,26 @@ public class Base64CompressionSchema implements CompressionSchema {
 	}
 
 	@Override
-	public void pack(File input, OutputStream os) {
-		throw new Error("Not implemented yet!");
+	public void pack(Iterable<File> input, OutputStream os) throws IOException {
 	}
 
+	@Override
+	public CompressionSchema readSchema(InputStream jis) throws IOException {
+		return null;
+	}
+
+	// @Override
+	// public void pack(File input, OutputStream os) {
+	// throw new Error("Not implemented yet!");
+	// }
+	//
 	// public FileSystemUnpackingSpecs newUnpackingSpecs() {
 	// return new RedFileSystemUnpackingSpecs();
 	// }
 	//
 	// public void unpack(FileSystemUnpackingSpecs unpacking_spec) throws
 	// IOException {
-	// File target_folder = unpacking_spec.getTargetFolder();
+	// File target_folder = unpacking_spec.listFiles();
 	// if (target_folder == null) {
 	// throw new Error("Target folder is null.");
 	// }
@@ -84,7 +97,7 @@ public class Base64CompressionSchema implements CompressionSchema {
 	// @Override
 	// public void pack(FileSystemPackingSpecs packing_spec) throws IOException
 	// {
-	// File target_folder = packing_spec.getTargetFolder();
+	// File target_folder = packing_spec.listFiles();
 	// if (target_folder == null) {
 	// throw new Error("Target folder is null.");
 	// }
