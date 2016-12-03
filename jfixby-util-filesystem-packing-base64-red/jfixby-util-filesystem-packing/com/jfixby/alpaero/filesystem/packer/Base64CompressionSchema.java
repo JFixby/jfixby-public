@@ -1,3 +1,4 @@
+
 package com.jfixby.alpaero.filesystem.packer;
 
 import java.io.IOException;
@@ -13,22 +14,22 @@ public class Base64CompressionSchema implements CompressionMethod {
 	public static final String SCHEMA_NAME = "R3.Base64";
 
 	@Override
-	public String getName() {
+	public String getName () {
 		return SCHEMA_NAME;
 	}
 
 	@Override
-	public void pack(Iterable<File> input, OutputStream os) throws IOException {
+	public void pack (final Iterable<File> input, final OutputStream os) throws IOException {
 	}
 
 	@Override
-	public CompressionSchema readSchema(InputStream jis) throws IOException {
+	public CompressionSchema readSchema (final InputStream jis) throws IOException {
 		return null;
 	}
 
 	// @Override
 	// public void pack(File input, OutputStream os) {
-	// throw new Error("Not implemented yet!");
+	// Err.reportError("Not implemented yet!");
 	// }
 	//
 	// public FileSystemUnpackingSpecs newUnpackingSpecs() {
@@ -39,19 +40,19 @@ public class Base64CompressionSchema implements CompressionMethod {
 	// IOException {
 	// File target_folder = unpacking_spec.listFiles();
 	// if (target_folder == null) {
-	// throw new Error("Target folder is null.");
+	// Err.reportError("Target folder is null.");
 	// }
 	//
 	// InputStream input_stream = unpacking_spec.getInputStream();
 	// if (input_stream == null) {
-	// throw new Error("InputStream is null.");
+	// Err.reportError("InputStream is null.");
 	// }
 	//
 	// if (!target_folder.exists()) {
 	// target_folder.makeFolder();
 	// } else {
 	// if (!target_folder.isFolder()) {
-	// throw new Error("Target folder is not a directory.");
+	// Err.reportError("Target folder is not a directory.");
 	// }
 	// }
 	//
@@ -99,19 +100,19 @@ public class Base64CompressionSchema implements CompressionMethod {
 	// {
 	// File target_folder = packing_spec.listFiles();
 	// if (target_folder == null) {
-	// throw new Error("Target folder is null.");
+	// Err.reportError("Target folder is null.");
 	// }
 	//
 	// OutputStream input_stream = packing_spec.getOutputStream();
 	// if (input_stream == null) {
-	// throw new Error("OutputStream is null.");
+	// Err.reportError("OutputStream is null.");
 	// }
 	//
 	// if (!target_folder.exists()) {
 	// target_folder.makeFolder();
 	// } else {
 	// if (!target_folder.isFolder()) {
-	// throw new Error("Target folder is not a directory.");
+	// Err.reportError("Target folder is not a directory.");
 	// }
 	// }
 	//
@@ -155,7 +156,7 @@ public class Base64CompressionSchema implements CompressionMethod {
 	//
 	// private void packFile(File file, RelativePath relative, PackedFilesList
 	// packing) throws IOException {
-	// L.d("  packing file", relative);
+	// L.d(" packing file", relative);
 	// PackedFileInfo folder_entry = new PackedFileInfo();
 	//
 	// FileInputStream is = file.newInputStream();
