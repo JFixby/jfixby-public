@@ -3,11 +3,11 @@ package com.jfixby.alpaero.filesystem.packer;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.file.File;
-import com.jfixby.cmns.api.file.packing.CompressionMethod;
-import com.jfixby.cmns.api.file.packing.CompressionSchema;
-import com.jfixby.cmns.api.io.InputStream;
-import com.jfixby.cmns.api.io.OutputStream;
+import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.file.packing.CompressionMethod;
+import com.jfixby.scarabei.api.file.packing.CompressionSchema;
+import com.jfixby.scarabei.api.io.InputStream;
+import com.jfixby.scarabei.api.io.OutputStream;
 
 public class Base64CompressionSchema implements CompressionMethod {
 
