@@ -1,9 +1,10 @@
+
 package com.jfixby.util.filesystem.packing.api;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class PackedFilesList {
 
-	public Vector<PackedFileInfo> list = new Vector<PackedFileInfo>();
+	public ArrayList<PackedFileInfo> list = new ArrayList<PackedFileInfo>();
 
 }
